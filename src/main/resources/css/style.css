@@ -524,3 +524,130 @@
     -fx-text-fill: -fx-text-color;
     -fx-background-color: #0f3460;
 }
+
+/* ========================================
+   SESSION TRACKER STYLES
+   ======================================== */
+
+.session-view {
+    -fx-background-color: -fx-primary-color;
+}
+
+.form-section {
+    -fx-background-color: -fx-secondary-color;
+    -fx-padding: 20;
+    -fx-background-radius: 10;
+}
+
+.form-scroll {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+
+.form-scroll .viewport {
+    -fx-background-color: transparent;
+}
+
+.form-content {
+    -fx-background-color: transparent;
+}
+
+.form-label {
+    -fx-text-fill: -fx-text-muted;
+    -fx-font-size: 12px;
+}
+
+.history-section {
+    -fx-background-color: -fx-secondary-color;
+    -fx-padding: 20;
+    -fx-background-radius: 10;
+}
+
+/* Stats summary bar */
+.stats-summary {
+    -fx-background-color: -fx-primary-color;
+    -fx-padding: 15;
+    -fx-background-radius: 8;
+}
+
+.stat-box {
+    -fx-padding: 10 20;
+}
+
+.stat-label {
+    -fx-text-fill: -fx-text-muted;
+    -fx-font-size: 12px;
+}
+
+.stat-value {
+    -fx-text-fill: -fx-text-color;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+/* Profit display in form */
+.profit-display {
+    -fx-background-color: -fx-primary-color;
+    -fx-padding: 10 15;
+    -fx-background-radius: 5;
+}
+
+.profit-value {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+/* Tag toggle buttons */
+.tag-toggle {
+    -fx-background-color: -fx-primary-color;
+    -fx-text-fill: -fx-text-muted;
+    -fx-padding: 5 10;
+    -fx-background-radius: 15;
+    -fx-font-size: 11px;
+}
+
+.tag-toggle:selected {
+    -fx-background-color: -fx-accent-color;
+    -fx-text-fill: white;
+}
+
+.tag-toggle:hover {
+    -fx-background-color: derive(-fx-primary-color, 20%);
+}
+
+/* Date picker styling */
+.date-picker {
+    -fx-background-color: -fx-secondary-color;
+}
+
+.date-picker .text-field {
+    -fx-background-color: -fx-primary-color;
+    -fx-text-fill: -fx-text-color;
+}
+
+.date-picker .arrow-button {
+    -fx-background-color: -fx-primary-color;
+}
+
+.date-picker-popup {
+    -fx-background-color: -fx-secondary-color;
+}
+
+.date-picker-popup .day-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: -fx-text-color;
+}
+
+.date-picker-popup .day-cell:hover {
+    -fx-background-color: -fx-accent-color;
+}
+
+/* Danger button (delete) */
+.button.danger {
+    -fx-background-color: #b91c1c;
+    -fx-text-fill: white;
+}
+
+.button.danger:hover {
+    -fx-background-color: #dc2626;
+}

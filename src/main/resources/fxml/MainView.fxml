@@ -88,10 +88,7 @@
             </Tab>
 
             <Tab text="Sessions" closable="false">
-                <VBox alignment="CENTER" spacing="10">
-                    <Label text="Session Tracker" styleClass="section-title"/>
-                    <Label text="Coming soon..." styleClass="placeholder-text"/>
-                </VBox>
+                <fx:include source="SessionView.fxml"/>
             </Tab>
 
             <Tab text="Bankroll" closable="false">

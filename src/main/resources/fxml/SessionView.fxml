@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.ColumnConstraints?>
+
+<!--
+    Session Tracker Layout
+    ======================
+    Left: Form to add/edit sessions
+    Right: Table showing session history + stats
+-->
+<HBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.stacklogic.controller.SessionController"
+      spacing="20"
+      styleClass="session-view">
+
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <!-- LEFT: Input Form -->
+    <VBox spacing="15" styleClass="form-section" minWidth="320">
+        <Label text="Log Session" styleClass="section-title"/>
+
+        <ScrollPane fitToWidth="true" styleClass="form-scroll">
+            <VBox spacing="15" styleClass="form-content">
+                <padding><Insets top="5" right="10" bottom="5" left="5"/></padding>
+
+                <!-- Date -->
+                <VBox spacing="5">
+                    <Label text="Date" styleClass="form-label"/>
+                    <DatePicker fx:id="datePicker" promptText="Select date" maxWidth="Infinity"/>
+                </VBox>
+
+                <!-- Times Row -->
+                <HBox spacing="15">
+                    <VBox spacing="5" HBox.hgrow="ALWAYS">
+                        <Label text="Start Time" styleClass="form-label"/>
+                        <TextField fx:id="startTimeField" promptText="HH:MM"/>
+                    </VBox>
+                    <VBox spacing="5" HBox.hgrow="ALWAYS">
+                        <Label text="End Time" styleClass="form-label"/>
+                        <TextField fx:id="endTimeField" promptText="HH:MM"/>
+                    </VBox>
+                </HBox>
+
+                <!-- Duration -->
+                <VBox spacing="5">
+                    <Label text="Duration (minutes)" styleClass="form-label"/>
+                    <TextField fx:id="durationField" promptText="Auto-calculated or enter manually"/>
+                </VBox>
+
+                <!-- Stakes and Table Size Row -->
+                <HBox spacing="15">
+                    <VBox spacing="5" HBox.hgrow="ALWAYS">
+                        <Label text="Stakes" styleClass="form-label"/>
+                        <ComboBox fx:id="stakesCombo" promptText="Select" maxWidth="Infinity"/>
+                    </VBox>
+                    <VBox spacing="5" HBox.hgrow="ALWAYS">
+                        <Label text="Table Size" styleClass="form-label"/>
+                        <ComboBox fx:id="tableSizeCombo" promptText="Select" maxWidth="Infinity"/>
+                    </VBox>
+                </HBox>
+
+                <!-- Hands Played -->
+                <VBox spacing="5">
+                    <Label text="Hands Played (optional)" styleClass="form-label"/>
+                    <TextField fx:id="handsField" promptText="e.g., 500"/>
+                </VBox>
+
+                <!-- Buy-in and Cash-out Row -->
+                <HBox spacing="15">
+                    <VBox spacing="5" HBox.hgrow="ALWAYS">
+                        <Label text="Buy-in ($)" styleClass="form-label"/>
+                        <TextField fx:id="buyInField" promptText="e.g., 2.00"/>
+                    </VBox>
+                    <VBox spacing="5" HBox.hgrow="ALWAYS">
+                        <Label text="Cash-out ($)" styleClass="form-label"/>
+                        <TextField fx:id="cashOutField" promptText="e.g., 5.50"/>
+                    </VBox>
+                </HBox>
+
+                <!-- Profit Display -->
+                <HBox spacing="10" alignment="CENTER_LEFT" styleClass="profit-display">
+                    <Label text="Profit/Loss:"/>
+                    <Label fx:id="profitLabel" text="$0.00" styleClass="profit-value"/>
+                </HBox>
+
+                <!-- BB Won (optional) -->
+                <VBox spacing="5">
+                    <Label text="Big Blinds Won (optional)" styleClass="form-label"/>
+                    <TextField fx:id="bbWonField" promptText="e.g., 25.5"/>
+                </VBox>
+
+                <!-- Tags -->
+                <VBox spacing="5">
+                    <Label text="Tags" styleClass="form-label"/>
+                    <HBox spacing="8" styleClass="tag-buttons">
+                        <ToggleButton fx:id="tagAGame" text="A-game" styleClass="tag-toggle"/>
+                        <ToggleButton fx:id="tagTilted" text="Tilted" styleClass="tag-toggle"/>
+                        <ToggleButton fx:id="tagTired" text="Tired" styleClass="tag-toggle"/>
+                    </HBox>
+                    <HBox spacing="8" styleClass="tag-buttons">
+                        <ToggleButton fx:id="tagRanBad" text="Ran Bad" styleClass="tag-toggle"/>
+                        <ToggleButton fx:id="tagRanGood" text="Ran Good" styleClass="tag-toggle"/>
+                    </HBox>
+                </VBox>
+
+                <!-- Notes -->
+                <VBox spacing="5">
+                    <Label text="Notes" styleClass="form-label"/>
+                    <TextArea fx:id="notesArea" promptText="Session notes..."
+                              prefRowCount="3" wrapText="true"/>
+                </VBox>
+
+            </VBox>
+        </ScrollPane>
+
+        <!-- Buttons -->
+        <HBox spacing="10">
+            <Button fx:id="saveButton" text="Save Session" onAction="#handleSave" styleClass="button"/>
+            <Button fx:id="clearButton" text="Clear" onAction="#handleClear" styleClass="button secondary"/>
+            <Button fx:id="deleteButton" text="Delete" onAction="#handleDelete"
+                    styleClass="button danger" visible="false" managed="false"/>
+        </HBox>
+
+    </VBox>
+
+    <!-- RIGHT: Session History -->
+    <VBox spacing="15" HBox.hgrow="ALWAYS" styleClass="history-section">
+
+        <!-- Stats Summary -->
+        <HBox spacing="20" styleClass="stats-summary" alignment="CENTER">
+            <VBox alignment="CENTER" styleClass="stat-box">
+                <Label text="Sessions" styleClass="stat-label"/>
+                <Label fx:id="statSessionCount" text="0" styleClass="stat-value"/>
+            </VBox>
+            <VBox alignment="CENTER" styleClass="stat-box">
+                <Label text="Total Profit" styleClass="stat-label"/>
+                <Label fx:id="statTotalProfit" text="$0.00" styleClass="stat-value"/>
+            </VBox>
+            <VBox alignment="CENTER" styleClass="stat-box">
+                <Label text="Hourly Rate" styleClass="stat-label"/>
+                <Label fx:id="statHourlyRate" text="$0.00/hr" styleClass="stat-value"/>
+            </VBox>
+            <VBox alignment="CENTER" styleClass="stat-box">
+                <Label text="Hours Played" styleClass="stat-label"/>
+                <Label fx:id="statHoursPlayed" text="0h" styleClass="stat-value"/>
+            </VBox>
+        </HBox>
+
+        <Separator/>
+
+        <!-- Session History Table -->
+        <Label text="Session History" styleClass="subsection-title"/>
+
+        <TableView fx:id="sessionTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colDate" text="Date" prefWidth="90"/>
+                <TableColumn fx:id="colStakes" text="Stakes" prefWidth="60"/>
+                <TableColumn fx:id="colDuration" text="Duration" prefWidth="70"/>
+                <TableColumn fx:id="colBuyIn" text="Buy-in" prefWidth="70"/>
+                <TableColumn fx:id="colCashOut" text="Cash-out" prefWidth="70"/>
+                <TableColumn fx:id="colProfit" text="Profit" prefWidth="80"/>
+                <TableColumn fx:id="colTags" text="Tags" prefWidth="100"/>
+            </columns>
+        </TableView>
+
+    </VBox>
+
+</HBox>
