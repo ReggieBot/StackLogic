@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<!--
+    Bankroll Tracker Layout
+    =======================
+    Top: Current bankroll display + recommended stakes
+    Middle: Deposit/Withdrawal form
+    Bottom: Transaction history
+-->
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.stacklogic.controller.BankrollController"
+      spacing="20"
+      styleClass="bankroll-view">
+
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <!-- TOP: Bankroll Overview -->
+    <HBox spacing="30" alignment="CENTER" styleClass="bankroll-overview">
+        <padding><Insets top="20" right="30" bottom="20" left="30"/></padding>
+
+        <!-- Current Bankroll -->
+        <VBox alignment="CENTER" spacing="5" styleClass="bankroll-main">
+            <Label text="Current Bankroll" styleClass="overview-label"/>
+            <Label fx:id="currentBankrollLabel" text="$0.00" styleClass="bankroll-amount"/>
+        </VBox>
+
+        <Separator orientation="VERTICAL"/>
+
+        <!-- Breakdown -->
+        <VBox spacing="10">
+            <HBox spacing="20">
+                <VBox alignment="CENTER" styleClass="breakdown-item">
+                    <Label text="Total Deposits" styleClass="breakdown-label"/>
+                    <Label fx:id="totalDepositsLabel" text="$0.00" styleClass="breakdown-value deposit"/>
+                </VBox>
+                <VBox alignment="CENTER" styleClass="breakdown-item">
+                    <Label text="Total Withdrawals" styleClass="breakdown-label"/>
+                    <Label fx:id="totalWithdrawalsLabel" text="$0.00" styleClass="breakdown-value withdrawal"/>
+                </VBox>
+                <VBox alignment="CENTER" styleClass="breakdown-item">
+                    <Label text="Session Profit" styleClass="breakdown-label"/>
+                    <Label fx:id="sessionProfitLabel" text="$0.00" styleClass="breakdown-value"/>
+                </VBox>
+            </HBox>
+        </VBox>
+
+        <Separator orientation="VERTICAL"/>
+
+        <!-- Recommended Stakes -->
+        <VBox alignment="CENTER" spacing="5" styleClass="stakes-recommendation">
+            <Label text="Recommended Stakes" styleClass="overview-label"/>
+            <Label fx:id="recommendedStakesLabel" text="--" styleClass="stakes-value"/>
+            <Label fx:id="stakesWarningLabel" text="" styleClass="stakes-warning" visible="false" managed="false"/>
+        </VBox>
+
+    </HBox>
+
+    <!-- MIDDLE: Add Transaction Form -->
+    <HBox spacing="30">
+
+        <!-- Form -->
+        <VBox spacing="15" styleClass="transaction-form" minWidth="300">
+            <Label text="Add Transaction" styleClass="subsection-title"/>
+
+            <!-- Type -->
+            <VBox spacing="5">
+                <Label text="Type" styleClass="form-label"/>
+                <HBox spacing="10">
+                    <RadioButton fx:id="depositRadio" text="Deposit" styleClass="type-radio"/>
+                    <RadioButton fx:id="withdrawalRadio" text="Withdrawal" styleClass="type-radio"/>
+                </HBox>
+            </VBox>
+
+            <!-- Date -->
+            <VBox spacing="5">
+                <Label text="Date" styleClass="form-label"/>
+                <DatePicker fx:id="datePicker" maxWidth="Infinity"/>
+            </VBox>
+
+            <!-- Amount -->
+            <VBox spacing="5">
+                <Label text="Amount ($)" styleClass="form-label"/>
+                <TextField fx:id="amountField" promptText="e.g., 50.00"/>
+            </VBox>
+
+            <!-- Notes -->
+            <VBox spacing="5">
+                <Label text="Notes (optional)" styleClass="form-label"/>
+                <TextField fx:id="notesField" promptText="e.g., Initial deposit"/>
+            </VBox>
+
+            <!-- Buttons -->
+            <HBox spacing="10">
+                <Button text="Add Transaction" onAction="#handleAdd" styleClass="button"/>
+                <Button text="Clear" onAction="#handleClear" styleClass="button secondary"/>
+            </HBox>
+        </VBox>
+
+        <!-- Transaction History -->
+        <VBox spacing="10" HBox.hgrow="ALWAYS" styleClass="history-section">
+            <Label text="Transaction History" styleClass="subsection-title"/>
+
+            <TableView fx:id="transactionTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colDate" text="Date" prefWidth="100"/>
+                    <TableColumn fx:id="colType" text="Type" prefWidth="100"/>
+                    <TableColumn fx:id="colAmount" text="Amount" prefWidth="100"/>
+                    <TableColumn fx:id="colNotes" text="Notes" prefWidth="200"/>
+                    <TableColumn fx:id="colAction" text="" prefWidth="80"/>
+                </columns>
+            </TableView>
+        </VBox>
+
+    </HBox>
+
+    <!-- Stakes Guide -->
+    <VBox spacing="10" styleClass="stakes-guide">
+        <Label text="Bankroll Requirements (25 Buy-in Rule)" styleClass="subsection-title"/>
+        <HBox spacing="15" alignment="CENTER">
+            <Label fx:id="stake2NL" text="2NL: $50" styleClass="stake-requirement"/>
+            <Label fx:id="stake5NL" text="5NL: $125" styleClass="stake-requirement"/>
+            <Label fx:id="stake10NL" text="10NL: $250" styleClass="stake-requirement"/>
+            <Label fx:id="stake25NL" text="25NL: $625" styleClass="stake-requirement"/>
+            <Label fx:id="stake50NL" text="50NL: $1,250" styleClass="stake-requirement"/>
+            <Label fx:id="stake100NL" text="100NL: $2,500" styleClass="stake-requirement"/>
+        </HBox>
+    </VBox>
+
+</VBox>

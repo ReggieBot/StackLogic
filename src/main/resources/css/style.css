@@ -651,3 +651,113 @@
 .button.danger:hover {
     -fx-background-color: #dc2626;
 }
+
+.button.small {
+    -fx-padding: 5 10;
+    -fx-font-size: 11px;
+}
+
+/* ========================================
+   BANKROLL TRACKER STYLES
+   ======================================== */
+
+.bankroll-view {
+    -fx-background-color: -fx-primary-color;
+}
+
+.bankroll-overview {
+    -fx-background-color: -fx-secondary-color;
+    -fx-background-radius: 10;
+}
+
+.bankroll-main {
+    -fx-padding: 10 30;
+}
+
+.overview-label {
+    -fx-text-fill: -fx-text-muted;
+    -fx-font-size: 14px;
+}
+
+.bankroll-amount {
+    -fx-font-size: 42px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-text-color;
+}
+
+.breakdown-item {
+    -fx-padding: 5 15;
+}
+
+.breakdown-label {
+    -fx-text-fill: -fx-text-muted;
+    -fx-font-size: 12px;
+}
+
+.breakdown-value {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-text-color;
+}
+
+.breakdown-value.deposit {
+    -fx-text-fill: #4ade80;
+}
+
+.breakdown-value.withdrawal {
+    -fx-text-fill: #f87171;
+}
+
+.stakes-recommendation {
+    -fx-padding: 10 30;
+}
+
+.stakes-value {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #4ade80;
+}
+
+.stakes-warning {
+    -fx-text-fill: #fbbf24;
+    -fx-font-size: 12px;
+}
+
+/* Transaction form */
+.transaction-form {
+    -fx-background-color: -fx-secondary-color;
+    -fx-padding: 20;
+    -fx-background-radius: 10;
+}
+
+.type-radio {
+    -fx-text-fill: -fx-text-color;
+}
+
+.type-radio:selected {
+    -fx-text-fill: -fx-accent-color;
+}
+
+/* Stakes guide */
+.stakes-guide {
+    -fx-background-color: -fx-secondary-color;
+    -fx-padding: 15;
+    -fx-background-radius: 10;
+}
+
+.stake-requirement {
+    -fx-padding: 8 15;
+    -fx-background-radius: 5;
+    -fx-font-size: 12px;
+}
+
+.stake-available {
+    -fx-background-color: rgba(74, 222, 128, 0.2);
+    -fx-text-fill: #4ade80;
+    -fx-font-weight: bold;
+}
+
+.stake-unavailable {
+    -fx-background-color: rgba(248, 113, 113, 0.1);
+    -fx-text-fill: -fx-text-muted;
+}
