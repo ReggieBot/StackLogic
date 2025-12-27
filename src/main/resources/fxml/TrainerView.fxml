@@ -28,12 +28,12 @@
     The UI shows one question at a time with multiple choice answers.
     Tracks statistics: correct answers, streak, accuracy by category.
 -->
-<ScrollPane fitToWidth="true" fitToHeight="true"
+<ScrollPane fitToWidth="true"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.stacklogic.controller.TrainerController"
             styleClass="trainer-view">
 
-    <VBox spacing="20">
+    <VBox spacing="20" fillWidth="true">
         <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
 
         <!-- HEADER with Title and Stats -->
@@ -89,12 +89,12 @@
         </HBox>
 
         <!-- MAIN QUESTION AREA -->
-        <VBox fx:id="questionArea" spacing="25" alignment="CENTER" VBox.vgrow="ALWAYS">
+        <VBox fx:id="questionArea" spacing="25" alignment="CENTER" fillWidth="true">
             <padding><Insets top="20" bottom="20" left="20" right="20"/></padding>
 
             <!-- Question Card -->
             <VBox fx:id="questionCard" styleClass="question-card" spacing="20"
-                  alignment="CENTER" HBox.hgrow="ALWAYS">
+                  alignment="CENTER" fillWidth="true">
 
                 <!-- Question Type Badge -->
                 <HBox alignment="CENTER" spacing="10">

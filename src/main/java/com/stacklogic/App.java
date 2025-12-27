@@ -4,9 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
@@ -28,9 +26,7 @@ import java.io.IOException;
  * - Scene: The content inside the window
  * - Parent/Node: UI elements (buttons, labels, containers, etc.)
  *
- * CUSTOM WINDOW:
- * We use StageStyle.UNDECORATED to remove the OS title bar,
- * then create our own dark-themed title bar with custom controls.
+ * The app uses standard OS window decorations for simplicity.
  */
 public class App extends Application {
 
@@ -52,14 +48,11 @@ public class App extends Application {
         // Create a scene with the loaded content
         scene = new Scene(root, 1100, 750);
 
-        // Make scene background transparent for rounded corners effect
-        scene.setFill(Color.TRANSPARENT);
-
         // Load our CSS stylesheet for custom styling
         scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
 
-        // Use UNDECORATED style to remove OS title bar - we'll make our own
-        stage.initStyle(StageStyle.UNDECORATED);
+        // Set window title
+        stage.setTitle("StackLogic - Poker Training");
 
         // Configure the window (Stage)
         stage.setScene(scene);
