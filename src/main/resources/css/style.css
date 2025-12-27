@@ -16,26 +16,30 @@
  * 2. ID selectors (#id)
  * 3. Class selectors (.class)
  * 4. Type selectors (Button)
+ *
+ * COLOR SCHEME: Black / Purple / Red / Green (poker-inspired)
  */
 
 /* ========================================
    ROOT / GLOBAL STYLES
    ======================================== */
 
-/*
- * .root is a special class applied to the root of every scene.
- * This is a good place for app-wide colors (CSS variables).
- */
 .root {
-    /* Define color variables for consistent theming */
-    -fx-primary-color: #1a1a2e;      /* Dark blue-black background */
-    -fx-secondary-color: #16213e;    /* Slightly lighter for contrast */
-    -fx-accent-color: #e94560;       /* Red accent (poker chip red!) */
-    -fx-text-color: #eaeaea;         /* Light gray text */
-    -fx-text-muted: #8b8b8b;         /* Dimmed text */
-    -fx-success-color: #4ade80;      /* Green for profit/success */
-    -fx-warning-color: #fbbf24;      /* Yellow for warnings */
-    -fx-danger-color: #f87171;       /* Red for losses/errors */
+    /* Define color variables - Dark purple/black theme */
+    -fx-primary-color: #0d0d0d;           /* Near-black background */
+    -fx-secondary-color: #1a1a24;         /* Dark purple-black panels */
+    -fx-tertiary-color: #252532;          /* Slightly lighter purple-black */
+    -fx-accent-color: #c41e3a;            /* Cardinal red (poker chip red) */
+    -fx-accent-bright: #e63950;           /* Brighter red for hover */
+    -fx-purple-accent: #6b21a8;           /* Deep purple accent */
+    -fx-purple-bright: #7c3aed;           /* Brighter purple */
+    -fx-text-color: #f0f0f0;              /* Light gray text */
+    -fx-text-muted: #7a7a8c;              /* Muted purple-gray text */
+    -fx-success-color: #22c55e;           /* Vivid green for profit */
+    -fx-success-dark: #16a34a;            /* Darker green */
+    -fx-warning-color: #eab308;           /* Yellow for warnings */
+    -fx-danger-color: #ef4444;            /* Red for losses */
+    -fx-border-color: #2d2d3d;            /* Subtle purple border */
 
     /* Apply dark background to entire app */
     -fx-background-color: -fx-primary-color;
@@ -51,24 +55,24 @@
     -fx-background-color: -fx-primary-color;
 }
 
-/* Header bar at top of app */
+/* Header bar at top of app - subtle gradient */
 .header {
-    -fx-background-color: -fx-secondary-color;
-    -fx-border-color: #0f3460;
-    -fx-border-width: 0 0 2 0; /* Bottom border only */
+    -fx-background-color: linear-gradient(to bottom, #1f1f2e 0%, #161622 100%);
+    -fx-border-color: -fx-purple-accent;
+    -fx-border-width: 0 0 1 0;
 }
 
 .app-title {
-    -fx-font-size: 24px;
+    -fx-font-size: 26px;
     -fx-font-weight: bold;
-    -fx-text-fill: -fx-text-color;
+    -fx-text-fill: linear-gradient(to right, #e63950 0%, #9333ea 100%);
 }
 
 /* Status bar at bottom */
 .status-bar {
-    -fx-background-color: -fx-secondary-color;
-    -fx-border-color: #0f3460;
-    -fx-border-width: 1 0 0 0; /* Top border only */
+    -fx-background-color: linear-gradient(to top, #0d0d0d 0%, #1a1a24 100%);
+    -fx-border-color: #2d2d3d;
+    -fx-border-width: 1 0 0 0;
 }
 
 .status-bar .label {
@@ -84,23 +88,20 @@
     -fx-background-color: transparent;
 }
 
-/* The header area containing tabs */
 .tab-pane .tab-header-area {
-    -fx-background-color: -fx-secondary-color;
+    -fx-background-color: linear-gradient(to bottom, #1a1a24 0%, #151520 100%);
     -fx-padding: 5 10 0 10;
 }
 
-/* Remove the line below tabs */
 .tab-pane .tab-header-area .tab-header-background {
-    -fx-background-color: -fx-secondary-color;
+    -fx-background-color: transparent;
 }
 
-/* Individual tab styling */
 .tab-pane .tab {
     -fx-background-color: transparent;
     -fx-background-insets: 0;
     -fx-background-radius: 5 5 0 0;
-    -fx-padding: 8 20;
+    -fx-padding: 10 24;
 }
 
 .tab-pane .tab .tab-label {
@@ -108,14 +109,14 @@
     -fx-font-size: 14px;
 }
 
-/* Hover effect on tabs */
 .tab-pane .tab:hover {
-    -fx-background-color: rgba(255, 255, 255, 0.05);
+    -fx-background-color: rgba(107, 33, 168, 0.2);
 }
 
-/* Selected (active) tab */
 .tab-pane .tab:selected {
-    -fx-background-color: -fx-primary-color;
+    -fx-background-color: linear-gradient(to bottom, #252532 0%, #1a1a24 100%);
+    -fx-border-color: -fx-purple-accent transparent transparent transparent;
+    -fx-border-width: 2 0 0 0;
 }
 
 .tab-pane .tab:selected .tab-label {
@@ -123,7 +124,6 @@
     -fx-font-weight: bold;
 }
 
-/* The content area of tabs */
 .tab-pane .tab-content-area {
     -fx-background-color: -fx-primary-color;
     -fx-padding: 20;
@@ -153,32 +153,37 @@
    ======================================== */
 
 .button {
-    -fx-background-color: -fx-accent-color;
+    -fx-background-color: linear-gradient(to bottom, #d42a4c 0%, #b81e3a 100%);
     -fx-text-fill: white;
     -fx-font-size: 14px;
     -fx-padding: 10 20;
     -fx-background-radius: 5;
     -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(196, 30, 58, 0.3), 8, 0, 0, 2);
 }
 
 .button:hover {
-    -fx-background-color: derive(-fx-accent-color, 20%);
+    -fx-background-color: linear-gradient(to bottom, #e63950 0%, #c41e3a 100%);
+    -fx-effect: dropshadow(gaussian, rgba(196, 30, 58, 0.5), 12, 0, 0, 3);
 }
 
 .button:pressed {
-    -fx-background-color: derive(-fx-accent-color, -20%);
+    -fx-background-color: linear-gradient(to bottom, #a11830 0%, #8b1428 100%);
+    -fx-effect: none;
 }
 
-/* Secondary button style */
 .button.secondary {
     -fx-background-color: transparent;
-    -fx-border-color: -fx-text-muted;
+    -fx-border-color: -fx-purple-accent;
     -fx-border-radius: 5;
+    -fx-border-width: 1;
     -fx-text-fill: -fx-text-color;
+    -fx-effect: none;
 }
 
 .button.secondary:hover {
-    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-background-color: rgba(107, 33, 168, 0.3);
+    -fx-border-color: -fx-purple-bright;
 }
 
 /* ========================================
@@ -186,17 +191,18 @@
    ======================================== */
 
 .text-field, .text-area {
-    -fx-background-color: -fx-secondary-color;
+    -fx-background-color: #101018;
     -fx-text-fill: -fx-text-color;
     -fx-prompt-text-fill: -fx-text-muted;
-    -fx-border-color: #0f3460;
+    -fx-border-color: #2d2d3d;
     -fx-border-radius: 5;
     -fx-background-radius: 5;
     -fx-padding: 10;
 }
 
 .text-field:focused, .text-area:focused {
-    -fx-border-color: -fx-accent-color;
+    -fx-border-color: -fx-purple-accent;
+    -fx-effect: dropshadow(gaussian, rgba(107, 33, 168, 0.3), 6, 0, 0, 0);
 }
 
 /* ========================================
@@ -204,8 +210,8 @@
    ======================================== */
 
 .combo-box {
-    -fx-background-color: -fx-secondary-color;
-    -fx-border-color: #0f3460;
+    -fx-background-color: #101018;
+    -fx-border-color: #2d2d3d;
     -fx-border-radius: 5;
     -fx-background-radius: 5;
 }
@@ -216,11 +222,21 @@
 }
 
 .combo-box-popup .list-view {
-    -fx-background-color: -fx-secondary-color;
+    -fx-background-color: #1a1a24;
+    -fx-border-color: -fx-purple-accent;
+}
+
+.combo-box-popup .list-cell {
+    -fx-text-fill: -fx-text-color;
+    -fx-background-color: transparent;
 }
 
 .combo-box-popup .list-cell:hover {
-    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-background-color: rgba(107, 33, 168, 0.3);
+}
+
+.combo-box-popup .list-cell:selected {
+    -fx-background-color: -fx-purple-accent;
 }
 
 /* ========================================
@@ -232,15 +248,14 @@
 }
 
 .scroll-bar .thumb {
-    -fx-background-color: #0f3460;
+    -fx-background-color: #3d3d4d;
     -fx-background-radius: 5;
 }
 
 .scroll-bar .thumb:hover {
-    -fx-background-color: #1a4a7a;
+    -fx-background-color: -fx-purple-accent;
 }
 
-/* Hide scroll bar arrows */
 .scroll-bar .increment-button,
 .scroll-bar .decrement-button {
     -fx-background-color: transparent;
@@ -259,11 +274,11 @@
 
 .table-view {
     -fx-background-color: transparent;
-    -fx-border-color: #0f3460;
+    -fx-border-color: #2d2d3d;
 }
 
 .table-view .column-header {
-    -fx-background-color: -fx-secondary-color;
+    -fx-background-color: linear-gradient(to bottom, #252532 0%, #1a1a24 100%);
 }
 
 .table-view .column-header .label {
@@ -272,15 +287,19 @@
 }
 
 .table-row-cell {
-    -fx-background-color: -fx-primary-color;
+    -fx-background-color: #0d0d0d;
 }
 
 .table-row-cell:odd {
-    -fx-background-color: derive(-fx-primary-color, 5%);
+    -fx-background-color: #141420;
 }
 
 .table-row-cell:selected {
-    -fx-background-color: rgba(233, 69, 96, 0.3);
+    -fx-background-color: rgba(107, 33, 168, 0.4);
+}
+
+.table-row-cell:hover {
+    -fx-background-color: rgba(107, 33, 168, 0.2);
 }
 
 .table-cell {
@@ -288,45 +307,51 @@
 }
 
 /* ========================================
-   POKER-SPECIFIC STYLES
-   (We'll use these for the range viewer)
+   POKER-SPECIFIC STYLES - RANGE GRID
+   Hand cells are now 45x45 (25% bigger than 36x36)
    ======================================== */
 
-/* Hand cell in the range grid */
 .hand-cell {
     -fx-alignment: center;
-    -fx-font-size: 11px;
+    -fx-font-size: 13px;
     -fx-font-weight: bold;
-    -fx-background-radius: 3;
-    -fx-border-radius: 3;
-    -fx-min-width: 36;
-    -fx-min-height: 36;
-    -fx-max-width: 36;
-    -fx-max-height: 36;
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
+    -fx-min-width: 45;
+    -fx-min-height: 45;
+    -fx-max-width: 45;
+    -fx-max-height: 45;
+    -fx-pref-width: 45;
+    -fx-pref-height: 45;
 }
 
-/* Fold - gray/dark */
+/* Fold - dark gray */
 .hand-fold {
-    -fx-background-color: #2a2a3e;
-    -fx-text-fill: #666;
+    -fx-background-color: linear-gradient(to bottom, #252532 0%, #1a1a24 100%);
+    -fx-text-fill: #555;
+    -fx-border-color: #2d2d3d;
+    -fx-border-width: 1;
 }
 
-/* Raise - green */
+/* Raise - vivid green */
 .hand-raise {
-    -fx-background-color: #166534;
+    -fx-background-color: linear-gradient(to bottom, #22c55e 0%, #16a34a 100%);
     -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(34, 197, 94, 0.3), 4, 0, 0, 1);
 }
 
-/* Call - yellow/orange */
+/* Call - gold/yellow */
 .hand-call {
-    -fx-background-color: #ca8a04;
-    -fx-text-fill: white;
+    -fx-background-color: linear-gradient(to bottom, #eab308 0%, #ca8a04 100%);
+    -fx-text-fill: #1a1a1a;
+    -fx-font-weight: bold;
 }
 
-/* 3-bet - red */
+/* 3-bet - poker red */
 .hand-3bet {
-    -fx-background-color: #b91c1c;
+    -fx-background-color: linear-gradient(to bottom, #dc2626 0%, #b91c1c 100%);
     -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(220, 38, 38, 0.4), 4, 0, 0, 1);
 }
 
 /* Profit/Loss coloring */
@@ -351,9 +376,12 @@
 }
 
 .controls-bar {
-    -fx-background-color: -fx-secondary-color;
-    -fx-padding: 15;
+    -fx-background-color: linear-gradient(to bottom, #1f1f2e 0%, #1a1a24 100%);
+    -fx-padding: 15 20;
     -fx-background-radius: 8;
+    -fx-border-color: #2d2d3d;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
 }
 
 .control-label {
@@ -362,7 +390,7 @@
 }
 
 .range-name {
-    -fx-font-size: 22px;
+    -fx-font-size: 24px;
     -fx-font-weight: bold;
     -fx-text-fill: -fx-text-color;
 }
@@ -372,26 +400,26 @@
     -fx-font-size: 14px;
 }
 
-/* Legend section */
 .legend {
-    -fx-padding: 10;
+    -fx-padding: 12;
+    -fx-background-color: linear-gradient(to bottom, #1a1a24 0%, #151520 100%);
+    -fx-background-radius: 6;
 }
 
 .legend-box {
-    -fx-min-width: 20;
-    -fx-min-height: 20;
-    -fx-max-width: 20;
-    -fx-max-height: 20;
-    -fx-background-radius: 3;
+    -fx-min-width: 22;
+    -fx-min-height: 22;
+    -fx-max-width: 22;
+    -fx-max-height: 22;
+    -fx-background-radius: 4;
 }
 
-/* Separator styling */
 .separator {
     -fx-background-color: transparent;
 }
 
 .separator .line {
-    -fx-border-color: #0f3460;
+    -fx-border-color: #2d2d3d;
     -fx-border-width: 1 0 0 0;
 }
 
@@ -404,16 +432,22 @@
 }
 
 .input-section {
-    -fx-background-color: -fx-secondary-color;
+    -fx-background-color: linear-gradient(to bottom, #1f1f2e 0%, #1a1a24 100%);
     -fx-padding: 25;
     -fx-background-radius: 10;
+    -fx-border-color: #2d2d3d;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
     -fx-min-width: 320;
 }
 
 .results-section {
-    -fx-background-color: -fx-secondary-color;
+    -fx-background-color: linear-gradient(to bottom, #1f1f2e 0%, #1a1a24 100%);
     -fx-padding: 25;
     -fx-background-radius: 10;
+    -fx-border-color: #2d2d3d;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
 }
 
 .input-label {
@@ -428,7 +462,7 @@
 }
 
 .currency-symbol {
-    -fx-text-fill: -fx-text-muted;
+    -fx-text-fill: -fx-success-color;
     -fx-font-size: 18px;
     -fx-font-weight: bold;
 }
@@ -445,7 +479,7 @@
 }
 
 .equity-display {
-    -fx-text-fill: -fx-accent-color;
+    -fx-text-fill: -fx-purple-bright;
     -fx-font-size: 18px;
     -fx-font-weight: bold;
 }
@@ -456,15 +490,16 @@
 }
 
 .slider .track {
-    -fx-background-color: #0f3460;
+    -fx-background-color: #2d2d3d;
     -fx-background-radius: 5;
     -fx-padding: 5;
 }
 
 .slider .thumb {
-    -fx-background-color: -fx-accent-color;
+    -fx-background-color: linear-gradient(to bottom, -fx-purple-bright 0%, -fx-purple-accent 100%);
     -fx-background-radius: 10;
     -fx-padding: 10;
+    -fx-effect: dropshadow(gaussian, rgba(124, 58, 237, 0.4), 6, 0, 0, 2);
 }
 
 .slider .axis {
@@ -510,19 +545,19 @@
 
 .recommendation-call {
     -fx-text-fill: white;
-    -fx-background-color: #166534;
+    -fx-background-color: linear-gradient(to bottom, #22c55e 0%, #16a34a 100%);
     -fx-font-weight: bold;
 }
 
 .recommendation-fold {
     -fx-text-fill: white;
-    -fx-background-color: #b91c1c;
+    -fx-background-color: linear-gradient(to bottom, #dc2626 0%, #b91c1c 100%);
     -fx-font-weight: bold;
 }
 
 .recommendation-neutral {
     -fx-text-fill: -fx-text-color;
-    -fx-background-color: #0f3460;
+    -fx-background-color: #2d2d3d;
 }
 
 /* ========================================
@@ -534,9 +569,12 @@
 }
 
 .form-section {
-    -fx-background-color: -fx-secondary-color;
+    -fx-background-color: linear-gradient(to bottom, #1f1f2e 0%, #1a1a24 100%);
     -fx-padding: 20;
     -fx-background-radius: 10;
+    -fx-border-color: #2d2d3d;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
 }
 
 .form-scroll {
@@ -558,16 +596,22 @@
 }
 
 .history-section {
-    -fx-background-color: -fx-secondary-color;
+    -fx-background-color: linear-gradient(to bottom, #1f1f2e 0%, #1a1a24 100%);
     -fx-padding: 20;
     -fx-background-radius: 10;
+    -fx-border-color: #2d2d3d;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
 }
 
 /* Stats summary bar */
 .stats-summary {
-    -fx-background-color: -fx-primary-color;
+    -fx-background-color: linear-gradient(to right, rgba(107, 33, 168, 0.15) 0%, rgba(196, 30, 58, 0.15) 100%);
     -fx-padding: 15;
     -fx-background-radius: 8;
+    -fx-border-color: #2d2d3d;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
 }
 
 .stat-box {
@@ -587,9 +631,12 @@
 
 /* Profit display in form */
 .profit-display {
-    -fx-background-color: -fx-primary-color;
+    -fx-background-color: #101018;
     -fx-padding: 10 15;
     -fx-background-radius: 5;
+    -fx-border-color: #2d2d3d;
+    -fx-border-radius: 5;
+    -fx-border-width: 1;
 }
 
 .profit-value {
@@ -599,38 +646,45 @@
 
 /* Tag toggle buttons */
 .tag-toggle {
-    -fx-background-color: -fx-primary-color;
+    -fx-background-color: #101018;
     -fx-text-fill: -fx-text-muted;
-    -fx-padding: 5 10;
+    -fx-padding: 6 12;
     -fx-background-radius: 15;
     -fx-font-size: 11px;
+    -fx-border-color: #2d2d3d;
+    -fx-border-radius: 15;
+    -fx-border-width: 1;
 }
 
 .tag-toggle:selected {
-    -fx-background-color: -fx-accent-color;
+    -fx-background-color: linear-gradient(to bottom, -fx-purple-bright 0%, -fx-purple-accent 100%);
     -fx-text-fill: white;
+    -fx-border-color: -fx-purple-bright;
 }
 
 .tag-toggle:hover {
-    -fx-background-color: derive(-fx-primary-color, 20%);
+    -fx-background-color: rgba(107, 33, 168, 0.3);
+    -fx-border-color: -fx-purple-accent;
 }
 
 /* Date picker styling */
 .date-picker {
-    -fx-background-color: -fx-secondary-color;
+    -fx-background-color: #101018;
 }
 
 .date-picker .text-field {
-    -fx-background-color: -fx-primary-color;
+    -fx-background-color: #101018;
     -fx-text-fill: -fx-text-color;
+    -fx-border-color: #2d2d3d;
 }
 
 .date-picker .arrow-button {
-    -fx-background-color: -fx-primary-color;
+    -fx-background-color: #1a1a24;
 }
 
 .date-picker-popup {
-    -fx-background-color: -fx-secondary-color;
+    -fx-background-color: #1a1a24;
+    -fx-border-color: -fx-purple-accent;
 }
 
 .date-picker-popup .day-cell {
@@ -639,17 +693,17 @@
 }
 
 .date-picker-popup .day-cell:hover {
-    -fx-background-color: -fx-accent-color;
+    -fx-background-color: -fx-purple-accent;
 }
 
 /* Danger button (delete) */
 .button.danger {
-    -fx-background-color: #b91c1c;
+    -fx-background-color: linear-gradient(to bottom, #dc2626 0%, #b91c1c 100%);
     -fx-text-fill: white;
 }
 
 .button.danger:hover {
-    -fx-background-color: #dc2626;
+    -fx-background-color: linear-gradient(to bottom, #ef4444 0%, #dc2626 100%);
 }
 
 .button.small {
@@ -666,8 +720,11 @@
 }
 
 .bankroll-overview {
-    -fx-background-color: -fx-secondary-color;
+    -fx-background-color: linear-gradient(to right, rgba(107, 33, 168, 0.2) 0%, rgba(196, 30, 58, 0.2) 100%);
     -fx-background-radius: 10;
+    -fx-border-color: #2d2d3d;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
 }
 
 .bankroll-main {
@@ -680,9 +737,9 @@
 }
 
 .bankroll-amount {
-    -fx-font-size: 42px;
+    -fx-font-size: 44px;
     -fx-font-weight: bold;
-    -fx-text-fill: -fx-text-color;
+    -fx-text-fill: -fx-success-color;
 }
 
 .breakdown-item {
@@ -701,11 +758,11 @@
 }
 
 .breakdown-value.deposit {
-    -fx-text-fill: #4ade80;
+    -fx-text-fill: -fx-success-color;
 }
 
 .breakdown-value.withdrawal {
-    -fx-text-fill: #f87171;
+    -fx-text-fill: -fx-danger-color;
 }
 
 .stakes-recommendation {
@@ -715,19 +772,22 @@
 .stakes-value {
     -fx-font-size: 16px;
     -fx-font-weight: bold;
-    -fx-text-fill: #4ade80;
+    -fx-text-fill: -fx-success-color;
 }
 
 .stakes-warning {
-    -fx-text-fill: #fbbf24;
+    -fx-text-fill: -fx-warning-color;
     -fx-font-size: 12px;
 }
 
 /* Transaction form */
 .transaction-form {
-    -fx-background-color: -fx-secondary-color;
+    -fx-background-color: linear-gradient(to bottom, #1f1f2e 0%, #1a1a24 100%);
     -fx-padding: 20;
     -fx-background-radius: 10;
+    -fx-border-color: #2d2d3d;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
 }
 
 .type-radio {
@@ -740,9 +800,12 @@
 
 /* Stakes guide */
 .stakes-guide {
-    -fx-background-color: -fx-secondary-color;
+    -fx-background-color: linear-gradient(to bottom, #1f1f2e 0%, #1a1a24 100%);
     -fx-padding: 15;
     -fx-background-radius: 10;
+    -fx-border-color: #2d2d3d;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
 }
 
 .stake-requirement {
@@ -752,12 +815,152 @@
 }
 
 .stake-available {
-    -fx-background-color: rgba(74, 222, 128, 0.2);
-    -fx-text-fill: #4ade80;
+    -fx-background-color: rgba(34, 197, 94, 0.2);
+    -fx-text-fill: -fx-success-color;
     -fx-font-weight: bold;
+    -fx-border-color: rgba(34, 197, 94, 0.4);
+    -fx-border-radius: 5;
+    -fx-border-width: 1;
 }
 
 .stake-unavailable {
-    -fx-background-color: rgba(248, 113, 113, 0.1);
+    -fx-background-color: rgba(239, 68, 68, 0.1);
     -fx-text-fill: -fx-text-muted;
+    -fx-border-color: transparent;
+}
+
+/* ========================================
+   CHARTS VIEW STYLES
+   ======================================== */
+
+.charts-view {
+    -fx-background-color: -fx-primary-color;
+}
+
+.chart-section {
+    -fx-background-color: linear-gradient(to bottom, #1f1f2e 0%, #1a1a24 100%);
+    -fx-padding: 20;
+    -fx-background-radius: 10;
+    -fx-border-color: #2d2d3d;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+}
+
+/* Chart styling */
+.chart {
+    -fx-background-color: transparent;
+}
+
+.chart-plot-background {
+    -fx-background-color: #101018;
+}
+
+.chart-vertical-grid-lines {
+    -fx-stroke: #2d2d3d;
+}
+
+.chart-horizontal-grid-lines {
+    -fx-stroke: #2d2d3d;
+}
+
+.axis {
+    -fx-tick-label-fill: -fx-text-muted;
+}
+
+.axis-label {
+    -fx-text-fill: -fx-text-color;
+}
+
+.chart-legend {
+    -fx-background-color: transparent;
+}
+
+.chart-legend-item {
+    -fx-text-fill: -fx-text-color;
+}
+
+/* Line chart specific */
+.chart-series-line {
+    -fx-stroke-width: 2px;
+}
+
+.default-color0.chart-series-line {
+    -fx-stroke: -fx-success-color;
+}
+
+.default-color0.chart-line-symbol {
+    -fx-background-color: -fx-success-color, white;
+}
+
+/* ========================================
+   NOTES VIEW STYLES
+   ======================================== */
+
+.notes-view {
+    -fx-background-color: -fx-primary-color;
+}
+
+.notes-list-section {
+    -fx-background-color: linear-gradient(to bottom, #1f1f2e 0%, #1a1a24 100%);
+    -fx-padding: 15;
+    -fx-background-radius: 10;
+    -fx-border-color: #2d2d3d;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+}
+
+.notes-editor-section {
+    -fx-background-color: linear-gradient(to bottom, #1f1f2e 0%, #1a1a24 100%);
+    -fx-padding: 20;
+    -fx-background-radius: 10;
+    -fx-border-color: #2d2d3d;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+}
+
+.note-item {
+    -fx-background-color: transparent;
+    -fx-padding: 10;
+    -fx-border-color: transparent transparent #2d2d3d transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.note-item:hover {
+    -fx-background-color: rgba(107, 33, 168, 0.2);
+}
+
+.note-item:selected {
+    -fx-background-color: rgba(107, 33, 168, 0.4);
+    -fx-border-color: -fx-purple-accent transparent #2d2d3d transparent;
+    -fx-border-width: 0 0 1 3;
+}
+
+.note-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-text-color;
+}
+
+.note-preview {
+    -fx-font-size: 12px;
+    -fx-text-fill: -fx-text-muted;
+}
+
+.note-date {
+    -fx-font-size: 11px;
+    -fx-text-fill: -fx-text-muted;
+}
+
+/* Editor area */
+.note-editor {
+    -fx-background-color: #101018;
+    -fx-text-fill: -fx-text-color;
+    -fx-font-size: 14px;
+    -fx-border-color: #2d2d3d;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.note-editor:focused {
+    -fx-border-color: -fx-purple-accent;
 }

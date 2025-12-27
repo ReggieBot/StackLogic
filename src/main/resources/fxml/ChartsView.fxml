@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.geometry.Insets?>
+
+<!--
+    Charts and Analytics View
+    =========================
+    Shows visual representation of poker session data:
+    - Profit over time (line chart)
+    - Profit by stakes (bar chart)
+    - Summary statistics
+-->
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.stacklogic.controller.ChartsController"
+      spacing="20"
+      styleClass="charts-view">
+
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <!-- HEADER with filter controls -->
+    <HBox spacing="20" alignment="CENTER_LEFT" styleClass="controls-bar">
+        <Label text="Analytics Dashboard" styleClass="section-title"/>
+
+        <Separator orientation="VERTICAL"/>
+
+        <VBox spacing="5">
+            <Label text="Time Range" styleClass="control-label"/>
+            <ComboBox fx:id="timeRangeCombo" promptText="Select Range"/>
+        </VBox>
+
+        <VBox spacing="5">
+            <Label text="Stakes Filter" styleClass="control-label"/>
+            <ComboBox fx:id="stakesFilterCombo" promptText="All Stakes"/>
+        </VBox>
+    </HBox>
+
+    <!-- STATS SUMMARY ROW -->
+    <HBox spacing="20" styleClass="stats-summary" alignment="CENTER">
+        <VBox alignment="CENTER" styleClass="stat-box">
+            <Label text="Total Sessions" styleClass="stat-label"/>
+            <Label fx:id="totalSessionsLabel" text="0" styleClass="stat-value"/>
+        </VBox>
+        <VBox alignment="CENTER" styleClass="stat-box">
+            <Label text="Total Profit" styleClass="stat-label"/>
+            <Label fx:id="totalProfitLabel" text="\$0.00" styleClass="stat-value"/>
+        </VBox>
+        <VBox alignment="CENTER" styleClass="stat-box">
+            <Label text="Win Rate" styleClass="stat-label"/>
+            <Label fx:id="winRateLabel" text="0\%" styleClass="stat-value"/>
+        </VBox>
+        <VBox alignment="CENTER" styleClass="stat-box">
+            <Label text="Avg Session" styleClass="stat-label"/>
+            <Label fx:id="avgSessionLabel" text="\$0.00" styleClass="stat-value"/>
+        </VBox>
+        <VBox alignment="CENTER" styleClass="stat-box">
+            <Label text="Hours Played" styleClass="stat-label"/>
+            <Label fx:id="hoursPlayedLabel" text="0h" styleClass="stat-value"/>
+        </VBox>
+        <VBox alignment="CENTER" styleClass="stat-box">
+            <Label text="Hourly Rate" styleClass="stat-label"/>
+            <Label fx:id="hourlyRateLabel" text="\$0.00/hr" styleClass="stat-value"/>
+        </VBox>
+    </HBox>
+
+    <!-- CHARTS ROW -->
+    <HBox spacing="20" VBox.vgrow="ALWAYS">
+
+        <!-- Profit Over Time Chart -->
+        <VBox spacing="10" HBox.hgrow="ALWAYS" styleClass="chart-section">
+            <Label text="Profit Over Time" styleClass="subsection-title"/>
+
+            <LineChart fx:id="profitChart" VBox.vgrow="ALWAYS"
+                       legendVisible="false" animated="false">
+                <xAxis>
+                    <CategoryAxis fx:id="profitChartXAxis" label="Date"/>
+                </xAxis>
+                <yAxis>
+                    <NumberAxis fx:id="profitChartYAxis" label="Cumulative Profit (\$)"/>
+                </yAxis>
+            </LineChart>
+        </VBox>
+
+        <!-- Right side: Profit by Stakes + Best/Worst -->
+        <VBox spacing="20" minWidth="350">
+
+            <!-- Profit by Stakes Bar Chart -->
+            <VBox spacing="10" styleClass="chart-section" VBox.vgrow="ALWAYS">
+                <Label text="Profit by Stakes" styleClass="subsection-title"/>
+
+                <BarChart fx:id="stakesProfitChart" VBox.vgrow="ALWAYS"
+                          legendVisible="false" animated="false">
+                    <xAxis>
+                        <CategoryAxis fx:id="stakesChartXAxis" label="Stakes"/>
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis fx:id="stakesChartYAxis" label="Profit (\$)"/>
+                    </yAxis>
+                </BarChart>
+            </VBox>
+
+            <!-- Best/Worst Sessions -->
+            <VBox spacing="10" styleClass="chart-section">
+                <Label text="Notable Sessions" styleClass="subsection-title"/>
+
+                <HBox spacing="20">
+                    <VBox spacing="5" HBox.hgrow="ALWAYS">
+                        <Label text="Best Session" styleClass="stat-label"/>
+                        <Label fx:id="bestSessionLabel" text="--" styleClass="stat-value profit-positive"/>
+                        <Label fx:id="bestSessionDateLabel" text="" styleClass="note-date"/>
+                    </VBox>
+                    <VBox spacing="5" HBox.hgrow="ALWAYS">
+                        <Label text="Worst Session" styleClass="stat-label"/>
+                        <Label fx:id="worstSessionLabel" text="--" styleClass="stat-value profit-negative"/>
+                        <Label fx:id="worstSessionDateLabel" text="" styleClass="note-date"/>
+                    </VBox>
+                </HBox>
+
+                <Separator/>
+
+                <HBox spacing="20">
+                    <VBox spacing="5" HBox.hgrow="ALWAYS">
+                        <Label text="Winning Sessions" styleClass="stat-label"/>
+                        <Label fx:id="winningSessionsLabel" text="0" styleClass="stat-value profit-positive"/>
+                    </VBox>
+                    <VBox spacing="5" HBox.hgrow="ALWAYS">
+                        <Label text="Losing Sessions" styleClass="stat-label"/>
+                        <Label fx:id="losingSessionsLabel" text="0" styleClass="stat-value profit-negative"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+
+        </VBox>
+
+    </HBox>
+
+</VBox>

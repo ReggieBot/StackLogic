@@ -9,6 +9,7 @@ import com.stacklogic.util.RangeLoader;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.CacheHint;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -93,8 +94,17 @@ public class RangeController implements Initializable {
     /**
      * Create the 13x13 grid of hand labels.
      * This is done in code because creating 169 labels in FXML would be tedious.
+     *
+     * PERFORMANCE NOTE: We enable caching on each cell to improve resize performance.
+     * Caching tells JavaFX to render the node to an image and reuse it, rather than
+     * re-rendering from scratch each frame. This significantly improves performance
+     * when the window is resized.
      */
     private void createHandGrid() {
+        // Enable caching on the entire grid for better resize performance
+        handGrid.setCache(true);
+        handGrid.setCacheHint(CacheHint.SPEED);
+
         for (int row = 0; row < 13; row++) {
             for (int col = 0; col < 13; col++) {
                 // Get the hand notation for this cell
@@ -103,6 +113,11 @@ public class RangeController implements Initializable {
                 // Create a label for this cell
                 Label cell = new Label(handNotation);
                 cell.getStyleClass().addAll("hand-cell", "hand-fold");
+
+                // Enable caching on each cell for better performance during resize
+                // CacheHint.SPEED tells JavaFX to prioritize speed over quality
+                cell.setCache(true);
+                cell.setCacheHint(CacheHint.SPEED);
 
                 // Store reference for later updates
                 gridCells[row][col] = cell;

@@ -96,17 +96,11 @@
             </Tab>
 
             <Tab text="Charts" closable="false">
-                <VBox alignment="CENTER" spacing="10">
-                    <Label text="Charts and Analytics" styleClass="section-title"/>
-                    <Label text="Coming soon..." styleClass="placeholder-text"/>
-                </VBox>
+                <fx:include source="ChartsView.fxml"/>
             </Tab>
 
             <Tab text="Notes" closable="false">
-                <VBox alignment="CENTER" spacing="10">
-                    <Label text="Hand Notes" styleClass="section-title"/>
-                    <Label text="Coming soon..." styleClass="placeholder-text"/>
-                </VBox>
+                <fx:include source="NotesView.fxml"/>
             </Tab>
 
         </TabPane>

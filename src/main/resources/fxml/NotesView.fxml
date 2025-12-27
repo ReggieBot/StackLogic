@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.geometry.Insets?>
+
+<!--
+    Quick Notes View
+    ================
+    Left panel: List of notes with search/filter
+    Right panel: Note editor
+-->
+<HBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.stacklogic.controller.NotesController"
+      spacing="20"
+      styleClass="notes-view">
+
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <!-- LEFT: Note List -->
+    <VBox spacing="15" styleClass="notes-list-section" minWidth="280" maxWidth="320">
+
+        <Label text="Notes" styleClass="section-title"/>
+
+        <!-- Search -->
+        <TextField fx:id="searchField" promptText="Search notes..."/>
+
+        <!-- Filter by Tag -->
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="Filter:" styleClass="form-label"/>
+            <ComboBox fx:id="tagFilterCombo" promptText="All Tags" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+        </HBox>
+
+        <!-- New Note Button -->
+        <Button text="+ New Note" onAction="#handleNewNote" styleClass="button" maxWidth="Infinity"/>
+
+        <Separator/>
+
+        <!-- Notes List -->
+        <ListView fx:id="notesList" VBox.vgrow="ALWAYS"/>
+
+        <!-- Note Count -->
+        <Label fx:id="noteCountLabel" text="0 notes" styleClass="note-date"/>
+
+    </VBox>
+
+    <!-- RIGHT: Note Editor -->
+    <VBox spacing="15" HBox.hgrow="ALWAYS" styleClass="notes-editor-section">
+
+        <Label text="Edit Note" styleClass="subsection-title"/>
+
+        <!-- Date and Tag Row -->
+        <HBox spacing="20">
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label text="Date" styleClass="form-label"/>
+                <DatePicker fx:id="datePicker" maxWidth="Infinity"/>
+            </VBox>
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label text="Tag/Category" styleClass="form-label"/>
+                <ComboBox fx:id="tagCombo" editable="true" promptText="e.g., Preflop, Mindset" maxWidth="Infinity"/>
+            </VBox>
+        </HBox>
+
+        <!-- Note Content -->
+        <VBox spacing="5" VBox.vgrow="ALWAYS">
+            <Label text="Note" styleClass="form-label"/>
+            <TextArea fx:id="noteTextArea" promptText="Write your poker thoughts, hand analysis, study notes..."
+                      VBox.vgrow="ALWAYS" wrapText="true" styleClass="note-editor"/>
+        </VBox>
+
+        <!-- Action Buttons -->
+        <HBox spacing="10">
+            <Button fx:id="saveButton" text="Save" onAction="#handleSave" styleClass="button"/>
+            <Button text="Clear" onAction="#handleClear" styleClass="button secondary"/>
+            <Button fx:id="deleteButton" text="Delete" onAction="#handleDelete"
+                    styleClass="button danger" visible="false" managed="false"/>
+        </HBox>
+
+        <!-- Tips -->
+        <VBox spacing="5" styleClass="stats-summary">
+            <Label text="Quick Note Tips" styleClass="stat-label"/>
+            <Label text="Use tags to organize: Preflop, Postflop, Reads, Tilt, Leaks, Goals"
+                   styleClass="note-preview" wrapText="true"/>
+        </VBox>
+
+    </VBox>
+
+</HBox>
