@@ -1,0 +1,343 @@
+/*
+ * StackLogic - Main Stylesheet
+ *
+ * CSS IN JAVAFX:
+ * ==============
+ * JavaFX uses CSS for styling, similar to web CSS but with some differences:
+ * - Property names start with -fx- (e.g., -fx-background-color instead of background-color)
+ * - Some properties are JavaFX-specific
+ * - You can style by:
+ *   - Type: Button { } affects all buttons
+ *   - Style class: .my-class { } affects elements with styleClass="my-class"
+ *   - ID: #myId { } affects elements with fx:id="myId" or id="myId"
+ *
+ * SELECTOR PRIORITY (highest to lowest):
+ * 1. Inline styles (style="..." in FXML)
+ * 2. ID selectors (#id)
+ * 3. Class selectors (.class)
+ * 4. Type selectors (Button)
+ */
+
+/* ========================================
+   ROOT / GLOBAL STYLES
+   ======================================== */
+
+/*
+ * .root is a special class applied to the root of every scene.
+ * This is a good place for app-wide colors (CSS variables).
+ */
+.root {
+    /* Define color variables for consistent theming */
+    -fx-primary-color: #1a1a2e;      /* Dark blue-black background */
+    -fx-secondary-color: #16213e;    /* Slightly lighter for contrast */
+    -fx-accent-color: #e94560;       /* Red accent (poker chip red!) */
+    -fx-text-color: #eaeaea;         /* Light gray text */
+    -fx-text-muted: #8b8b8b;         /* Dimmed text */
+    -fx-success-color: #4ade80;      /* Green for profit/success */
+    -fx-warning-color: #fbbf24;      /* Yellow for warnings */
+    -fx-danger-color: #f87171;       /* Red for losses/errors */
+
+    /* Apply dark background to entire app */
+    -fx-background-color: -fx-primary-color;
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 14px;
+}
+
+/* ========================================
+   LAYOUT CONTAINERS
+   ======================================== */
+
+.root-pane {
+    -fx-background-color: -fx-primary-color;
+}
+
+/* Header bar at top of app */
+.header {
+    -fx-background-color: -fx-secondary-color;
+    -fx-border-color: #0f3460;
+    -fx-border-width: 0 0 2 0; /* Bottom border only */
+}
+
+.app-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-text-color;
+}
+
+/* Status bar at bottom */
+.status-bar {
+    -fx-background-color: -fx-secondary-color;
+    -fx-border-color: #0f3460;
+    -fx-border-width: 1 0 0 0; /* Top border only */
+}
+
+.status-bar .label {
+    -fx-text-fill: -fx-text-muted;
+    -fx-font-size: 12px;
+}
+
+/* ========================================
+   TAB PANE STYLING
+   ======================================== */
+
+.tab-pane {
+    -fx-background-color: transparent;
+}
+
+/* The header area containing tabs */
+.tab-pane .tab-header-area {
+    -fx-background-color: -fx-secondary-color;
+    -fx-padding: 5 10 0 10;
+}
+
+/* Remove the line below tabs */
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: -fx-secondary-color;
+}
+
+/* Individual tab styling */
+.tab-pane .tab {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 5 5 0 0;
+    -fx-padding: 8 20;
+}
+
+.tab-pane .tab .tab-label {
+    -fx-text-fill: -fx-text-muted;
+    -fx-font-size: 14px;
+}
+
+/* Hover effect on tabs */
+.tab-pane .tab:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Selected (active) tab */
+.tab-pane .tab:selected {
+    -fx-background-color: -fx-primary-color;
+}
+
+.tab-pane .tab:selected .tab-label {
+    -fx-text-fill: -fx-text-color;
+    -fx-font-weight: bold;
+}
+
+/* The content area of tabs */
+.tab-pane .tab-content-area {
+    -fx-background-color: -fx-primary-color;
+    -fx-padding: 20;
+}
+
+/* ========================================
+   TEXT STYLES
+   ======================================== */
+
+.label {
+    -fx-text-fill: -fx-text-color;
+}
+
+.section-title {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-text-color;
+}
+
+.placeholder-text {
+    -fx-text-fill: -fx-text-muted;
+    -fx-font-style: italic;
+}
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+
+.button {
+    -fx-background-color: -fx-accent-color;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: derive(-fx-accent-color, 20%);
+}
+
+.button:pressed {
+    -fx-background-color: derive(-fx-accent-color, -20%);
+}
+
+/* Secondary button style */
+.button.secondary {
+    -fx-background-color: transparent;
+    -fx-border-color: -fx-text-muted;
+    -fx-border-radius: 5;
+    -fx-text-fill: -fx-text-color;
+}
+
+.button.secondary:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ========================================
+   TEXT FIELDS & INPUTS
+   ======================================== */
+
+.text-field, .text-area {
+    -fx-background-color: -fx-secondary-color;
+    -fx-text-fill: -fx-text-color;
+    -fx-prompt-text-fill: -fx-text-muted;
+    -fx-border-color: #0f3460;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 10;
+}
+
+.text-field:focused, .text-area:focused {
+    -fx-border-color: -fx-accent-color;
+}
+
+/* ========================================
+   COMBO BOX (Dropdowns)
+   ======================================== */
+
+.combo-box {
+    -fx-background-color: -fx-secondary-color;
+    -fx-border-color: #0f3460;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.combo-box .list-cell {
+    -fx-text-fill: -fx-text-color;
+    -fx-background-color: transparent;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: -fx-secondary-color;
+}
+
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ========================================
+   SCROLL BARS
+   ======================================== */
+
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #0f3460;
+    -fx-background-radius: 5;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: #1a4a7a;
+}
+
+/* Hide scroll bar arrows */
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
+    -fx-shape: "";
+    -fx-padding: 0;
+}
+
+/* ========================================
+   TABLES
+   ======================================== */
+
+.table-view {
+    -fx-background-color: transparent;
+    -fx-border-color: #0f3460;
+}
+
+.table-view .column-header {
+    -fx-background-color: -fx-secondary-color;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: -fx-text-color;
+    -fx-font-weight: bold;
+}
+
+.table-row-cell {
+    -fx-background-color: -fx-primary-color;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: derive(-fx-primary-color, 5%);
+}
+
+.table-row-cell:selected {
+    -fx-background-color: rgba(233, 69, 96, 0.3);
+}
+
+.table-cell {
+    -fx-text-fill: -fx-text-color;
+}
+
+/* ========================================
+   POKER-SPECIFIC STYLES
+   (We'll use these for the range viewer)
+   ======================================== */
+
+/* Hand cell in the range grid */
+.hand-cell {
+    -fx-alignment: center;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 3;
+    -fx-border-radius: 3;
+    -fx-min-width: 36;
+    -fx-min-height: 36;
+    -fx-max-width: 36;
+    -fx-max-height: 36;
+}
+
+/* Fold - gray/dark */
+.hand-fold {
+    -fx-background-color: #2a2a3e;
+    -fx-text-fill: #666;
+}
+
+/* Raise - green */
+.hand-raise {
+    -fx-background-color: #166534;
+    -fx-text-fill: white;
+}
+
+/* Call - yellow/orange */
+.hand-call {
+    -fx-background-color: #ca8a04;
+    -fx-text-fill: white;
+}
+
+/* 3-bet - red */
+.hand-3bet {
+    -fx-background-color: #b91c1c;
+    -fx-text-fill: white;
+}
+
+/* Profit/Loss coloring */
+.profit-positive {
+    -fx-text-fill: -fx-success-color;
+}
+
+.profit-negative {
+    -fx-text-fill: -fx-danger-color;
+}
+
+.profit-neutral {
+    -fx-text-fill: -fx-text-color;
+}

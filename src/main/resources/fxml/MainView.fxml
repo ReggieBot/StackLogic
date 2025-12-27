@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    WHAT IS FXML?
+    =============
+    FXML is an XML-based language for defining JavaFX UIs.
+    Instead of writing Java code like:
+        Button btn = new Button("Click me");
+        btn.setOnAction(e -> handleClick());
+
+    You write XML and JavaFX creates the objects for you:
+        <Button text="Click me" onAction="#handleClick"/>
+
+    Benefits:
+    - Separates UI layout from logic (MVC pattern)
+    - Easier to visualize the structure
+    - Can use Scene Builder (a drag-and-drop UI designer)
+    - Non-programmers can edit the UI
+
+    KEY SYNTAX:
+    - Each XML element becomes a Java object (Button, Label, VBox, etc.)
+    - Attributes become property values (text="Hello" → setText("Hello"))
+    - # before a name means "call this method in the controller" (#handleClick)
+    - $ means a CSS id for styling
+    - fx:id lets you reference this element from Java code
+-->
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.Label?>
+<?import javafx.geometry.Insets?>
+
+<!--
+    fx:controller links this FXML to a Java controller class.
+    The controller handles user interactions (button clicks, etc.)
+-->
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.stacklogic.controller.MainController"
+            prefWidth="1000" prefHeight="700"
+            styleClass="root-pane">
+
+    <!--
+        BorderPane Layout Explained:
+        ============================
+        BorderPane divides the window into 5 regions:
+        - top: Header area
+        - left: Sidebar (we won't use this)
+        - center: Main content area
+        - right: Secondary sidebar (we won't use this)
+        - bottom: Footer/status bar
+
+        Children automatically fill their region and resize with the window.
+    -->
+
+    <!-- TOP: App header with title -->
+    <top>
+        <HBox styleClass="header" alignment="CENTER_LEFT">
+            <padding><Insets top="15" right="20" bottom="15" left="20"/></padding>
+            <Label text="StackLogic" styleClass="app-title"/>
+        </HBox>
+    </top>
+
+    <!-- CENTER: Tab pane for switching between features -->
+    <center>
+        <!--
+            TabPane: A container with clickable tabs at the top.
+            Each Tab contains a different view.
+            closable="false" prevents users from closing tabs.
+        -->
+        <TabPane fx:id="mainTabPane" tabClosingPolicy="UNAVAILABLE">
+
+            <!--
+                Each tab loads its content from a separate FXML file.
+                We'll create these files next.
+                For now, each tab just has a placeholder label.
+            -->
+
+            <Tab text="Preflop Ranges" closable="false">
+                <VBox alignment="CENTER" spacing="10">
+                    <Label text="Preflop Range Viewer" styleClass="section-title"/>
+                    <Label text="Coming soon..." styleClass="placeholder-text"/>
+                </VBox>
+            </Tab>
+
+            <Tab text="Pot Odds" closable="false">
+                <VBox alignment="CENTER" spacing="10">
+                    <Label text="Pot Odds Calculator" styleClass="section-title"/>
+                    <Label text="Coming soon..." styleClass="placeholder-text"/>
+                </VBox>
+            </Tab>
+
+            <Tab text="Sessions" closable="false">
+                <VBox alignment="CENTER" spacing="10">
+                    <Label text="Session Tracker" styleClass="section-title"/>
+                    <Label text="Coming soon..." styleClass="placeholder-text"/>
+                </VBox>
+            </Tab>
+
+            <Tab text="Bankroll" closable="false">
+                <VBox alignment="CENTER" spacing="10">
+                    <Label text="Bankroll Tracker" styleClass="section-title"/>
+                    <Label text="Coming soon..." styleClass="placeholder-text"/>
+                </VBox>
+            </Tab>
+
+            <Tab text="Charts" closable="false">
+                <VBox alignment="CENTER" spacing="10">
+                    <Label text="Charts and Analytics" styleClass="section-title"/>
+                    <Label text="Coming soon..." styleClass="placeholder-text"/>
+                </VBox>
+            </Tab>
+
+            <Tab text="Notes" closable="false">
+                <VBox alignment="CENTER" spacing="10">
+                    <Label text="Hand Notes" styleClass="section-title"/>
+                    <Label text="Coming soon..." styleClass="placeholder-text"/>
+                </VBox>
+            </Tab>
+
+        </TabPane>
+    </center>
+
+    <!-- BOTTOM: Status bar -->
+    <bottom>
+        <HBox styleClass="status-bar" alignment="CENTER_LEFT">
+            <padding><Insets top="5" right="10" bottom="5" left="10"/></padding>
+            <Label fx:id="statusLabel" text="Ready"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>
