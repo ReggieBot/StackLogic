@@ -4,7 +4,9 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
@@ -25,11 +27,16 @@ import java.io.IOException;
  * - Stage: The window itself (like JFrame in Swing)
  * - Scene: The content inside the window
  * - Parent/Node: UI elements (buttons, labels, containers, etc.)
+ *
+ * CUSTOM WINDOW:
+ * We use StageStyle.UNDECORATED to remove the OS title bar,
+ * then create our own dark-themed title bar with custom controls.
  */
 public class App extends Application {
 
-    // We store the scene so we can access it later to switch views
+    // We store the scene and stage so we can access them later
     private static Scene scene;
+    private static Stage primaryStage;
 
     /**
      * This is where your app starts.
@@ -37,23 +44,37 @@ public class App extends Application {
      */
     @Override
     public void start(Stage stage) throws IOException {
+        primaryStage = stage;
+
         // Load the main view from FXML
-        // FXMLLoader reads the XML file and creates Java objects from it
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/MainView.fxml"));
 
         // Create a scene with the loaded content
-        // 1000x700 is the initial window size in pixels
-        scene = new Scene(root, 1000, 700);
+        scene = new Scene(root, 1100, 750);
+
+        // Make scene background transparent for rounded corners effect
+        scene.setFill(Color.TRANSPARENT);
 
         // Load our CSS stylesheet for custom styling
         scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
 
+        // Use UNDECORATED style to remove OS title bar - we'll make our own
+        stage.initStyle(StageStyle.UNDECORATED);
+
         // Configure the window (Stage)
-        stage.setTitle("StackLogic - Poker Dashboard");
         stage.setScene(scene);
-        stage.setMinWidth(800);   // Minimum window size
-        stage.setMinHeight(600);
-        stage.show();  // Display the window
+        stage.setMinWidth(900);
+        stage.setMinHeight(650);
+        stage.show();
+
+        System.out.println("StackLogic initialized successfully!");
+    }
+
+    /**
+     * Get the primary stage for window control operations.
+     */
+    public static Stage getPrimaryStage() {
+        return primaryStage;
     }
 
     /**

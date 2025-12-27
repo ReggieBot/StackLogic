@@ -1,117 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--
-    WHAT IS FXML?
-    =============
-    FXML is an XML-based language for defining JavaFX UIs.
-    Instead of writing Java code like:
-        Button btn = new Button("Click me");
-        btn.setOnAction(e -> handleClick());
-
-    You write XML and JavaFX creates the objects for you:
-        <Button text="Click me" onAction="#handleClick"/>
-
-    Benefits:
-    - Separates UI layout from logic (MVC pattern)
-    - Easier to visualize the structure
-    - Can use Scene Builder (a drag-and-drop UI designer)
-    - Non-programmers can edit the UI
-
-    KEY SYNTAX:
-    - Each XML element becomes a Java object (Button, Label, VBox, etc.)
-    - Attributes become property values (text="Hello" → setText("Hello"))
-    - # before a name means "call this method in the controller" (#handleClick)
-    - $ means a CSS id for styling
-    - fx:id lets you reference this element from Java code
--->
-
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.Priority?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
 <?import javafx.geometry.Insets?>
 
 <!--
-    fx:controller links this FXML to a Java controller class.
-    The controller handles user interactions (button clicks, etc.)
+    MainView with Custom Title Bar
+    ==============================
+    Since we use StageStyle.UNDECORATED, we need our own:
+    - Title bar with app name
+    - Window control buttons (minimize, maximize, close)
+    - Drag functionality to move the window
 -->
-<BorderPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.stacklogic.controller.MainController"
-            prefWidth="1000" prefHeight="700"
-            styleClass="root-pane">
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.stacklogic.controller.MainController"
+      styleClass="root-pane">
 
-    <!--
-        BorderPane Layout Explained:
-        ============================
-        BorderPane divides the window into 5 regions:
-        - top: Header area
-        - left: Sidebar (we won't use this)
-        - center: Main content area
-        - right: Secondary sidebar (we won't use this)
-        - bottom: Footer/status bar
+    <!-- CUSTOM TITLE BAR -->
+    <HBox fx:id="titleBar" styleClass="custom-title-bar" alignment="CENTER_LEFT"
+          onMousePressed="#handleTitleBarPressed"
+          onMouseDragged="#handleTitleBarDragged">
 
-        Children automatically fill their region and resize with the window.
-    -->
-
-    <!-- TOP: App header with title -->
-    <top>
-        <HBox styleClass="header" alignment="CENTER_LEFT">
-            <padding><Insets top="15" right="20" bottom="15" left="20"/></padding>
-            <Label text="StackLogic" styleClass="app-title"/>
+        <!-- App Icon/Logo area -->
+        <HBox alignment="CENTER_LEFT" spacing="10">
+            <padding><Insets left="12"/></padding>
+            <Label text="♠" styleClass="app-icon"/>
+            <Label text="StackLogic" styleClass="title-bar-text"/>
         </HBox>
-    </top>
 
-    <!-- CENTER: Tab pane for switching between features -->
-    <center>
-        <!--
-            TabPane: A container with clickable tabs at the top.
-            Each Tab contains a different view.
-            closable="false" prevents users from closing tabs.
-        -->
-        <TabPane fx:id="mainTabPane" tabClosingPolicy="UNAVAILABLE">
+        <!-- Spacer to push window controls to the right -->
+        <Region HBox.hgrow="ALWAYS"/>
 
-            <!--
-                Each tab loads its content from a separate FXML file.
-                We'll create these files next.
-                For now, each tab just has a placeholder label.
-            -->
-
-            <Tab text="Preflop Ranges" closable="false">
-                <!-- fx:include loads another FXML file inside this tab -->
-                <fx:include source="RangeView.fxml"/>
-            </Tab>
-
-            <Tab text="Pot Odds" closable="false">
-                <fx:include source="PotOddsView.fxml"/>
-            </Tab>
-
-            <Tab text="Sessions" closable="false">
-                <fx:include source="SessionView.fxml"/>
-            </Tab>
-
-            <Tab text="Bankroll" closable="false">
-                <fx:include source="BankrollView.fxml"/>
-            </Tab>
-
-            <Tab text="Charts" closable="false">
-                <fx:include source="ChartsView.fxml"/>
-            </Tab>
-
-            <Tab text="Notes" closable="false">
-                <fx:include source="NotesView.fxml"/>
-            </Tab>
-
-        </TabPane>
-    </center>
-
-    <!-- BOTTOM: Status bar -->
-    <bottom>
-        <HBox styleClass="status-bar" alignment="CENTER_LEFT">
-            <padding><Insets top="5" right="10" bottom="5" left="10"/></padding>
-            <Label fx:id="statusLabel" text="Ready"/>
+        <!-- Window Control Buttons -->
+        <HBox styleClass="window-controls" spacing="0">
+            <Button fx:id="minimizeBtn" text="─" onAction="#handleMinimize" styleClass="window-btn"/>
+            <Button fx:id="maximizeBtn" text="□" onAction="#handleMaximize" styleClass="window-btn"/>
+            <Button fx:id="closeBtn" text="✕" onAction="#handleClose" styleClass="window-btn close-btn"/>
         </HBox>
-    </bottom>
+    </HBox>
 
-</BorderPane>
+    <!-- MAIN CONTENT AREA -->
+    <BorderPane VBox.vgrow="ALWAYS" styleClass="main-content">
+
+        <!-- TOP: Navigation header with app branding -->
+        <top>
+            <HBox styleClass="header" alignment="CENTER_LEFT">
+                <padding><Insets top="12" right="20" bottom="12" left="20"/></padding>
+                <Label text="Poker Dashboard" styleClass="app-title"/>
+            </HBox>
+        </top>
+
+        <!-- CENTER: Tab pane for switching between features -->
+        <center>
+            <TabPane fx:id="mainTabPane" tabClosingPolicy="UNAVAILABLE">
+
+                <Tab text="Ranges" closable="false">
+                    <fx:include source="RangeView.fxml"/>
+                </Tab>
+
+                <Tab text="Pot Odds" closable="false">
+                    <fx:include source="PotOddsView.fxml"/>
+                </Tab>
+
+                <Tab text="Sessions" closable="false">
+                    <fx:include source="SessionView.fxml"/>
+                </Tab>
+
+                <Tab text="Bankroll" closable="false">
+                    <fx:include source="BankrollView.fxml"/>
+                </Tab>
+
+                <Tab text="Charts" closable="false">
+                    <fx:include source="ChartsView.fxml"/>
+                </Tab>
+
+                <Tab text="Notes" closable="false">
+                    <fx:include source="NotesView.fxml"/>
+                </Tab>
+
+                <Tab text="Trainer" closable="false">
+                    <fx:include source="TrainerView.fxml"/>
+                </Tab>
+
+            </TabPane>
+        </center>
+
+        <!-- BOTTOM: Status bar -->
+        <bottom>
+            <HBox styleClass="status-bar" alignment="CENTER_LEFT">
+                <padding><Insets top="5" right="10" bottom="5" left="10"/></padding>
+                <Label fx:id="statusLabel" text="Ready"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="versionLabel" text="v1.0" styleClass="version-label"/>
+            </HBox>
+        </bottom>
+
+    </BorderPane>
+
+</VBox>
