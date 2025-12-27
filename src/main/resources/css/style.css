@@ -974,14 +974,19 @@
     -fx-text-fill: -fx-text-muted;
 }
 
-/* Editor area */
+/* Editor area - white background for readability */
 .note-editor {
-    -fx-background-color: #101018;
-    -fx-text-fill: -fx-text-color;
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #1a1a1a;
     -fx-font-size: 14px;
     -fx-border-color: #2d2d3d;
     -fx-border-radius: 5;
     -fx-background-radius: 5;
+    -fx-prompt-text-fill: #888888;
+}
+
+.note-editor .content {
+    -fx-background-color: #ffffff;
 }
 
 .note-editor:focused {
@@ -1157,4 +1162,371 @@
 
 .date-picker-popup > .calendar-grid > .day-cell.outside-month:hover {
     -fx-background-color: rgba(107, 33, 168, 0.2);
+}
+
+/* ========================================
+   CUSTOM TITLE BAR STYLES
+   Undecorated window with custom controls
+   ======================================== */
+
+.custom-title-bar {
+    -fx-background-color: linear-gradient(to bottom, #1a1a24 0%, #0d0d0d 100%);
+    -fx-padding: 0;
+    -fx-min-height: 36;
+    -fx-max-height: 36;
+    -fx-border-color: transparent transparent #2d2d3d transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.app-icon {
+    -fx-font-size: 20px;
+    -fx-text-fill: -fx-accent-color;
+}
+
+.title-bar-text {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-text-color;
+}
+
+.window-controls {
+    -fx-padding: 0;
+}
+
+.window-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: -fx-text-muted;
+    -fx-font-size: 12px;
+    -fx-min-width: 46;
+    -fx-min-height: 36;
+    -fx-max-height: 36;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-cursor: hand;
+    -fx-effect: none;
+    -fx-padding: 0;
+}
+
+.window-btn:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-text-fill: -fx-text-color;
+}
+
+.window-btn.close-btn:hover {
+    -fx-background-color: #c41e3a;
+    -fx-text-fill: white;
+}
+
+.window-btn:pressed {
+    -fx-background-color: rgba(255, 255, 255, 0.05);
+}
+
+.window-btn.close-btn:pressed {
+    -fx-background-color: #a11830;
+}
+
+/* ========================================
+   TRAINER VIEW STYLES
+   Position awareness quiz and drills
+   ======================================== */
+
+.trainer-view {
+    -fx-background-color: -fx-primary-color;
+}
+
+.trainer-section {
+    -fx-background-color: linear-gradient(to bottom, #1f1f2e 0%, #1a1a24 100%);
+    -fx-padding: 25;
+    -fx-background-radius: 10;
+    -fx-border-color: #2d2d3d;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+}
+
+.trainer-stats {
+    -fx-background-color: linear-gradient(to right, rgba(107, 33, 168, 0.15) 0%, rgba(196, 30, 58, 0.15) 100%);
+    -fx-padding: 15;
+    -fx-background-radius: 8;
+    -fx-border-color: #2d2d3d;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+}
+
+.question-card {
+    -fx-background-color: linear-gradient(to bottom, #252532 0%, #1f1f2e 100%);
+    -fx-padding: 30;
+    -fx-background-radius: 12;
+    -fx-border-color: -fx-purple-accent;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(107, 33, 168, 0.2), 10, 0, 0, 3);
+    -fx-min-width: 400;
+    -fx-max-width: 900;
+}
+
+.question-type {
+    -fx-font-size: 11px;
+    -fx-text-fill: -fx-purple-bright;
+    -fx-font-weight: bold;
+}
+
+.question-text {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-text-color;
+    -fx-wrap-text: true;
+}
+
+.scenario-text {
+    -fx-font-size: 14px;
+    -fx-text-fill: -fx-text-muted;
+    -fx-wrap-text: true;
+    -fx-font-style: italic;
+}
+
+.answer-btn {
+    -fx-background-color: #1a1a24;
+    -fx-text-fill: -fx-text-color;
+    -fx-font-size: 14px;
+    -fx-padding: 15 25;
+    -fx-background-radius: 8;
+    -fx-border-color: #3d3d4d;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-cursor: hand;
+    -fx-min-width: 200;
+    -fx-alignment: center;
+    -fx-effect: none;
+}
+
+.answer-btn:hover {
+    -fx-background-color: rgba(107, 33, 168, 0.3);
+    -fx-border-color: -fx-purple-accent;
+}
+
+.answer-btn:pressed {
+    -fx-background-color: -fx-purple-accent;
+}
+
+.answer-btn.correct {
+    -fx-background-color: linear-gradient(to bottom, #22c55e 0%, #16a34a 100%);
+    -fx-border-color: #22c55e;
+    -fx-text-fill: white;
+}
+
+.answer-btn.incorrect {
+    -fx-background-color: linear-gradient(to bottom, #dc2626 0%, #b91c1c 100%);
+    -fx-border-color: #dc2626;
+    -fx-text-fill: white;
+}
+
+.answer-btn.was-correct {
+    -fx-background-color: rgba(34, 197, 94, 0.2);
+    -fx-border-color: #22c55e;
+    -fx-text-fill: #22c55e;
+}
+
+.feedback-box {
+    -fx-padding: 15;
+    -fx-background-radius: 8;
+}
+
+.feedback-correct {
+    -fx-background-color: rgba(34, 197, 94, 0.15);
+    -fx-border-color: rgba(34, 197, 94, 0.4);
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+}
+
+.feedback-incorrect {
+    -fx-background-color: rgba(239, 68, 68, 0.15);
+    -fx-border-color: rgba(239, 68, 68, 0.4);
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+}
+
+.feedback-text {
+    -fx-font-size: 14px;
+    -fx-text-fill: -fx-text-color;
+    -fx-wrap-text: true;
+}
+
+.streak-label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.streak-fire {
+    -fx-text-fill: #f97316;
+}
+
+.category-chip {
+    -fx-background-color: #252532;
+    -fx-text-fill: -fx-text-muted;
+    -fx-padding: 6 14;
+    -fx-background-radius: 15;
+    -fx-font-size: 12px;
+    -fx-cursor: hand;
+}
+
+.category-chip:hover {
+    -fx-background-color: rgba(107, 33, 168, 0.3);
+    -fx-text-fill: -fx-text-color;
+}
+
+.category-chip:selected, .category-chip.selected {
+    -fx-background-color: -fx-purple-accent;
+    -fx-text-fill: white;
+}
+
+.progress-indicator {
+    -fx-progress-color: -fx-purple-bright;
+}
+
+/* Hand display in trainer */
+.trainer-hand {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20;
+    -fx-background-radius: 8;
+}
+
+.trainer-hand.hearts, .trainer-hand.diamonds {
+    -fx-text-fill: #ef4444;
+}
+
+.trainer-hand.spades, .trainer-hand.clubs {
+    -fx-text-fill: -fx-text-color;
+}
+
+/* Position badge */
+.position-badge {
+    -fx-background-color: -fx-purple-accent;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 4 10;
+    -fx-background-radius: 4;
+}
+
+/* Difficulty selector */
+.difficulty-easy {
+    -fx-text-fill: -fx-success-color;
+}
+
+.difficulty-medium {
+    -fx-text-fill: -fx-warning-color;
+}
+
+.difficulty-hard {
+    -fx-text-fill: -fx-danger-color;
+}
+
+/* ========================================
+   SCROLLPANE DARK THEME FIX
+   Ensure all ScrollPanes have dark backgrounds
+   ======================================== */
+
+.scroll-pane {
+    -fx-background-color: -fx-primary-color;
+    -fx-background: -fx-primary-color;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: -fx-primary-color;
+}
+
+.scroll-pane > .corner {
+    -fx-background-color: -fx-primary-color;
+}
+
+/* Trainer specific scroll pane */
+.trainer-view {
+    -fx-background-color: -fx-primary-color;
+    -fx-background: -fx-primary-color;
+}
+
+.trainer-view > .viewport {
+    -fx-background-color: -fx-primary-color;
+}
+
+.trainer-view > .viewport > * {
+    -fx-background-color: -fx-primary-color;
+}
+
+/* ========================================
+   NOTES LISTVIEW ENHANCED FIX
+   Force dark theme on all ListView elements
+   ======================================== */
+
+.notes-list-section .list-view {
+    -fx-background-color: #101018;
+    -fx-background: #101018;
+    -fx-border-color: #2d2d3d;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.notes-list-section .list-view .virtual-flow {
+    -fx-background-color: #101018;
+}
+
+.notes-list-section .list-view .virtual-flow .clipped-container {
+    -fx-background-color: #101018;
+}
+
+.notes-list-section .list-view .virtual-flow .clipped-container .sheet {
+    -fx-background-color: #101018;
+}
+
+.notes-list-section .list-view .list-cell {
+    -fx-background-color: #101018;
+    -fx-text-fill: #f0f0f0;
+    -fx-padding: 10;
+}
+
+.notes-list-section .list-view .list-cell:odd {
+    -fx-background-color: #151520;
+}
+
+.notes-list-section .list-view .list-cell:hover {
+    -fx-background-color: rgba(107, 33, 168, 0.3);
+}
+
+.notes-list-section .list-view .list-cell:selected {
+    -fx-background-color: rgba(107, 33, 168, 0.5);
+    -fx-text-fill: #ffffff;
+}
+
+.notes-list-section .list-view .list-cell:empty {
+    -fx-background-color: #101018;
+}
+
+.notes-list-section .list-view .list-cell .label {
+    -fx-text-fill: #f0f0f0;
+}
+
+.notes-list-section .list-view .list-cell:selected .label {
+    -fx-text-fill: #ffffff;
+}
+
+/* Force scroll bar within list views */
+.notes-list-section .list-view .scroll-bar {
+    -fx-background-color: #101018;
+}
+
+.notes-list-section .list-view .scroll-bar .track {
+    -fx-background-color: #101018;
+}
+
+/* ========================================
+   MAIN CONTENT AREA DARK BACKGROUND
+   ======================================== */
+
+.main-content {
+    -fx-background-color: -fx-primary-color;
+}
+
+.tab-pane > .tab-content-area > * {
+    -fx-background-color: -fx-primary-color;
 }

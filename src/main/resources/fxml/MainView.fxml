@@ -20,13 +20,15 @@
     - Drag functionality to move the window
 -->
 <VBox xmlns:fx="http://javafx.com/fxml"
+      fx:id="rootPane"
       fx:controller="com.stacklogic.controller.MainController"
       styleClass="root-pane">
 
     <!-- CUSTOM TITLE BAR -->
     <HBox fx:id="titleBar" styleClass="custom-title-bar" alignment="CENTER_LEFT"
           onMousePressed="#handleTitleBarPressed"
-          onMouseDragged="#handleTitleBarDragged">
+          onMouseDragged="#handleTitleBarDragged"
+          onMouseReleased="#handleTitleBarReleased">
 
         <!-- App Icon/Logo area -->
         <HBox alignment="CENTER_LEFT" spacing="10">

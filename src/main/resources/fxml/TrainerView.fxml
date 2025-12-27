@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.geometry.Insets?>
+
+<!--
+    Trainer View - Position Awareness & Poker Concepts Quiz
+    ========================================================
+
+    This trainer tests:
+    - Position awareness (what position is X relative to Y)
+    - Preflop hand selection (should you play this hand from X)
+    - Pot odds calculations (should you call with these odds)
+    - Hand rankings (which hand beats which)
+    - Poker terminology (what does "3-bet" mean)
+    - Bet sizing (how much should you bet here)
+    - Stack depth concepts (SPR, effective stacks)
+
+    The UI shows one question at a time with multiple choice answers.
+    Tracks statistics: correct answers, streak, accuracy by category.
+-->
+<ScrollPane fitToWidth="true" fitToHeight="true"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.stacklogic.controller.TrainerController"
+            styleClass="trainer-view">
+
+    <VBox spacing="20">
+        <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+        <!-- HEADER with Title and Stats -->
+        <HBox alignment="CENTER_LEFT" spacing="20">
+            <VBox spacing="5">
+                <Label text="Position Trainer" styleClass="section-title"/>
+                <Label text="Test your poker knowledge with interactive quizzes" styleClass="placeholder-text"/>
+            </VBox>
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <!-- Quick Stats -->
+            <HBox styleClass="trainer-stats" spacing="30" alignment="CENTER">
+                <VBox alignment="CENTER" spacing="2">
+                    <Label text="Correct" styleClass="stat-label"/>
+                    <Label fx:id="correctCountLabel" text="0" styleClass="stat-value profit-positive"/>
+                </VBox>
+                <Separator orientation="VERTICAL"/>
+                <VBox alignment="CENTER" spacing="2">
+                    <Label text="Accuracy" styleClass="stat-label"/>
+                    <Label fx:id="accuracyLabel" text="0%" styleClass="stat-value"/>
+                </VBox>
+                <Separator orientation="VERTICAL"/>
+                <VBox alignment="CENTER" spacing="2">
+                    <Label text="Streak" styleClass="stat-label"/>
+                    <Label fx:id="streakLabel" text="0" styleClass="stat-value streak-fire"/>
+                </VBox>
+            </HBox>
+        </HBox>
+
+        <!-- CATEGORY FILTERS -->
+        <HBox styleClass="trainer-section" spacing="10" alignment="CENTER_LEFT">
+            <Label text="Categories:" styleClass="control-label"/>
+            <FlowPane fx:id="categoryPane" hgap="8" vgap="8">
+                <ToggleButton fx:id="categoryAll" text="All" styleClass="category-chip" selected="true"
+                              onAction="#handleCategoryChange"/>
+                <ToggleButton fx:id="categoryPosition" text="Position" styleClass="category-chip"
+                              onAction="#handleCategoryChange"/>
+                <ToggleButton fx:id="categoryRanges" text="Ranges" styleClass="category-chip"
+                              onAction="#handleCategoryChange"/>
+                <ToggleButton fx:id="categoryOdds" text="Pot Odds" styleClass="category-chip"
+                              onAction="#handleCategoryChange"/>
+                <ToggleButton fx:id="categoryHands" text="Hand Rankings" styleClass="category-chip"
+                              onAction="#handleCategoryChange"/>
+                <ToggleButton fx:id="categoryTerms" text="Terminology" styleClass="category-chip"
+                              onAction="#handleCategoryChange"/>
+                <ToggleButton fx:id="categorySizing" text="Bet Sizing" styleClass="category-chip"
+                              onAction="#handleCategoryChange"/>
+                <ToggleButton fx:id="categoryStack" text="Stack Depth" styleClass="category-chip"
+                              onAction="#handleCategoryChange"/>
+            </FlowPane>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Reset Stats" styleClass="button secondary small" onAction="#handleResetStats"/>
+        </HBox>
+
+        <!-- MAIN QUESTION AREA -->
+        <VBox fx:id="questionArea" spacing="25" alignment="CENTER" VBox.vgrow="ALWAYS">
+            <padding><Insets top="20" bottom="20" left="20" right="20"/></padding>
+
+            <!-- Question Card -->
+            <VBox fx:id="questionCard" styleClass="question-card" spacing="20"
+                  alignment="CENTER" HBox.hgrow="ALWAYS">
+
+                <!-- Question Type Badge -->
+                <HBox alignment="CENTER" spacing="10">
+                    <Label fx:id="questionTypeLabel" text="POSITION" styleClass="question-type"/>
+                    <Label fx:id="positionBadge" text="" styleClass="position-badge" managed="false" visible="false"/>
+                </HBox>
+
+                <!-- Scenario/Context (optional) -->
+                <Label fx:id="scenarioLabel" text="" styleClass="scenario-text"
+                       wrapText="true" textAlignment="CENTER" maxWidth="600"
+                       managed="false" visible="false"/>
+
+                <!-- Hand Display (for hand-related questions) -->
+                <HBox fx:id="handDisplay" alignment="CENTER" spacing="10"
+                      managed="false" visible="false">
+                    <Label fx:id="card1Label" text="A♠" styleClass="trainer-hand"/>
+                    <Label fx:id="card2Label" text="K♠" styleClass="trainer-hand"/>
+                </HBox>
+
+                <!-- Main Question -->
+                <Label fx:id="questionLabel" text="Loading question..."
+                       styleClass="question-text" wrapText="true" textAlignment="CENTER"/>
+
+                <!-- Answer Buttons -->
+                <VBox fx:id="answersBox" spacing="12" alignment="CENTER">
+                    <Button fx:id="answer1Btn" text="Answer 1" styleClass="answer-btn"
+                            onAction="#handleAnswer" maxWidth="400"/>
+                    <Button fx:id="answer2Btn" text="Answer 2" styleClass="answer-btn"
+                            onAction="#handleAnswer" maxWidth="400"/>
+                    <Button fx:id="answer3Btn" text="Answer 3" styleClass="answer-btn"
+                            onAction="#handleAnswer" maxWidth="400"/>
+                    <Button fx:id="answer4Btn" text="Answer 4" styleClass="answer-btn"
+                            onAction="#handleAnswer" maxWidth="400"/>
+                </VBox>
+
+                <!-- Feedback Area (shown after answering) -->
+                <VBox fx:id="feedbackBox" styleClass="feedback-box" spacing="10"
+                      alignment="CENTER" managed="false" visible="false" maxWidth="500">
+                    <Label fx:id="feedbackLabel" text="" styleClass="feedback-text"
+                           wrapText="true" textAlignment="CENTER"/>
+                </VBox>
+
+                <!-- Next Question Button -->
+                <Button fx:id="nextBtn" text="Next Question" styleClass="button"
+                        onAction="#handleNextQuestion" managed="false" visible="false"/>
+            </VBox>
+        </VBox>
+
+        <!-- BOTTOM TIPS SECTION -->
+        <VBox styleClass="trainer-section" spacing="10">
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Label text="Quick Tips" styleClass="subsection-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="Shuffle Tip" styleClass="button secondary small" onAction="#handleShuffleTip"/>
+            </HBox>
+            <Label fx:id="tipLabel" wrapText="true" styleClass="placeholder-text"
+                   text="Position is power in poker. Acting last gives you more information about your opponents' hands."/>
+        </VBox>
+
+    </VBox>
+</ScrollPane>

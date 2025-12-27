@@ -17,6 +17,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 /**
@@ -367,9 +368,17 @@ public class SessionController implements Initializable {
                 SessionDAO.create(session);
             }
 
+            // Calculate the session result for review
+            double profit = session.getProfit();
+            boolean wasWinningSession = profit > 0;
+            boolean wasLosingSession = profit < 0;
+
             // Refresh and clear form
             loadSessions();
             handleClear();
+
+            // Show session review prompts for reflection
+            showSessionReview(session, wasWinningSession, wasLosingSession);
 
         } catch (NumberFormatException e) {
             showError("Please enter valid numbers");
@@ -450,5 +459,116 @@ public class SessionController implements Initializable {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    /**
+     * Show session review prompts after saving.
+     * Helps the player reflect on their session and identify areas for improvement.
+     */
+    private void showSessionReview(Session session, boolean wasWinning, boolean wasLosing) {
+        Alert reviewAlert = new Alert(Alert.AlertType.INFORMATION);
+        reviewAlert.setTitle("Session Review");
+        reviewAlert.setHeaderText(wasWinning ? "Great session! +$" + String.format("%.2f", session.getProfit())
+                                             : wasLosing ? "Tough session. -$" + String.format("%.2f", Math.abs(session.getProfit()))
+                                             : "Break-even session.");
+
+        // Build review questions based on session context
+        StringBuilder review = new StringBuilder();
+
+        if (wasWinning) {
+            review.append("Take a moment to reflect on what went well:\n\n");
+            review.append("• Did you stick to your preflop ranges?\n");
+            review.append("• Were you making value bets with your strong hands?\n");
+            review.append("• Did you avoid tilting after bad beats?\n");
+            review.append("• Did position influence your decisions correctly?\n\n");
+            review.append("Remember: Results ≠ Quality of play. Review your biggest hands!");
+        } else if (wasLosing) {
+            review.append("Losing sessions happen. Reflect honestly:\n\n");
+            review.append("• Did you make any calls you knew were bad?\n");
+            review.append("• Were you playing too many hands OOP?\n");
+            review.append("• Did you chase draws without proper odds?\n");
+            review.append("• Did tilt affect your decisions after losses?\n");
+            review.append("• Were you paying attention or distracted?\n\n");
+            review.append("Tip: Save your biggest losing hands for later review!");
+        } else {
+            review.append("Break-even sessions can be valuable:\n\n");
+            review.append("• Were there spots where you could have extracted more value?\n");
+            review.append("• Did you miss any bluff opportunities?\n");
+            review.append("• Were your bet sizes optimal?\n\n");
+            review.append("Small adjustments can turn break-even into profit!");
+        }
+
+        // Add context-specific tips based on tags
+        String tags = session.getTags() != null ? session.getTags() : "";
+
+        if (tags.contains("Tilted")) {
+            review.append("\n\n⚠️ You marked this session as TILTED.\n");
+            review.append("Consider: What triggered it? How can you prevent it next time?\n");
+            review.append("Maybe implement a stop-loss rule for future sessions.");
+        }
+
+        if (tags.contains("Tired")) {
+            review.append("\n\n⚠️ You marked this session as TIRED.\n");
+            review.append("Playing tired hurts your decision making. Consider shorter sessions");
+            review.append(" or scheduling play when you're more alert.");
+        }
+
+        if (tags.contains("A-game")) {
+            review.append("\n\n✓ You felt like you played your A-game!\n");
+            review.append("What conditions helped? Try to recreate them next session.");
+        }
+
+        if (tags.contains("Ran Bad")) {
+            review.append("\n\nYou felt like variance was against you.\n");
+            review.append("That's poker! Focus on what you can control: your decisions.");
+        }
+
+        if (tags.contains("Ran Good")) {
+            review.append("\n\nYou felt like variance was on your side.\n");
+            review.append("Don't let this mask any mistakes - review your hands anyway!");
+        }
+
+        reviewAlert.setContentText(review.toString());
+
+        // Style the dialog
+        DialogPane dialogPane = reviewAlert.getDialogPane();
+        dialogPane.setMinWidth(500);
+        dialogPane.setMinHeight(400);
+
+        // Apply dark theme to dialog
+        dialogPane.setStyle(
+            "-fx-background-color: #1a1a24; " +
+            "-fx-font-size: 13px;"
+        );
+        dialogPane.lookup(".content").setStyle("-fx-text-fill: #f0f0f0;");
+        dialogPane.lookup(".header-panel").setStyle(
+            "-fx-background-color: #252532; " +
+            "-fx-text-fill: " + (wasWinning ? "#22c55e" : wasLosing ? "#ef4444" : "#f0f0f0") + ";"
+        );
+
+        // Add "Skip Reviews" button option
+        ButtonType skipButton = new ButtonType("Got it!", ButtonBar.ButtonData.OK_DONE);
+        ButtonType reviewHandsButton = new ButtonType("Review in Notes", ButtonBar.ButtonData.LEFT);
+        reviewAlert.getButtonTypes().setAll(reviewHandsButton, skipButton);
+
+        Optional<ButtonType> result = reviewAlert.showAndWait();
+
+        // If user wants to review, switch to notes tab (if we had tab access)
+        // For now, just acknowledge
+        if (result.isPresent() && result.get() == reviewHandsButton) {
+            // Could implement tab switching here in the future
+            Alert notePrompt = new Alert(Alert.AlertType.INFORMATION);
+            notePrompt.setTitle("Add to Notes");
+            notePrompt.setHeaderText("Session notes tip:");
+            notePrompt.setContentText(
+                "Go to the Notes tab to write down:\n\n" +
+                "• Hands where you were unsure of the right play\n" +
+                "• Patterns you noticed in opponents\n" +
+                "• Leaks you want to work on\n" +
+                "• Concepts to study before next session"
+            );
+            notePrompt.getDialogPane().setStyle("-fx-background-color: #1a1a24;");
+            notePrompt.showAndWait();
+        }
     }
 }
