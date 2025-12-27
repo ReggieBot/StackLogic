@@ -1,0 +1,30 @@
+{
+  "name": "BTN vs CO Raise",
+  "position": "BTN",
+  "situation": "vs CO",
+  "hands": {
+    "raise": [],
+    "call": [
+      "TT", "99", "88", "77", "66", "55", "44",
+      "AJs", "ATs", "A9s", "A8s", "A7s", "A6s", "A5s", "A4s", "A3s", "A2s",
+      "KQs", "KJs", "KTs", "K9s",
+      "QJs", "QTs", "Q9s",
+      "JTs", "J9s", "J8s",
+      "T9s", "T8s",
+      "98s", "97s",
+      "87s", "86s",
+      "76s", "75s",
+      "65s", "64s",
+      "54s", "53s",
+      "43s",
+      "AJo", "ATo",
+      "KQo", "KJo",
+      "QJo"
+    ],
+    "3bet": [
+      "AA", "KK", "QQ", "JJ",
+      "AKs", "AQs",
+      "AKo", "AQo"
+    ]
+  }
+}

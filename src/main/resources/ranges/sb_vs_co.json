@@ -1,0 +1,25 @@
+{
+  "name": "SB vs CO Raise",
+  "position": "SB",
+  "situation": "vs CO",
+  "hands": {
+    "raise": [],
+    "call": [
+      "TT", "99", "88", "77",
+      "AJs", "ATs", "A9s",
+      "KQs", "KJs", "KTs",
+      "QJs", "QTs",
+      "JTs", "J9s",
+      "T9s",
+      "98s",
+      "87s",
+      "76s"
+    ],
+    "3bet": [
+      "AA", "KK", "QQ", "JJ",
+      "AKs", "AQs",
+      "A5s", "A4s",
+      "AKo", "AQo"
+    ]
+  }
+}

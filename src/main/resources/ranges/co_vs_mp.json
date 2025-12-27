@@ -1,0 +1,25 @@
+{
+  "name": "CO vs MP Raise",
+  "position": "CO",
+  "situation": "vs MP",
+  "hands": {
+    "raise": [],
+    "call": [
+      "TT", "99", "88", "77", "66",
+      "AQs", "AJs", "ATs", "A9s",
+      "KQs", "KJs", "KTs",
+      "QJs", "QTs",
+      "JTs", "J9s",
+      "T9s",
+      "98s",
+      "87s",
+      "76s",
+      "65s"
+    ],
+    "3bet": [
+      "AA", "KK", "QQ", "JJ",
+      "AKs",
+      "AKo"
+    ]
+  }
+}

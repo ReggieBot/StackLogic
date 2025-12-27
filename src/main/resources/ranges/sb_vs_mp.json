@@ -1,0 +1,21 @@
+{
+  "name": "SB vs MP Raise",
+  "position": "SB",
+  "situation": "vs MP",
+  "hands": {
+    "raise": [],
+    "call": [
+      "TT", "99", "88",
+      "AQs", "AJs",
+      "KQs", "KJs",
+      "QJs",
+      "JTs",
+      "T9s"
+    ],
+    "3bet": [
+      "AA", "KK", "QQ", "JJ",
+      "AKs",
+      "AKo"
+    ]
+  }
+}

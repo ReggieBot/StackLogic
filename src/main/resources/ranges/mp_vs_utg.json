@@ -1,0 +1,20 @@
+{
+  "name": "MP vs UTG Raise",
+  "position": "MP",
+  "situation": "vs UTG",
+  "hands": {
+    "raise": [],
+    "call": [
+      "TT", "99", "88",
+      "AQs", "AJs",
+      "KQs",
+      "QJs",
+      "JTs"
+    ],
+    "3bet": [
+      "AA", "KK", "QQ", "JJ",
+      "AKs",
+      "AKo"
+    ]
+  }
+}

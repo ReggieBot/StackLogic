@@ -1,0 +1,28 @@
+{
+  "name": "BTN vs MP Raise",
+  "position": "BTN",
+  "situation": "vs MP",
+  "hands": {
+    "raise": [],
+    "call": [
+      "JJ", "TT", "99", "88", "77", "66", "55",
+      "AQs", "AJs", "ATs", "A9s", "A5s",
+      "KQs", "KJs", "KTs",
+      "QJs", "QTs",
+      "JTs", "J9s",
+      "T9s", "T8s",
+      "98s", "97s",
+      "87s", "86s",
+      "76s", "75s",
+      "65s", "64s",
+      "54s",
+      "AQo", "AJo"
+    ],
+    "3bet": [
+      "AA", "KK", "QQ",
+      "AKs",
+      "A4s",
+      "AKo"
+    ]
+  }
+}

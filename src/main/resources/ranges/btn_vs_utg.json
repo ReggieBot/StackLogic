@@ -1,0 +1,26 @@
+{
+  "name": "BTN vs UTG Raise",
+  "position": "BTN",
+  "situation": "vs UTG",
+  "hands": {
+    "raise": [],
+    "call": [
+      "JJ", "TT", "99", "88", "77", "66",
+      "AQs", "AJs", "ATs",
+      "KQs", "KJs",
+      "QJs",
+      "JTs",
+      "T9s",
+      "98s",
+      "87s",
+      "76s",
+      "65s",
+      "AQo"
+    ],
+    "3bet": [
+      "AA", "KK", "QQ",
+      "AKs",
+      "AKo"
+    ]
+  }
+}
