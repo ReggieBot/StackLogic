@@ -560,6 +560,29 @@
     -fx-background-color: #2d2d3d;
 }
 
+/* Quick equity shortcut buttons */
+.equity-btn {
+    -fx-background-color: #252532;
+    -fx-text-fill: -fx-text-color;
+    -fx-font-size: 11px;
+    -fx-padding: 5 10;
+    -fx-background-radius: 4;
+    -fx-border-color: #3d3d4d;
+    -fx-border-radius: 4;
+    -fx-border-width: 1;
+    -fx-cursor: hand;
+    -fx-effect: none;
+}
+
+.equity-btn:hover {
+    -fx-background-color: rgba(107, 33, 168, 0.4);
+    -fx-border-color: -fx-purple-accent;
+}
+
+.equity-btn:pressed {
+    -fx-background-color: -fx-purple-accent;
+}
+
 /* ========================================
    SESSION TRACKER STYLES
    ======================================== */
@@ -963,4 +986,175 @@
 
 .note-editor:focused {
     -fx-border-color: -fx-purple-accent;
+}
+
+/* ========================================
+   LISTVIEW STYLING (Notes list, etc.)
+   ======================================== */
+
+.list-view {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.list-view .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: -fx-text-color;
+    -fx-padding: 8 10;
+}
+
+.list-view .list-cell:odd {
+    -fx-background-color: rgba(255, 255, 255, 0.02);
+}
+
+.list-view .list-cell:hover {
+    -fx-background-color: rgba(107, 33, 168, 0.2);
+}
+
+.list-view .list-cell:selected {
+    -fx-background-color: rgba(107, 33, 168, 0.4);
+    -fx-text-fill: -fx-text-color;
+}
+
+.list-view .list-cell:selected:hover {
+    -fx-background-color: rgba(107, 33, 168, 0.5);
+}
+
+.list-view .list-cell:empty {
+    -fx-background-color: transparent;
+}
+
+/* Fix the virtual flow (scrollable area) background */
+.list-view .virtual-flow .clipped-container .sheet .list-cell {
+    -fx-background-color: transparent;
+}
+
+/* ========================================
+   FOCUS INDICATOR REMOVAL
+   Remove ugly blue focus outlines everywhere
+   ======================================== */
+
+.focus-indicator {
+    -fx-border-color: transparent;
+}
+
+* {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.tab:focused {
+    -fx-background-color: transparent;
+}
+
+.tab-pane:focused > .tab-header-area > .headers-region > .tab:selected {
+    -fx-background-color: linear-gradient(to bottom, #252532 0%, #1a1a24 100%);
+}
+
+.button:focused {
+    -fx-background-insets: 0;
+}
+
+.text-field:focused, .text-area:focused, .combo-box:focused {
+    -fx-background-insets: 0;
+}
+
+/* ========================================
+   DATEPICKER FULL DARK THEME
+   ======================================== */
+
+.date-picker {
+    -fx-background-color: #101018;
+    -fx-border-color: #2d2d3d;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.date-picker .text-field {
+    -fx-background-color: transparent;
+    -fx-text-fill: -fx-text-color;
+    -fx-prompt-text-fill: -fx-text-muted;
+}
+
+.date-picker .arrow-button {
+    -fx-background-color: #1a1a24;
+    -fx-border-color: #2d2d3d;
+    -fx-border-width: 0 0 0 1;
+}
+
+.date-picker .arrow-button .arrow {
+    -fx-background-color: -fx-text-muted;
+}
+
+.date-picker-popup {
+    -fx-background-color: #1a1a24;
+    -fx-border-color: -fx-purple-accent;
+    -fx-border-width: 1;
+}
+
+.date-picker-popup > .month-year-pane {
+    -fx-background-color: #1f1f2e;
+}
+
+.date-picker-popup > .month-year-pane > .spinner > .button {
+    -fx-background-color: transparent;
+}
+
+.date-picker-popup > .month-year-pane > .spinner > .button > .left-arrow,
+.date-picker-popup > .month-year-pane > .spinner > .button > .right-arrow {
+    -fx-background-color: -fx-text-color;
+}
+
+.date-picker-popup > .month-year-pane > .spinner > .label {
+    -fx-text-fill: -fx-text-color;
+    -fx-font-weight: bold;
+}
+
+.date-picker-popup > .calendar-grid {
+    -fx-background-color: #1a1a24;
+}
+
+.date-picker-popup > .calendar-grid > .week-number-cell {
+    -fx-background-color: #151520;
+    -fx-text-fill: -fx-text-muted;
+}
+
+.date-picker-popup > .calendar-grid > .day-name-cell {
+    -fx-background-color: #1f1f2e;
+    -fx-text-fill: -fx-text-muted;
+    -fx-font-size: 11px;
+}
+
+.date-picker-popup > .calendar-grid > .day-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: -fx-text-color;
+    -fx-padding: 5;
+}
+
+.date-picker-popup > .calendar-grid > .day-cell:hover {
+    -fx-background-color: rgba(107, 33, 168, 0.4);
+}
+
+.date-picker-popup > .calendar-grid > .selected {
+    -fx-background-color: -fx-purple-accent;
+    -fx-text-fill: white;
+}
+
+.date-picker-popup > .calendar-grid > .today {
+    -fx-background-color: rgba(196, 30, 58, 0.3);
+    -fx-text-fill: -fx-text-color;
+}
+
+.date-picker-popup > .calendar-grid > .today.selected {
+    -fx-background-color: -fx-accent-color;
+    -fx-text-fill: white;
+}
+
+.date-picker-popup > .calendar-grid > .day-cell.outside-month {
+    -fx-text-fill: #555;
+}
+
+.date-picker-popup > .calendar-grid > .day-cell.outside-month:hover {
+    -fx-background-color: rgba(107, 33, 168, 0.2);
 }

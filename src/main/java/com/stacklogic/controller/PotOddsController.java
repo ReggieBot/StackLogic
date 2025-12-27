@@ -258,6 +258,92 @@ public class PotOddsController implements Initializable {
         );
     }
 
+    // ========================================
+    // EQUITY SHORTCUT HANDLERS
+    // These set common equity values for typical poker situations
+    // ========================================
+
+    /**
+     * Flush draw: 9 outs = ~35% equity (turn + river)
+     */
+    @FXML
+    private void handleEquityFlushDraw() {
+        setEquity(35);
+    }
+
+    /**
+     * Open-ended straight draw: 8 outs = ~32% equity
+     */
+    @FXML
+    private void handleEquityOESD() {
+        setEquity(32);
+    }
+
+    /**
+     * Gutshot straight draw: 4 outs = ~17% equity
+     */
+    @FXML
+    private void handleEquityGutshot() {
+        setEquity(17);
+    }
+
+    /**
+     * Two overcards: 6 outs = ~24% equity
+     */
+    @FXML
+    private void handleEquityOvercards() {
+        setEquity(24);
+    }
+
+    /**
+     * Flush draw + gutshot: 12 outs = ~45% equity
+     */
+    @FXML
+    private void handleEquityFlushGutshot() {
+        setEquity(45);
+    }
+
+    /**
+     * Combo draw (flush + OESD): 15 outs = ~54% equity
+     */
+    @FXML
+    private void handleEquityCombo() {
+        setEquity(54);
+    }
+
+    /**
+     * Top pair good kicker: ~70% vs random hand
+     */
+    @FXML
+    private void handleEquityTopPair() {
+        setEquity(70);
+    }
+
+    /**
+     * Overpair: ~80% vs random hand
+     */
+    @FXML
+    private void handleEquityOverpair() {
+        setEquity(80);
+    }
+
+    /**
+     * Set (three of a kind): ~90% vs random hand
+     */
+    @FXML
+    private void handleEquitySet() {
+        setEquity(90);
+    }
+
+    /**
+     * Helper method to set equity value and auto-calculate.
+     */
+    private void setEquity(int value) {
+        equitySlider.setValue(value);
+        equityField.setText(String.valueOf(value));
+        autoCalculate();
+    }
+
     /**
      * Handle Clear button click.
      */

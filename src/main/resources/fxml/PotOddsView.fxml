@@ -3,11 +3,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.ColumnConstraints?>
 
@@ -67,6 +69,23 @@
                            styleClass="number-input-small" prefWidth="60"/>
                 <Label text="\%" styleClass="small-label"/>
             </HBox>
+        </VBox>
+
+        <!-- Quick Equity Shortcuts -->
+        <VBox spacing="8">
+            <Label text="Quick Equity (vs random hand)" styleClass="small-label"/>
+            <FlowPane hgap="6" vgap="6" prefWrapLength="300">
+                <Button text="Flush Draw" onAction="#handleEquityFlushDraw" styleClass="equity-btn"/>
+                <Button text="OESD" onAction="#handleEquityOESD" styleClass="equity-btn"/>
+                <Button text="Gutshot" onAction="#handleEquityGutshot" styleClass="equity-btn"/>
+                <Button text="2 Overs" onAction="#handleEquityOvercards" styleClass="equity-btn"/>
+                <Button text="Flush+GS" onAction="#handleEquityFlushGutshot" styleClass="equity-btn"/>
+                <Button text="Combo" onAction="#handleEquityCombo" styleClass="equity-btn"/>
+                <Button text="Top Pair" onAction="#handleEquityTopPair" styleClass="equity-btn"/>
+                <Button text="Overpair" onAction="#handleEquityOverpair" styleClass="equity-btn"/>
+                <Button text="Set" onAction="#handleEquitySet" styleClass="equity-btn"/>
+            </FlowPane>
+            <Label text="Flush=35\% OESD=32\% GS=17\% Combo=54\%" styleClass="note-date" wrapText="true"/>
         </VBox>
 
         <Separator/>
