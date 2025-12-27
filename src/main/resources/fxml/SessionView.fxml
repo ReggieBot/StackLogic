@@ -74,11 +74,11 @@
                 <!-- Buy-in and Cash-out Row -->
                 <HBox spacing="15">
                     <VBox spacing="5" HBox.hgrow="ALWAYS">
-                        <Label text="Buy-in ($)" styleClass="form-label"/>
+                        <Label text="Buy-in (\$)" styleClass="form-label"/>
                         <TextField fx:id="buyInField" promptText="e.g., 2.00"/>
                     </VBox>
                     <VBox spacing="5" HBox.hgrow="ALWAYS">
-                        <Label text="Cash-out ($)" styleClass="form-label"/>
+                        <Label text="Cash-out (\$)" styleClass="form-label"/>
                         <TextField fx:id="cashOutField" promptText="e.g., 5.50"/>
                     </VBox>
                 </HBox>
@@ -86,7 +86,7 @@
                 <!-- Profit Display -->
                 <HBox spacing="10" alignment="CENTER_LEFT" styleClass="profit-display">
                     <Label text="Profit/Loss:"/>
-                    <Label fx:id="profitLabel" text="$0.00" styleClass="profit-value"/>
+                    <Label fx:id="profitLabel" text="\$0.00" styleClass="profit-value"/>
                 </HBox>
 
                 <!-- BB Won (optional) -->
@@ -140,11 +140,11 @@
             </VBox>
             <VBox alignment="CENTER" styleClass="stat-box">
                 <Label text="Total Profit" styleClass="stat-label"/>
-                <Label fx:id="statTotalProfit" text="$0.00" styleClass="stat-value"/>
+                <Label fx:id="statTotalProfit" text="\$0.00" styleClass="stat-value"/>
             </VBox>
             <VBox alignment="CENTER" styleClass="stat-box">
                 <Label text="Hourly Rate" styleClass="stat-label"/>
-                <Label fx:id="statHourlyRate" text="$0.00/hr" styleClass="stat-value"/>
+                <Label fx:id="statHourlyRate" text="\$0.00/hr" styleClass="stat-value"/>
             </VBox>
             <VBox alignment="CENTER" styleClass="stat-box">
                 <Label text="Hours Played" styleClass="stat-label"/>

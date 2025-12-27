@@ -26,7 +26,7 @@
         <!-- Current Bankroll -->
         <VBox alignment="CENTER" spacing="5" styleClass="bankroll-main">
             <Label text="Current Bankroll" styleClass="overview-label"/>
-            <Label fx:id="currentBankrollLabel" text="$0.00" styleClass="bankroll-amount"/>
+            <Label fx:id="currentBankrollLabel" text="\$0.00" styleClass="bankroll-amount"/>
         </VBox>
 
         <Separator orientation="VERTICAL"/>
@@ -36,15 +36,15 @@
             <HBox spacing="20">
                 <VBox alignment="CENTER" styleClass="breakdown-item">
                     <Label text="Total Deposits" styleClass="breakdown-label"/>
-                    <Label fx:id="totalDepositsLabel" text="$0.00" styleClass="breakdown-value deposit"/>
+                    <Label fx:id="totalDepositsLabel" text="\$0.00" styleClass="breakdown-value deposit"/>
                 </VBox>
                 <VBox alignment="CENTER" styleClass="breakdown-item">
                     <Label text="Total Withdrawals" styleClass="breakdown-label"/>
-                    <Label fx:id="totalWithdrawalsLabel" text="$0.00" styleClass="breakdown-value withdrawal"/>
+                    <Label fx:id="totalWithdrawalsLabel" text="\$0.00" styleClass="breakdown-value withdrawal"/>
                 </VBox>
                 <VBox alignment="CENTER" styleClass="breakdown-item">
                     <Label text="Session Profit" styleClass="breakdown-label"/>
-                    <Label fx:id="sessionProfitLabel" text="$0.00" styleClass="breakdown-value"/>
+                    <Label fx:id="sessionProfitLabel" text="\$0.00" styleClass="breakdown-value"/>
                 </VBox>
             </HBox>
         </VBox>
@@ -84,7 +84,7 @@
 
             <!-- Amount -->
             <VBox spacing="5">
-                <Label text="Amount ($)" styleClass="form-label"/>
+                <Label text="Amount (\$)" styleClass="form-label"/>
                 <TextField fx:id="amountField" promptText="e.g., 50.00"/>
             </VBox>
 
@@ -122,12 +122,12 @@
     <VBox spacing="10" styleClass="stakes-guide">
         <Label text="Bankroll Requirements (25 Buy-in Rule)" styleClass="subsection-title"/>
         <HBox spacing="15" alignment="CENTER">
-            <Label fx:id="stake2NL" text="2NL: $50" styleClass="stake-requirement"/>
-            <Label fx:id="stake5NL" text="5NL: $125" styleClass="stake-requirement"/>
-            <Label fx:id="stake10NL" text="10NL: $250" styleClass="stake-requirement"/>
-            <Label fx:id="stake25NL" text="25NL: $625" styleClass="stake-requirement"/>
-            <Label fx:id="stake50NL" text="50NL: $1,250" styleClass="stake-requirement"/>
-            <Label fx:id="stake100NL" text="100NL: $2,500" styleClass="stake-requirement"/>
+            <Label fx:id="stake2NL" text="2NL: \$50" styleClass="stake-requirement"/>
+            <Label fx:id="stake5NL" text="5NL: \$125" styleClass="stake-requirement"/>
+            <Label fx:id="stake10NL" text="10NL: \$250" styleClass="stake-requirement"/>
+            <Label fx:id="stake25NL" text="25NL: \$625" styleClass="stake-requirement"/>
+            <Label fx:id="stake50NL" text="50NL: \$1,250" styleClass="stake-requirement"/>
+            <Label fx:id="stake100NL" text="100NL: \$2,500" styleClass="stake-requirement"/>
         </HBox>
     </VBox>
 

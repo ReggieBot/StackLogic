@@ -33,7 +33,7 @@
         <VBox spacing="8">
             <Label text="Pot Size (before villain bets)" styleClass="input-label"/>
             <HBox spacing="10" alignment="CENTER_LEFT">
-                <Label text="$$" styleClass="currency-symbol"/>
+                <Label text="\$" styleClass="currency-symbol"/>
                 <TextField fx:id="potSizeField" promptText="e.g., 10.00"
                            styleClass="number-input" prefWidth="150"/>
             </HBox>
@@ -43,7 +43,7 @@
         <VBox spacing="8">
             <Label text="Villain's Bet/Raise" styleClass="input-label"/>
             <HBox spacing="10" alignment="CENTER_LEFT">
-                <Label text="$$" styleClass="currency-symbol"/>
+                <Label text="\$" styleClass="currency-symbol"/>
                 <TextField fx:id="villainBetField" promptText="e.g., 5.00"
                            styleClass="number-input" prefWidth="150"/>
             </HBox>
@@ -65,7 +65,7 @@
                 <Label text="Or enter manually:" styleClass="small-label"/>
                 <TextField fx:id="equityField" promptText="50"
                            styleClass="number-input-small" prefWidth="60"/>
-                <Label text="%" styleClass="small-label"/>
+                <Label text="\%" styleClass="small-label"/>
             </HBox>
         </VBox>
 
