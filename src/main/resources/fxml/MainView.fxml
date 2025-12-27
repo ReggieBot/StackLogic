@@ -84,10 +84,7 @@
             </Tab>
 
             <Tab text="Pot Odds" closable="false">
-                <VBox alignment="CENTER" spacing="10">
-                    <Label text="Pot Odds Calculator" styleClass="section-title"/>
-                    <Label text="Coming soon..." styleClass="placeholder-text"/>
-                </VBox>
+                <fx:include source="PotOddsView.fxml"/>
             </Tab>
 
             <Tab text="Sessions" closable="false">
