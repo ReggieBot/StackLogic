@@ -411,6 +411,8 @@
     -fx-min-height: 22;
     -fx-max-width: 22;
     -fx-max-height: 22;
+    -fx-pref-width: 22;
+    -fx-pref-height: 22;
     -fx-background-radius: 4;
 }
 
