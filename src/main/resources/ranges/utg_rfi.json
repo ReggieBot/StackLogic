@@ -1,0 +1,22 @@
+{
+  "name": "UTG RFI",
+  "position": "UTG",
+  "situation": "RFI",
+  "hands": {
+    "raise": [
+      "AA", "KK", "QQ", "JJ", "TT", "99", "88", "77",
+      "AKs", "AQs", "AJs", "ATs",
+      "KQs", "KJs",
+      "QJs",
+      "JTs",
+      "T9s",
+      "98s",
+      "87s",
+      "76s",
+      "65s",
+      "AKo", "AQo", "AJo"
+    ],
+    "call": [],
+    "3bet": []
+  }
+}

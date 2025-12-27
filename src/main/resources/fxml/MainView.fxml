@@ -79,10 +79,8 @@
             -->
 
             <Tab text="Preflop Ranges" closable="false">
-                <VBox alignment="CENTER" spacing="10">
-                    <Label text="Preflop Range Viewer" styleClass="section-title"/>
-                    <Label text="Coming soon..." styleClass="placeholder-text"/>
-                </VBox>
+                <!-- fx:include loads another FXML file inside this tab -->
+                <fx:include source="RangeView.fxml"/>
             </Tab>
 
             <Tab text="Pot Odds" closable="false">
