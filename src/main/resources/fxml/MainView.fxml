@@ -39,6 +39,10 @@
                 <fx:include source="PotOddsView.fxml"/>
             </Tab>
 
+            <Tab text="Equity" closable="false">
+                <fx:include source="EquityView.fxml"/>
+            </Tab>
+
             <Tab text="Sessions" closable="false">
                 <fx:include source="SessionView.fxml"/>
             </Tab>

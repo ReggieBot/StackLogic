@@ -216,6 +216,11 @@ public class ChartsController implements Initializable {
     /**
      * Update the profit over time line chart.
      * Shows cumulative profit progression.
+     *
+     * SMOOTHING APPROACH:
+     * - Aggregate multiple sessions on the same date
+     * - This reduces noise and creates a cleaner line
+     * - For many data points, we sample to avoid overcrowding the X-axis
      */
     private void updateProfitChart(List<Session> sessions) {
         profitChart.getData().clear();
@@ -227,18 +232,59 @@ public class ChartsController implements Initializable {
         // Sort sessions by date
         sessions.sort((a, b) -> a.getDate().compareTo(b.getDate()));
 
+        // Aggregate sessions by date (sum same-day sessions)
+        Map<LocalDate, Double> dailyProfit = new java.util.LinkedHashMap<>();
+        for (Session session : sessions) {
+            dailyProfit.merge(session.getDate(), session.getProfit(), Double::sum);
+        }
+
+        // Convert to cumulative profit list
+        List<Map.Entry<LocalDate, Double>> entries = new ArrayList<>(dailyProfit.entrySet());
+
         // Create series for cumulative profit
         XYChart.Series<String, Number> series = new XYChart.Series<>();
         series.setName("Profit");
 
         double cumulativeProfit = 0;
-        for (Session session : sessions) {
-            cumulativeProfit += session.getProfit();
-            String dateStr = session.getDate().format(DATE_FORMAT);
-            series.getData().add(new XYChart.Data<>(dateStr, cumulativeProfit));
+        double minProfit = 0;
+        double maxProfit = 0;
+
+        // If we have many data points, sample to keep chart readable
+        int totalPoints = entries.size();
+        int maxDisplayPoints = 30;  // Maximum points to show for smooth appearance
+        int step = Math.max(1, totalPoints / maxDisplayPoints);
+
+        for (int i = 0; i < entries.size(); i++) {
+            Map.Entry<LocalDate, Double> entry = entries.get(i);
+            cumulativeProfit += entry.getValue();
+
+            // Track min/max for axis scaling
+            minProfit = Math.min(minProfit, cumulativeProfit);
+            maxProfit = Math.max(maxProfit, cumulativeProfit);
+
+            // Add point if it's a sample point, or the last point
+            if (i % step == 0 || i == entries.size() - 1) {
+                String dateStr = entry.getKey().format(DATE_FORMAT);
+                series.getData().add(new XYChart.Data<>(dateStr, cumulativeProfit));
+            }
         }
 
         profitChart.getData().add(series);
+
+        // Configure Y-axis for smoother scaling
+        double range = maxProfit - minProfit;
+        double padding = range * 0.1;  // 10% padding
+        if (range < 10) {
+            padding = 5;  // Minimum padding for small ranges
+        }
+
+        profitChartYAxis.setAutoRanging(false);
+        profitChartYAxis.setLowerBound(Math.floor((minProfit - padding) / 10) * 10);
+        profitChartYAxis.setUpperBound(Math.ceil((maxProfit + padding) / 10) * 10);
+
+        // Calculate nice tick unit
+        double tickUnit = calculateTickUnit(range);
+        profitChartYAxis.setTickUnit(tickUnit);
 
         // Style the line based on final profit
         if (cumulativeProfit >= 0) {
@@ -246,6 +292,34 @@ public class ChartsController implements Initializable {
         } else {
             series.getNode().setStyle("-fx-stroke: #ef4444;");
         }
+    }
+
+    /**
+     * Calculate a nice tick unit for the axis based on the data range.
+     */
+    private double calculateTickUnit(double range) {
+        if (range <= 0) return 10;
+
+        // Find a nice round number for tick spacing
+        double roughTickCount = 5;  // Aim for about 5 ticks
+        double roughTickSize = range / roughTickCount;
+
+        // Round to a nice number (1, 2, 5, 10, 20, 50, 100, etc.)
+        double magnitude = Math.pow(10, Math.floor(Math.log10(roughTickSize)));
+        double residual = roughTickSize / magnitude;
+
+        double niceTickSize;
+        if (residual <= 1.5) {
+            niceTickSize = magnitude;
+        } else if (residual <= 3) {
+            niceTickSize = 2 * magnitude;
+        } else if (residual <= 7) {
+            niceTickSize = 5 * magnitude;
+        } else {
+            niceTickSize = 10 * magnitude;
+        }
+
+        return Math.max(1, niceTickSize);
     }
 
     /**

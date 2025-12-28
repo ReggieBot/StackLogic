@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.Region?>
+
+<!--
+    Equity Calculator Layout
+    ========================
+    Left side: Card selection (Hero, Villain/Range, Board)
+    Right side: Results display with equity bars
+-->
+<HBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.stacklogic.controller.EquityController"
+      spacing="30"
+      alignment="TOP_CENTER"
+      styleClass="equity-view">
+
+    <padding><Insets top="20" right="30" bottom="20" left="30"/></padding>
+
+    <!-- LEFT SIDE: Card Selection -->
+    <VBox spacing="20" styleClass="input-section" minWidth="500">
+        <Label text="Equity Calculator" styleClass="section-title"/>
+
+        <!-- Hero Hand Selection -->
+        <VBox spacing="10">
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Your Hand" styleClass="input-label"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="Clear" onAction="#handleClearHero" styleClass="button small secondary"/>
+            </HBox>
+            <HBox fx:id="heroCardsDisplay" spacing="8" alignment="CENTER_LEFT" styleClass="cards-display">
+                <Label text="Click cards below to select" styleClass="placeholder-text"/>
+            </HBox>
+        </VBox>
+
+        <!-- Villain Selection Mode -->
+        <VBox spacing="10">
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Villain" styleClass="input-label"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <ToggleButton fx:id="villainModeToggle" text="Specific Hand"
+                              onAction="#handleVillainModeToggle" styleClass="mode-toggle"/>
+                <Button text="Clear" onAction="#handleClearVillain" styleClass="button small secondary"/>
+            </HBox>
+
+            <!-- Villain Specific Hand -->
+            <HBox fx:id="villainCardsDisplay" spacing="8" alignment="CENTER_LEFT" styleClass="cards-display">
+                <Label text="Click cards below to select" styleClass="placeholder-text"/>
+            </HBox>
+
+            <!-- Villain Range Selection (hidden by default) -->
+            <VBox fx:id="villainRangeSection" spacing="8" visible="false" managed="false">
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Position:" styleClass="small-label"/>
+                    <ComboBox fx:id="villainPositionCombo" promptText="Select position"/>
+                    <Label text="Situation:" styleClass="small-label"/>
+                    <ComboBox fx:id="villainSituationCombo" promptText="Select situation"/>
+                </HBox>
+                <Label fx:id="rangeInfoLabel" text="No range selected" styleClass="note-date"/>
+            </VBox>
+        </VBox>
+
+        <Separator/>
+
+        <!-- Board Selection -->
+        <VBox spacing="10">
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Board" styleClass="input-label"/>
+                <Label fx:id="boardStageLabel" text="(Preflop)" styleClass="small-label"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="Clear" onAction="#handleClearBoard" styleClass="button small secondary"/>
+            </HBox>
+            <HBox fx:id="boardCardsDisplay" spacing="8" alignment="CENTER_LEFT" styleClass="cards-display">
+                <Label text="Click cards below to add board cards" styleClass="placeholder-text"/>
+            </HBox>
+        </VBox>
+
+        <Separator/>
+
+        <!-- Card Picker Grid -->
+        <VBox spacing="8">
+            <Label text="Select Cards" styleClass="input-label"/>
+            <Label fx:id="selectingLabel" text="Selecting for: Hero" styleClass="small-label selecting-indicator"/>
+            <GridPane fx:id="cardPickerGrid" hgap="2" vgap="2" styleClass="card-picker"/>
+        </VBox>
+
+        <!-- Selection Mode Buttons -->
+        <HBox spacing="10" alignment="CENTER">
+            <Button fx:id="selectHeroBtn" text="Select Hero" onAction="#handleSelectHero" styleClass="select-mode-btn active"/>
+            <Button fx:id="selectVillainBtn" text="Select Villain" onAction="#handleSelectVillain" styleClass="select-mode-btn"/>
+            <Button fx:id="selectBoardBtn" text="Select Board" onAction="#handleSelectBoard" styleClass="select-mode-btn"/>
+        </HBox>
+
+        <!-- Calculate Button -->
+        <HBox spacing="15" alignment="CENTER">
+            <Button text="Calculate Equity" onAction="#handleCalculate" styleClass="button"/>
+            <Button text="Clear All" onAction="#handleClearAll" styleClass="button secondary"/>
+        </HBox>
+
+    </VBox>
+
+    <!-- Vertical Separator -->
+    <Separator orientation="VERTICAL"/>
+
+    <!-- RIGHT SIDE: Results -->
+    <VBox spacing="20" styleClass="results-section" minWidth="320">
+        <Label text="Results" styleClass="section-title"/>
+
+        <!-- Loading Indicator -->
+        <StackPane fx:id="loadingPane" visible="false" managed="false">
+            <VBox spacing="10" alignment="CENTER">
+                <ProgressIndicator/>
+                <Label text="Calculating..." styleClass="small-label"/>
+            </VBox>
+        </StackPane>
+
+        <!-- Equity Display -->
+        <VBox fx:id="resultsPane" spacing="15">
+
+            <!-- Hero Equity -->
+            <VBox spacing="8" styleClass="equity-box hero-equity">
+                <Label text="Your Equity" styleClass="result-label"/>
+                <Label fx:id="heroEquityLabel" text="--" styleClass="equity-value"/>
+                <HBox fx:id="heroEquityBar" styleClass="equity-bar" minHeight="12" maxHeight="12"/>
+            </VBox>
+
+            <!-- Villain Equity -->
+            <VBox spacing="8" styleClass="equity-box villain-equity">
+                <Label text="Villain Equity" styleClass="result-label"/>
+                <Label fx:id="villainEquityLabel" text="--" styleClass="equity-value"/>
+                <HBox fx:id="villainEquityBar" styleClass="equity-bar" minHeight="12" maxHeight="12"/>
+            </VBox>
+
+            <Separator/>
+
+            <!-- Win/Tie/Loss Breakdown -->
+            <VBox spacing="10">
+                <Label text="Breakdown" styleClass="subsection-title"/>
+                <GridPane hgap="15" vgap="8" styleClass="results-grid">
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="80"/>
+                        <ColumnConstraints minWidth="100"/>
+                    </columnConstraints>
+
+                    <Label text="Wins:" styleClass="result-label" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <Label fx:id="winsLabel" text="--" styleClass="result-value profit-positive" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                    <Label text="Ties:" styleClass="result-label" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <Label fx:id="tiesLabel" text="--" styleClass="result-value" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                    <Label text="Losses:" styleClass="result-label" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <Label fx:id="lossesLabel" text="--" styleClass="result-value profit-negative" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                    <Label text="Trials:" styleClass="result-label" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                    <Label fx:id="trialsLabel" text="--" styleClass="result-value" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                </GridPane>
+            </VBox>
+
+            <Separator/>
+
+            <!-- Hand Strength Info -->
+            <VBox spacing="10">
+                <Label text="Typical Hands" styleClass="subsection-title"/>
+                <GridPane hgap="15" vgap="8">
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="60"/>
+                        <ColumnConstraints minWidth="120"/>
+                    </columnConstraints>
+
+                    <Label text="You:" styleClass="result-label" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <Label fx:id="heroHandTypeLabel" text="--" styleClass="result-value" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                    <Label text="Villain:" styleClass="result-label" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <Label fx:id="villainHandTypeLabel" text="--" styleClass="result-value" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                </GridPane>
+            </VBox>
+
+            <Separator/>
+
+            <!-- Recommendation -->
+            <VBox spacing="8" alignment="CENTER">
+                <Label text="Assessment" styleClass="subsection-title"/>
+                <Label fx:id="recommendationLabel" text="Select cards and calculate"
+                       styleClass="recommendation" wrapText="true"/>
+            </VBox>
+
+        </VBox>
+    </VBox>
+
+</HBox>

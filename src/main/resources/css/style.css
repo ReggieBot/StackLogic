@@ -923,9 +923,12 @@
     -fx-text-fill: -fx-text-color;
 }
 
-/* Line chart specific */
+/* Line chart specific - smoother appearance */
 .chart-series-line {
-    -fx-stroke-width: 2px;
+    -fx-stroke-width: 3px;
+    -fx-stroke-line-cap: round;
+    -fx-stroke-line-join: round;
+    -fx-effect: dropshadow(gaussian, rgba(34, 197, 94, 0.3), 4, 0, 0, 1);
 }
 
 .default-color0.chart-series-line {
@@ -934,6 +937,14 @@
 
 .default-color0.chart-line-symbol {
     -fx-background-color: -fx-success-color, white;
+    -fx-background-radius: 6px;
+    -fx-padding: 4px;
+}
+
+/* Hide symbols for cleaner line - optional, comment out to show dots */
+.chart-line-symbol {
+    -fx-background-color: transparent, transparent;
+    -fx-padding: 0;
 }
 
 /* ========================================
@@ -1551,4 +1562,222 @@
 
 .tab-pane > .tab-content-area > * {
     -fx-background-color: -fx-primary-color;
+}
+
+/* ========================================
+   EQUITY CALCULATOR STYLES
+   Card picker and equity display
+   ======================================== */
+
+.equity-view {
+    -fx-background-color: -fx-primary-color;
+}
+
+/* Card Picker Grid */
+.card-picker {
+    -fx-background-color: linear-gradient(to bottom, #1a1a24 0%, #151520 100%);
+    -fx-padding: 10;
+    -fx-background-radius: 8;
+    -fx-border-color: #2d2d3d;
+    -fx-border-radius: 8;
+}
+
+.card-header {
+    -fx-text-fill: -fx-text-muted;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 2;
+}
+
+.suit-label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 2;
+}
+
+.suit-label.hearts, .suit-label.diamonds {
+    -fx-text-fill: #ef4444;
+}
+
+.suit-label.clubs, .suit-label.spades {
+    -fx-text-fill: -fx-text-color;
+}
+
+/* Card Buttons in Picker */
+.card-btn {
+    -fx-background-color: #1a1a24;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 4 6;
+    -fx-background-radius: 4;
+    -fx-border-color: #3d3d4d;
+    -fx-border-radius: 4;
+    -fx-border-width: 1;
+    -fx-cursor: hand;
+    -fx-effect: none;
+}
+
+.card-btn.hearts, .card-btn.diamonds {
+    -fx-text-fill: #ef4444;
+}
+
+.card-btn.clubs, .card-btn.spades {
+    -fx-text-fill: -fx-text-color;
+}
+
+.card-btn:hover {
+    -fx-background-color: rgba(107, 33, 168, 0.3);
+    -fx-border-color: -fx-purple-accent;
+}
+
+.card-btn.selected {
+    -fx-border-width: 2;
+}
+
+.card-btn.hero-selected {
+    -fx-background-color: rgba(34, 197, 94, 0.3);
+    -fx-border-color: #22c55e;
+}
+
+.card-btn.villain-selected {
+    -fx-background-color: rgba(239, 68, 68, 0.3);
+    -fx-border-color: #ef4444;
+}
+
+.card-btn.board-selected {
+    -fx-background-color: rgba(234, 179, 8, 0.3);
+    -fx-border-color: #eab308;
+}
+
+/* Card Display (selected cards shown) */
+.cards-display {
+    -fx-min-height: 45;
+    -fx-padding: 8 12;
+    -fx-background-color: #101018;
+    -fx-background-radius: 6;
+    -fx-border-color: #2d2d3d;
+    -fx-border-radius: 6;
+}
+
+.card-display {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-padding: 5 10;
+    -fx-background-color: linear-gradient(to bottom, #252532 0%, #1f1f2e 100%);
+    -fx-background-radius: 6;
+    -fx-border-color: #3d3d4d;
+    -fx-border-radius: 6;
+    -fx-border-width: 1;
+}
+
+.card-display.red-card {
+    -fx-text-fill: #ef4444;
+}
+
+.card-display.black-card {
+    -fx-text-fill: -fx-text-color;
+}
+
+/* Selection Mode Buttons */
+.select-mode-btn {
+    -fx-background-color: #252532;
+    -fx-text-fill: -fx-text-muted;
+    -fx-font-size: 12px;
+    -fx-padding: 8 16;
+    -fx-background-radius: 5;
+    -fx-border-color: #3d3d4d;
+    -fx-border-radius: 5;
+    -fx-border-width: 1;
+    -fx-cursor: hand;
+    -fx-effect: none;
+}
+
+.select-mode-btn:hover {
+    -fx-background-color: rgba(107, 33, 168, 0.3);
+    -fx-border-color: -fx-purple-accent;
+    -fx-text-fill: -fx-text-color;
+}
+
+.select-mode-btn.active {
+    -fx-background-color: linear-gradient(to bottom, -fx-purple-bright 0%, -fx-purple-accent 100%);
+    -fx-text-fill: white;
+    -fx-border-color: -fx-purple-bright;
+    -fx-font-weight: bold;
+}
+
+/* Mode Toggle Button */
+.mode-toggle {
+    -fx-background-color: #252532;
+    -fx-text-fill: -fx-text-color;
+    -fx-font-size: 11px;
+    -fx-padding: 5 12;
+    -fx-background-radius: 15;
+    -fx-border-color: #3d3d4d;
+    -fx-border-radius: 15;
+    -fx-border-width: 1;
+    -fx-cursor: hand;
+    -fx-effect: none;
+}
+
+.mode-toggle:hover {
+    -fx-background-color: rgba(107, 33, 168, 0.3);
+    -fx-border-color: -fx-purple-accent;
+}
+
+.mode-toggle:selected {
+    -fx-background-color: -fx-purple-accent;
+    -fx-text-fill: white;
+    -fx-border-color: -fx-purple-bright;
+}
+
+/* Selecting Indicator */
+.selecting-indicator {
+    -fx-text-fill: -fx-purple-bright;
+    -fx-font-weight: bold;
+}
+
+/* Equity Display Boxes */
+.equity-box {
+    -fx-padding: 15;
+    -fx-background-radius: 8;
+}
+
+.hero-equity {
+    -fx-background-color: rgba(34, 197, 94, 0.1);
+    -fx-border-color: rgba(34, 197, 94, 0.3);
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+}
+
+.villain-equity {
+    -fx-background-color: rgba(239, 68, 68, 0.1);
+    -fx-border-color: rgba(239, 68, 68, 0.3);
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+}
+
+.equity-value {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-text-color;
+}
+
+/* Equity Bar */
+.equity-bar {
+    -fx-background-color: #252532;
+    -fx-background-radius: 6;
+}
+
+.equity-fill-hero {
+    -fx-background-color: linear-gradient(to right, #22c55e 0%, #16a34a 100%);
+    -fx-background-radius: 6 0 0 6;
+}
+
+.equity-fill-villain {
+    -fx-background-color: linear-gradient(to right, #dc2626 0%, #b91c1c 100%);
+    -fx-background-radius: 6 0 0 6;
+}
+
+.equity-fill-empty {
+    -fx-background-color: transparent;
 }
