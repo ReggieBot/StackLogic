@@ -87,19 +87,19 @@
     <!-- LEGEND -->
     <HBox spacing="30" alignment="CENTER" styleClass="legend">
         <HBox spacing="8" alignment="CENTER">
-            <Region styleClass="legend-box hand-raise"/>
+            <Region styleClass="legend-raise"/>
             <Label text="Raise/Open"/>
         </HBox>
         <HBox spacing="8" alignment="CENTER">
-            <Region styleClass="legend-box hand-call"/>
+            <Region styleClass="legend-call"/>
             <Label text="Call"/>
         </HBox>
         <HBox spacing="8" alignment="CENTER">
-            <Region styleClass="legend-box hand-3bet"/>
+            <Region styleClass="legend-3bet"/>
             <Label text="3-Bet"/>
         </HBox>
         <HBox spacing="8" alignment="CENTER">
-            <Region styleClass="legend-box hand-fold"/>
+            <Region styleClass="legend-fold"/>
             <Label text="Fold"/>
         </HBox>
     </HBox>

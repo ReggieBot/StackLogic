@@ -406,7 +406,8 @@
     -fx-background-radius: 6;
 }
 
-.legend-box {
+/* Legend color boxes - sized squares with colors matching range grid */
+.legend-raise, .legend-call, .legend-3bet, .legend-fold {
     -fx-min-width: 22;
     -fx-min-height: 22;
     -fx-max-width: 22;
@@ -416,20 +417,19 @@
     -fx-background-radius: 4;
 }
 
-/* Legend color boxes - match the range grid colors */
-.legend-box.hand-raise {
+.legend-raise {
     -fx-background-color: linear-gradient(to bottom, #22c55e 0%, #16a34a 100%);
 }
 
-.legend-box.hand-call {
+.legend-call {
     -fx-background-color: linear-gradient(to bottom, #eab308 0%, #ca8a04 100%);
 }
 
-.legend-box.hand-3bet {
+.legend-3bet {
     -fx-background-color: linear-gradient(to bottom, #dc2626 0%, #b91c1c 100%);
 }
 
-.legend-box.hand-fold {
+.legend-fold {
     -fx-background-color: linear-gradient(to bottom, #252532 0%, #1a1a24 100%);
     -fx-border-color: #2d2d3d;
     -fx-border-width: 1;
