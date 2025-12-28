@@ -51,6 +51,10 @@ public class BankrollController implements Initializable {
     @FXML private TextField amountField;
     @FXML private TextField notesField;
 
+    // Sync balance fields
+    @FXML private TextField actualBalanceField;
+    @FXML private Label syncDifferenceLabel;
+
     // Table
     @FXML private TableView<BankrollTransaction> transactionTable;
     @FXML private TableColumn<BankrollTransaction, String> colDate;
@@ -88,6 +92,43 @@ public class BankrollController implements Initializable {
         // Load data
         loadTransactions();
         updateOverview();
+
+        // Show difference preview as user types actual balance
+        actualBalanceField.textProperty().addListener((obs, oldVal, newVal) -> {
+            updateSyncDifferencePreview();
+        });
+    }
+
+    /**
+     * Update the sync difference preview label as user types.
+     */
+    private void updateSyncDifferencePreview() {
+        try {
+            if (actualBalanceField.getText().isEmpty()) {
+                syncDifferenceLabel.setText("");
+                return;
+            }
+
+            double actualBalance = Double.parseDouble(actualBalanceField.getText());
+            BankrollStats stats = BankrollDAO.getStats();
+            double difference = actualBalance - stats.currentBankroll;
+
+            if (Math.abs(difference) < 0.01) {
+                syncDifferenceLabel.setText("No adjustment needed");
+                syncDifferenceLabel.setStyle("-fx-text-fill: #22c55e;");
+            } else if (difference > 0) {
+                syncDifferenceLabel.setText(String.format("+$%.2f (rakeback)", difference));
+                syncDifferenceLabel.setStyle("-fx-text-fill: #22c55e;");
+            } else {
+                syncDifferenceLabel.setText(String.format("-$%.2f (rake)", Math.abs(difference)));
+                syncDifferenceLabel.setStyle("-fx-text-fill: #ef4444;");
+            }
+        } catch (NumberFormatException e) {
+            syncDifferenceLabel.setText("Invalid number");
+            syncDifferenceLabel.setStyle("-fx-text-fill: #ef4444;");
+        } catch (SQLException e) {
+            syncDifferenceLabel.setText("");
+        }
     }
 
     /**
@@ -298,6 +339,87 @@ public class BankrollController implements Initializable {
         datePicker.setValue(LocalDate.now());
         amountField.clear();
         notesField.clear();
+    }
+
+    /**
+     * Handle sync balance button.
+     * Creates an adjustment transaction to match the actual GGPoker balance.
+     * This accounts for rake paid and rakeback received.
+     */
+    @FXML
+    private void handleSyncBalance() {
+        try {
+            if (actualBalanceField.getText().isEmpty()) {
+                showError("Please enter your actual GGPoker balance");
+                return;
+            }
+
+            double actualBalance = Double.parseDouble(actualBalanceField.getText());
+            if (actualBalance < 0) {
+                showError("Balance cannot be negative");
+                return;
+            }
+
+            // Get current calculated bankroll
+            BankrollStats stats = BankrollDAO.getStats();
+            double currentCalculated = stats.currentBankroll;
+            double difference = actualBalance - currentCalculated;
+
+            if (Math.abs(difference) < 0.01) {
+                // Already synced
+                syncDifferenceLabel.setText("Already synced!");
+                syncDifferenceLabel.setStyle("-fx-text-fill: #22c55e;");
+                return;
+            }
+
+            // Confirm with user
+            Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
+            confirm.setTitle("Sync Balance");
+            confirm.setHeaderText("Sync to actual balance?");
+
+            String adjustmentType = difference > 0 ? "add" : "subtract";
+            String reason = difference > 0 ? "(rakeback, bonus, etc.)" : "(rake paid)";
+
+            confirm.setContentText(String.format(
+                "Current calculated: $%.2f\n" +
+                "Actual GGPoker balance: $%.2f\n\n" +
+                "This will %s $%.2f as an adjustment %s\n\n" +
+                "Continue?",
+                currentCalculated, actualBalance,
+                adjustmentType, Math.abs(difference), reason
+            ));
+
+            if (confirm.showAndWait().orElse(ButtonType.CANCEL) == ButtonType.OK) {
+                // Create adjustment transaction
+                BankrollTransaction adjustment = new BankrollTransaction();
+                adjustment.setDate(LocalDate.now());
+
+                if (difference > 0) {
+                    adjustment.setType(TransactionType.DEPOSIT);
+                    adjustment.setAmount(difference);
+                    adjustment.setNotes("Balance sync: rakeback/bonus adjustment");
+                } else {
+                    adjustment.setType(TransactionType.WITHDRAWAL);
+                    adjustment.setAmount(Math.abs(difference));
+                    adjustment.setNotes("Balance sync: rake adjustment");
+                }
+
+                BankrollDAO.create(adjustment);
+
+                // Refresh display
+                loadTransactions();
+                updateOverview();
+                actualBalanceField.clear();
+                syncDifferenceLabel.setText("Synced!");
+                syncDifferenceLabel.setStyle("-fx-text-fill: #22c55e;");
+            }
+
+        } catch (NumberFormatException e) {
+            showError("Please enter a valid number");
+        } catch (SQLException e) {
+            showError("Database error: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     /**

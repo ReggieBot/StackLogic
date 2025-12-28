@@ -99,6 +99,20 @@
                 <Button text="Add Transaction" onAction="#handleAdd" styleClass="button"/>
                 <Button text="Clear" onAction="#handleClear" styleClass="button secondary"/>
             </HBox>
+
+            <Separator/>
+
+            <!-- Sync to Actual Balance -->
+            <Label text="Sync to GGPoker Balance" styleClass="subsection-title"/>
+            <Label text="Enter your actual balance to account for rake/rakeback:" styleClass="form-label" wrapText="true"/>
+            <VBox spacing="5">
+                <Label text="Actual Balance (\$)" styleClass="form-label"/>
+                <TextField fx:id="actualBalanceField" promptText="e.g., 42.22"/>
+            </VBox>
+            <HBox spacing="10">
+                <Button text="Sync Balance" onAction="#handleSyncBalance" styleClass="button secondary"/>
+                <Label fx:id="syncDifferenceLabel" text="" styleClass="small-label"/>
+            </HBox>
         </VBox>
 
         <!-- Transaction History -->

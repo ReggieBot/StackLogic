@@ -200,6 +200,19 @@
     -fx-padding: 10;
 }
 
+/* TextArea internal content - must be styled separately */
+.text-area .content {
+    -fx-background-color: #101018;
+}
+
+.text-area .scroll-pane {
+    -fx-background-color: #101018;
+}
+
+.text-area .scroll-pane .viewport {
+    -fx-background-color: #101018;
+}
+
 .text-field:focused, .text-area:focused {
     -fx-border-color: -fx-purple-accent;
     -fx-effect: dropshadow(gaussian, rgba(107, 33, 168, 0.3), 6, 0, 0, 0);
