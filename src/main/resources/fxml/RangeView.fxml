@@ -9,6 +9,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.geometry.Insets?>
 
 <!--
@@ -18,8 +19,10 @@
     Main section: 13x13 hand grid
     Bottom section: Legend and stats
 -->
-<VBox xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.stacklogic.controller.RangeController"
+<ScrollPane xmlns:fx="http://javafx.com/fxml"
+            fitToWidth="true"
+            styleClass="range-scroll-pane">
+<VBox fx:controller="com.stacklogic.controller.RangeController"
       spacing="15"
       styleClass="range-view">
 
@@ -105,3 +108,4 @@
     </HBox>
 
 </VBox>
+</ScrollPane>

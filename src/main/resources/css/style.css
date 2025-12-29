@@ -1486,6 +1486,16 @@
     -fx-background-color: -fx-primary-color;
 }
 
+/* Range view scroll pane */
+.range-scroll-pane {
+    -fx-background-color: -fx-primary-color;
+    -fx-background: -fx-primary-color;
+}
+
+.range-scroll-pane > .viewport {
+    -fx-background-color: -fx-primary-color;
+}
+
 /* Trainer specific scroll pane */
 .trainer-view {
     -fx-background-color: -fx-primary-color;
