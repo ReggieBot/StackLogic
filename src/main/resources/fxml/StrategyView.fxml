@@ -17,7 +17,7 @@
             fx:controller="com.stacklogic.controller.StrategyController"
             fitToWidth="true"
             styleClass="strategy-view">
-
+    <content>
     <VBox spacing="20" styleClass="strategy-content">
         <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
 
@@ -30,16 +30,16 @@
 
         <Accordion fx:id="microAccordion">
 
-            <TitledPane text="Exploit vs GTO at Microstakes">
+            <TitledPane text="Exploit vs GTO at Microstakes"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="At microstakes, pure GTO play leaves money on the table. Your opponents make massive mistakes - exploit them."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Key exploits: Value bet thinner against calling stations. Don't bluff players who never fold. Size up against inelastic callers. Fold more vs players who only raise the nuts."/>
                     <Label wrapText="true" styleClass="strategy-text" text="When to use GTO: Against unknowns, regs who adjust, or when you're unsure. Default to tight-aggressive and deviate when you have reads."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Common Microstakes Player Types">
+            <TitledPane text="Common Microstakes Player Types"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Calling Station: Calls too much pre and post. Never bluff them. Value bet relentlessly, even thin. They pay you off."/>
@@ -47,10 +47,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Maniac: Plays too many hands aggressively. Tighten up, let them hang themselves. Call down lighter with showdown value."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Weak-Tight: Folds too much postflop. Bluff them on scary boards. They give up easily."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Fish: Random, unpredictable play. Isolate them, play straightforward, value bet big."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Biggest Microstakes Leaks">
+            <TitledPane text="Biggest Microstakes Leaks"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Playing too many hands: VPIP over 25% is usually too loose. Premium hands print money at these stakes."/>
@@ -58,30 +58,30 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Not value betting enough: Scared money doesn't win. If you think you're ahead, bet. Fish call with worse."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Overvaluing top pair: Top pair weak kicker is often just a bluff-catcher by the river. Don't stack off."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Fancy play syndrome: Stop slowplaying monsters. Just bet. Stop trying to 'trap'. Bet your strong hands."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Bankroll Management for Micros">
+            <TitledPane text="Bankroll Management for Micros"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="20 buy-ins minimum for your stake. 30+ if you're learning or play part-time."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Move down immediately if you drop below 15 buy-ins. Ego is expensive."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Move up when you have 25+ buy-ins AND are beating your current stake for 5bb/100+ over 20k+ hands."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Take shots with 5 buy-ins at the next level. Move back down after losing 3. No shame in it."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Table Selection">
+            <TitledPane text="Table Selection"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Table selection is the most underrated skill. One fish at the table can double your winrate."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Look for: High avg pot size, high players/flop %, short stacks (usually recreationals), familiar fish."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Avoid: Tables full of regs, low avg pot, everyone sitting with 100bb exactly."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Seat selection matters: Sit to the LEFT of fish (you act after them), RIGHT of maniacs (easier to trap)."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Red Line vs Blue Line">
+            <TitledPane text="Red Line vs Blue Line"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Blue line = showdown winnings. Red line = non-showdown winnings. Green line = total."/>
@@ -89,7 +89,7 @@
                     <Label wrapText="true" styleClass="strategy-text" text="A negative red line is FINE at micros. You're supposed to lose money when you don't show down - you're folding correctly."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Don't try to 'fix' your red line by bluffing more. Fish call too much. Just value bet."/>
                     <Label wrapText="true" styleClass="strategy-text" text="As you move up, you'll need more bluffs. But at micros, it's all about value."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
         </Accordion>
@@ -99,17 +99,17 @@
 
         <Accordion fx:id="preflopAccordion">
 
-            <TitledPane text="Position is Everything">
+            <TitledPane text="Position is Everything"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Position is the most important factor in poker. You make more money in position than out of position, always."/>
                     <Label wrapText="true" styleClass="strategy-text" text="From the button, you can play 40-50% of hands profitably. From UTG, maybe 12-15%."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Being in position means: More information before acting, control pot size, realize equity better, bluff more effectively."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Respect position gaps. AJo is a fold UTG but a raise from the button. Context matters."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Open Raising Fundamentals">
+            <TitledPane text="Open Raising Fundamentals"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Standard open size: 2.5-3bb. Smaller at tough tables, larger with fish who call any size."/>
@@ -118,20 +118,20 @@
                     <Label wrapText="true" styleClass="strategy-text" text="CO: Much wider. 22+, A2s+, K9s+, suited connectors, broadway hands."/>
                     <Label wrapText="true" styleClass="strategy-text" text="BTN: Very wide. 40%+ of hands. You have position on everyone postflop."/>
                     <Label wrapText="true" styleClass="strategy-text" text="SB: Open 2.5-3x or limp. Some strategies open wide, some are tight. Just be consistent."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="3-Betting Strategy">
+            <TitledPane text="3-Betting Strategy"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="3-bet for value with premiums (QQ+, AK). 3-bet as a bluff with hands that play poorly postflop but have blockers."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Good 3-bet bluffs: A5s-A2s (blocks AA, AK), suited connectors from late position, K5s-K2s in BB."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Size your 3-bets: 3x in position, 4x out of position. Add 1bb per caller."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Against players who never fold to 3-bets: 3-bet tighter for value, cut the bluffs. Against folders: 3-bet more liberally."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="4-Betting and 5-Betting">
+            <TitledPane text="4-Betting and 5-Betting"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="4-bet value range: QQ+, AK. At micros, you can 4-bet JJ for value against wide 3-bettors."/>
@@ -139,30 +139,30 @@
                     <Label wrapText="true" styleClass="strategy-text" text="4-bet sizing: 2.2-2.5x the 3-bet. Keep it consistent."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Facing a 4-bet: At micros, this is almost always AA/KK. Fold everything except AA, KK, sometimes QQ/AK."/>
                     <Label wrapText="true" styleClass="strategy-text" text="5-betting: Just shove. If you're 5-betting, you're pot committed. Get it in."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Defending Your Blinds">
+            <TitledPane text="Defending Your Blinds"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="You have money invested - don't give up too easily, but don't defend trash either."/>
                     <Label wrapText="true" styleClass="strategy-text" text="BB defense: Getting 2.5:1 or better, you can defend fairly wide. But fold offsuit junk."/>
                     <Label wrapText="true" styleClass="strategy-text" text="SB defense: You're OOP with no discount. 3-bet or fold most hands. Calling creates tough spots."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Multiway pots: Tighten up significantly. Speculative hands go down in value; big cards and pairs go up."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Isolation Raises">
+            <TitledPane text="Isolation Raises"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="When a fish limps, raise to isolate them. You want to play pots heads-up in position against weak players."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Iso-raise sizing: 3-4bb + 1bb per limper. Make it expensive for others to come along."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Widen your iso-raising range in position. Even hands like K9s or QTo print money vs fish."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Tighten up if other players are calling your isos. You lose the heads-up advantage."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Squeezing">
+            <TitledPane text="Squeezing"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Squeeze = 3-bet after there's a raise and one or more callers. Very powerful move."/>
@@ -170,10 +170,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Squeeze sizing: 4x the open + 1bb per caller. Make it expensive."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Best squeeze spots: You're in the blinds, original raiser is positional, callers are passive."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Squeeze range: TT+, AQ+ for value. A5s, A4s, suited connectors as bluffs."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Cold Calling">
+            <TitledPane text="Cold Calling"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Cold calling = calling an open raise without having put money in. Generally discouraged."/>
@@ -181,10 +181,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="When to cold call: You're on the BTN with a speculative hand, fish are in the blinds, unlikely to get squeezed."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Hands to cold call: Medium pocket pairs (set mining), suited connectors, suited aces - IF implied odds are good."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Default: 3-bet or fold. Cold calling creates difficult postflop situations."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Playing vs Limpers">
+            <TitledPane text="Playing vs Limpers"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Limpers are almost always weak. Raise to punish them and isolate."/>
@@ -192,7 +192,7 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Exception: SB completing is sometimes okay in specific situations."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Multiple limpers: Still raise, but with a tighter range. Go bigger (4bb + 1bb per limper)."/>
                     <Label wrapText="true" styleClass="strategy-text" text="If the limper is a calling station: Tighten your isolation range to value hands only."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
         </Accordion>
@@ -202,7 +202,7 @@
 
         <Accordion fx:id="postflopAccordion">
 
-            <TitledPane text="Continuation Betting (C-Betting)">
+            <TitledPane text="Continuation Betting (C-Betting)"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="C-bet when you have range advantage or equity advantage on the board."/>
@@ -210,10 +210,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Low connected boards (7-6-5): Check more. These favor the caller's range."/>
                     <Label wrapText="true" styleClass="strategy-text" text="C-bet sizing: 25-33% on dry boards, 50-75% on wet boards. Smaller = more frequency."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Don't c-bet 100% of hands. Check back weak hands with showdown value."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Stack-to-Pot Ratio (SPR)">
+            <TitledPane text="Stack-to-Pot Ratio (SPR)"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="SPR = Effective Stack / Pot Size on the flop. This determines how committed you are."/>
@@ -221,20 +221,20 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Medium SPR (4-10): Two pair+ to stack off comfortably. Top pair needs to improve or have kicker."/>
                     <Label wrapText="true" styleClass="strategy-text" text="High SPR (10+): You need a strong hand to commit. One pair is rarely worth stacking off."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Plan your hand based on SPR. With AA and SPR of 3, you're never folding. With SPR of 15, be cautious."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Board Texture Reading">
+            <TitledPane text="Board Texture Reading"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Dry boards (K-7-2 rainbow): Few draws possible. Betting once often takes it down. Slowplay is okay."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Wet boards (J-T-9 two-tone): Many draws possible. Bet for value and protection. No slowplaying."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Paired boards (8-8-3): Unlikely anyone has trips. Good for bluffing with range advantage."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Monotone boards (3 of same suit): Proceed with caution. Even if you have a flush, watch for higher flushes."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Bet Sizing Theory">
+            <TitledPane text="Bet Sizing Theory"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Your bet size should be the same with your value hands and bluffs in the same spot. This is balance."/>
@@ -242,10 +242,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Medium bets (50-75%): Standard sizing for most spots. Good balance of value and protection."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Large bets (75-125%): Polar range - you have it or you don't. Use on wet boards, when you need folds."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Overbets (125%+): Advanced play. Use when your range has more nuts than opponent's range."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Check-Raising">
+            <TitledPane text="Check-Raising"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Check-raise for value with strong hands OOP. You extract more than donk-betting."/>
@@ -253,10 +253,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Don't check-raise bluff on dry boards - your opponent will fold their bluffs and call with value."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Best boards for check-raise bluffs: Wet, connected boards where you represent many strong hands."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Size: 3x their bet is standard. 2.5x minimum. Bigger if they bet small."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Playing Draws">
+            <TitledPane text="Playing Draws"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Flush draw: ~35% to hit by river. Semi-bluff aggressively on the flop. Good equity to continue."/>
@@ -264,10 +264,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Gutshot: ~17% to hit. Not enough on its own. Need fold equity or other value (overcards, backdoors)."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Combo draw (flush + straight): 50%+ equity. Play very aggressively. You're often a favorite."/>
                     <Label wrapText="true" styleClass="strategy-text" text="On the river: Missed draws are bluffs. Choose the right ones (blockers, story makes sense) and fire."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Donk Betting">
+            <TitledPane text="Donk Betting"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Donk bet = betting into the preflop aggressor before they can c-bet. Generally not recommended."/>
@@ -275,10 +275,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="When to donk: Very rarely. Maybe on dynamic boards that hit your range harder (876 when you defended BB)."/>
                     <Label wrapText="true" styleClass="strategy-text" text="If opponent donks into you: They usually have something. Either fold or raise for info. Calling is often worst."/>
                     <Label wrapText="true" styleClass="strategy-text" text="At micros, donk bets usually mean made hands. Rarely bluffs. Adjust accordingly."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Probe Betting">
+            <TitledPane text="Probe Betting"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Probe bet = betting when the preflop aggressor checks. They showed weakness, attack it."/>
@@ -286,10 +286,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Good probe spots: Scare cards come (A, K on turn), opponent's range is capped, you have equity."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Probe sizing: 50-75% pot. You're representing strength, size accordingly."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Be careful: Sometimes they check back strong hands for deception. Read the player."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Playing the Nuts">
+            <TitledPane text="Playing the Nuts"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="When you have the nuts, your only goal is to extract maximum value. Every decision centers on this."/>
@@ -297,10 +297,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Against thinking players: Consider check-raising or slow-playing to let them catch up or bluff."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Scary boards: Don't slowplay. If the board looks scary, bet for value before they check behind."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Consider raise sizes: If you raise too big, only better hands call. Sometimes a smaller raise gets more."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Slow Playing">
+            <TitledPane text="Slow Playing"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Slowplay = checking or calling with a very strong hand to trap. Usually wrong at micros."/>
@@ -308,10 +308,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="When slowplaying is okay: Dry boards, opponent is aggressive, you have near-monopoly on value hands."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Never slowplay: On wet boards, with multiple opponents, against passive players."/>
                     <Label wrapText="true" styleClass="strategy-text" text="General rule at micros: Just bet. They'll call. Trapping is for when they won't call bets."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Protection Bets">
+            <TitledPane text="Protection Bets"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Protection bet = betting to deny equity to draws. Important concept on wet boards."/>
@@ -319,7 +319,7 @@
                     <Label wrapText="true" styleClass="strategy-text" text="How much: Size up. 66-75% pot minimum. Make draws pay the wrong price."/>
                     <Label wrapText="true" styleClass="strategy-text" text="On dry boards: Less need for protection. You can bet smaller or check for deception."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Don't overvalue protection. Sometimes checking is right even with draws out there."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
         </Accordion>
@@ -329,7 +329,7 @@
 
         <Accordion fx:id="exploitAccordion">
 
-            <TitledPane text="Exploiting Calling Stations">
+            <TitledPane text="Exploiting Calling Stations"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Calling stations are ATM machines. They call way too much with weak hands."/>
@@ -337,10 +337,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Value bet relentlessly. Three streets with top pair. They'll pay you off."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Bet bigger than normal. If they're calling any size, extract maximum."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Thin value bet: Second pair? Bet it. They'll call with worse."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Exploiting Nits">
+            <TitledPane text="Exploiting Nits"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Nits only play premium hands. They're predictable and easy to exploit."/>
@@ -348,10 +348,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="When they raise or 3-bet: Respect it. They have a hand. Fold your marginal hands."/>
                     <Label wrapText="true" styleClass="strategy-text" text="When they check: Bluff them. They're showing weakness."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Don't pay them off. If a nit is betting big, they have it."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Exploiting Maniacs">
+            <TitledPane text="Exploiting Maniacs"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Maniacs play too many hands too aggressively. Let them hang themselves."/>
@@ -359,10 +359,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Call down lighter. If they bet every street, your top pair is probably good."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Don't bluff them. They don't fold. Use their aggression against them."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Trap more. Check strong hands and let them bluff. Then raise."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Exploiting TAGs (Tight-Aggressive)">
+            <TitledPane text="Exploiting TAGs (Tight-Aggressive)"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="TAGs play solid, standard poker. They're the regs at your stakes."/>
@@ -370,10 +370,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="3-bet them more in position. They fold too much to 3-bets."/>
                     <Label wrapText="true" styleClass="strategy-text" text="When they show aggression on later streets: They usually have it. Be willing to fold."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Float them and take pots away. They c-bet too much and give up on turns."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Exploiting LAGs (Loose-Aggressive)">
+            <TitledPane text="Exploiting LAGs (Loose-Aggressive)"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="LAGs play a lot of hands and play them aggressively. Tough opponents."/>
@@ -381,10 +381,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Call down wider. They bluff a lot. Your medium-strength hands have value."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Don't try to out-aggress them. Play straightforward and let them make mistakes."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Set traps. Check-raise your strong hands. They'll often bet when you check."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Adjusting to Regs">
+            <TitledPane text="Adjusting to Regs"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="At micros, many 'regs' are just break-even players. Don't be intimidated."/>
@@ -392,7 +392,7 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Common reg leaks: Over-folding to 3-bets, c-bet too much, give up on turns."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Use HUD stats if available. VPIP, PFR, 3-bet %, Fold to C-bet - all useful."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Avoid big pots with regs unless you have a clear edge. Seek out the fish."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
         </Accordion>
@@ -402,7 +402,7 @@
 
         <Accordion fx:id="handTypesAccordion">
 
-            <TitledPane text="Playing Pocket Pairs">
+            <TitledPane text="Playing Pocket Pairs"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Premium pairs (AA, KK, QQ): Raise, 3-bet, 4-bet, get money in preflop when possible."/>
@@ -411,10 +411,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Small pairs (88-22): Set-mining. Call preflop to hit sets (12.5% chance). Implied odds needed."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Set-mining rule: Need 15x the call in effective stacks. 20x is better."/>
                     <Label wrapText="true" styleClass="strategy-text" text="When you hit a set: Fast-play on wet boards, consider slowplay on dry boards."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Playing Broadway Hands">
+            <TitledPane text="Playing Broadway Hands"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="AK: The best non-pair. Raise, 3-bet aggressively. Often a 4-bet/call preflop."/>
@@ -423,10 +423,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="KQ: Beautiful hand that's often dominated. Great in position, tricky OOP."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Suited vs offsuit: Suited adds 3-4% equity. Worth a lot in deep stack situations."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Position is key: AJo is a fold UTG, raise from BTN. Adjust ranges by position."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Playing Suited Connectors">
+            <TitledPane text="Playing Suited Connectors"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Suited connectors (87s, 76s, etc): Great implied odds hands. Play in position vs deep stacks."/>
@@ -435,10 +435,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="When to fold: Shallow stacks, facing 3-bets, OOP, tough opponents."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Postflop: Play aggressively with draws. These hands have huge equity when they connect."/>
                     <Label wrapText="true" styleClass="strategy-text" text="One-gappers (97s, 86s): Similar but slightly weaker. Need slightly better conditions."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Playing Suited Aces">
+            <TitledPane text="Playing Suited Aces"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Suited aces (A5s-A2s, etc): Versatile hands. Great for 3-bet bluffing."/>
@@ -447,10 +447,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Nut flush potential: When you make a flush with Ax, you have the nuts. Valuable."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Watch for domination: If you hit an A and bet, you might be outkicked."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Best spots: 3-betting position, multiway pots where you can hit big."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Playing Offsuit Hands">
+            <TitledPane text="Playing Offsuit Hands"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Offsuit hands are generally weaker. The flush possibility matters."/>
@@ -459,7 +459,7 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Weak offsuit (K9o, Q8o): Mostly fold. Only play from BTN or as blind defense sometimes."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Offsuit connectors (98o, 87o): Almost always fold. Not enough equity without flush potential."/>
                     <Label wrapText="true" styleClass="strategy-text" text="General rule: Be 1-2 positions tighter with offsuit vs suited versions."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
         </Accordion>
@@ -469,7 +469,7 @@
 
         <Accordion fx:id="boardAccordion">
 
-            <TitledPane text="Playing Dry Boards">
+            <TitledPane text="Playing Dry Boards"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Dry boards: K72r, A83r, Q52r. Few draws, few connected cards."/>
@@ -477,10 +477,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Why small works: Opponent can't have many hands that connect. They fold or call light."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Slowplaying is okay: No draws to worry about. Can check back strong hands for deception."/>
                     <Label wrapText="true" styleClass="strategy-text" text="If they raise: Usually strong. They have top pair+ or are making a move. Proceed carefully."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Playing Wet Boards">
+            <TitledPane text="Playing Wet Boards"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Wet boards: JT9, 876, QJ9 with flush draws. Many draws and connected cards."/>
@@ -488,10 +488,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Don't slowplay: Too many cards can complete draws. Get value now."/>
                     <Label wrapText="true" styleClass="strategy-text" text="With draws: Play aggressively. Semi-bluff. You have equity if called."/>
                     <Label wrapText="true" styleClass="strategy-text" text="If they raise: Could be value or draw. Think about their range carefully."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Playing Monotone Boards">
+            <TitledPane text="Playing Monotone Boards"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Monotone = all one suit. Example: Jh 8h 3h. Scary boards."/>
@@ -500,10 +500,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="If you have a flush draw: Semi-bluff. But know you might hit and still lose."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Without a flush: Check often. Your overpairs just became bluff-catchers."/>
                     <Label wrapText="true" styleClass="strategy-text" text="General rule: Slow down without a flush. Speed up with the nuts."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Playing Paired Boards">
+            <TitledPane text="Playing Paired Boards"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Paired boards: 883, KK5, 992. Someone flopping trips is unlikely."/>
@@ -511,10 +511,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="C-bet small and frequently: Opponent rarely connected. Take it down cheap."/>
                     <Label wrapText="true" styleClass="strategy-text" text="If raised: They likely have it. Trips or full house. Be ready to fold."/>
                     <Label wrapText="true" styleClass="strategy-text" text="With trips yourself: Bet for value. They won't put you on it."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Playing Low Connected Boards">
+            <TitledPane text="Playing Low Connected Boards"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Low connected boards: 765, 654, 543. These favor the caller's range."/>
@@ -522,10 +522,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="With overpairs: Proceed carefully. Lots of two-pair, straights, sets out there."/>
                     <Label wrapText="true" styleClass="strategy-text" text="In the blind: This is your board. Check-raise your made hands."/>
                     <Label wrapText="true" styleClass="strategy-text" text="With big cards: Often best to give up. You have no equity against their range."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Dynamic vs Static Boards">
+            <TitledPane text="Dynamic vs Static Boards"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Static boards: Don't change much. K72r stays safe on almost any turn."/>
@@ -533,7 +533,7 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Static boards: Bet small, slowplay is okay, less urgency to get money in."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Dynamic boards: Bet bigger, no slowplaying, get value before scare cards."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Think ahead: 'Which turn cards are good/bad for my hand?' Plan accordingly."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
         </Accordion>
@@ -543,7 +543,7 @@
 
         <Accordion fx:id="streetAccordion">
 
-            <TitledPane text="Flop Strategy Deep Dive">
+            <TitledPane text="Flop Strategy Deep Dive"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="The flop is where ranges are widest. Many hands still have equity."/>
@@ -552,10 +552,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="As caller: Look for check-raise opportunities with strong hands and draws."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Bet sizing: Small on static/dry boards, bigger on dynamic/wet boards."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Don't put in too much money with one pair. It's just the flop."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Turn Strategy Deep Dive">
+            <TitledPane text="Turn Strategy Deep Dive"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="The turn is where ranges narrow. Weak hands have folded. Stakes increase."/>
@@ -564,10 +564,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Turn sizing: Usually 66-75% pot. This is for real now."/>
                     <Label wrapText="true" styleClass="strategy-text" text="When facing a turn bet: Your range should be strong too. Fold marginal hands."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Check-calling line: Use with medium strength hands. Let them bluff or value-own."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="River Strategy Deep Dive">
+            <TitledPane text="River Strategy Deep Dive"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="The river is pure showdown. No more cards. Ranges are polarized."/>
@@ -576,10 +576,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Bluff selection: Blockers matter most. Block their calling range, not their folds."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Facing a bet: Do they have enough bluffs to call? Or is their range too strong?"/>
                     <Label wrapText="true" styleClass="strategy-text" text="River sizing: Polar. Small for thin value, big for value/bluffs."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Facing River Raises">
+            <TitledPane text="Facing River Raises"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="River raises are almost always the nuts at micros. Respect them."/>
@@ -588,7 +588,7 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Blocker analysis: Do you block their value hands? Their bluffs?"/>
                     <Label wrapText="true" styleClass="strategy-text" text="Player-dependent: Against maniacs, call more. Against nits, fold everything but nuts."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Default: At micros, river raises are underbluffed. Lean toward folding without the nuts."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
         </Accordion>
@@ -598,7 +598,7 @@
 
         <Accordion fx:id="intermediateAccordion">
 
-            <TitledPane text="Range Advantage vs Nut Advantage">
+            <TitledPane text="Range Advantage vs Nut Advantage"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Range advantage: Your range has more equity overall. Example: You raised preflop, flop is A-K-7."/>
@@ -606,10 +606,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="When you have range advantage: C-bet frequently, use smaller sizes."/>
                     <Label wrapText="true" styleClass="strategy-text" text="When you have nut advantage: Use larger sizes, can overbet, apply maximum pressure."/>
                     <Label wrapText="true" styleClass="strategy-text" text="When opponent has both: Check and give up often. Don't fight uphill battles."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Implied Odds and Reverse Implied Odds">
+            <TitledPane text="Implied Odds and Reverse Implied Odds"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Implied odds: Future money you can win if you hit. Pocket pairs set-mining need ~15:1 implied odds."/>
@@ -617,10 +617,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Reverse implied odds (RIO): You make your hand but lose to a better one. Second-best hands are expensive."/>
                     <Label wrapText="true" styleClass="strategy-text" text="High RIO: Dominated flush draws, weak straights on 4-card straight boards, bottom set."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Avoid domination. Having Kh7h on Ah 9h 3h is dangerous - you're drawing to second-best."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Blockers">
+            <TitledPane text="Blockers"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Blockers remove combinations from opponent's range. Holding Ah blocks AA, AK, and nut flush draws."/>
@@ -628,10 +628,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Value betting with blockers: Hold cards that block opponent's folding range (weak hands, missed draws)."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Example: On Kh Qh 7h 2c 3d, having Ah is a great bluff - you block nut flush, AK, and force folds."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Don't overvalue blockers at microstakes. Most opponents aren't thinking about your range."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Polarized vs Linear (Merged) Ranges">
+            <TitledPane text="Polarized vs Linear (Merged) Ranges"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Polarized: You have the nuts or nothing. Used when betting big or on later streets."/>
@@ -639,10 +639,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="River betting is usually polarized. You either have it or you're bluffing - no more cards to come."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Flop betting is often merged. You bet top pair, middle pair with draw, overpairs - all for value."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Adjust based on opponent: Against calling stations, bet merged (they call everything). Against thinking players, polarize."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Multi-Way Pots">
+            <TitledPane text="Multi-Way Pots"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Multi-way pots require much stronger hands. Someone usually has something."/>
@@ -650,10 +650,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Value betting: Tighten your value range. Top pair weak kicker is often just a check/call."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Draws: Play cautiously. More players = more likely someone has a better draw or already made hand."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Position matters even more. Being last to act in a 5-way pot is extremely valuable."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Thin Value Betting">
+            <TitledPane text="Thin Value Betting"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Thin value: Betting when you think you're ahead 50-60% of the time. Very profitable at microstakes."/>
@@ -661,10 +661,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Good thin value spots: Against calling stations, when draws miss, when you have showdown value they'll call with worse."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Bad thin value spots: Against tight players who only call with better, scary boards, when raises are likely."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Size thin value bets smaller. 30-50% pot. You want calls, not folds or raises."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Pot Control">
+            <TitledPane text="Pot Control"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Pot control = keeping the pot small with medium-strength hands."/>
@@ -672,7 +672,7 @@
                     <Label wrapText="true" styleClass="strategy-text" text="How: Check back the flop or turn. Call instead of raise. Keep the pot manageable."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Example: You have 99 on K82 rainbow. Bet flop, check back turn. Don't bloat the pot."/>
                     <Label wrapText="true" styleClass="strategy-text" text="At micros: Don't overdo pot control. Fish call anyway. Value bet more than you think."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
         </Accordion>
@@ -682,7 +682,7 @@
 
         <Accordion fx:id="advancedAccordion">
 
-            <TitledPane text="Triple Barreling">
+            <TitledPane text="Triple Barreling"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Triple barrel = betting flop, turn, and river. Maximum pressure, maximum risk."/>
@@ -690,10 +690,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="As a bluff: Your story must make sense. Represent a specific hand. Consider blockers."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Good triple barrel bluff spots: You have nut blockers, draws missed, scare cards hit, opponent is capped."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Bad spots: Against stations (never fold), when you have showdown value, when the board favors their range."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Overbetting">
+            <TitledPane text="Overbetting"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Overbet = betting more than the pot (125%+). Used when you have significant nut advantage."/>
@@ -701,10 +701,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="As a bluff: Need good blockers and a believable story. Opponent must be capable of folding."/>
                     <Label wrapText="true" styleClass="strategy-text" text="At microstakes: Overbet for value only. Fish don't understand overbets and will call with second pair."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Common overbet spots: Nut flush vs missed draws, full house vs flushes, when you've repped strength all hand."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Floating and Delayed C-Bets">
+            <TitledPane text="Floating and Delayed C-Bets"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Floating: Calling a c-bet with a weak hand intending to take the pot away later."/>
@@ -712,10 +712,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="After floating: Bet the turn when they check. Represent the hand they're afraid of."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Delayed c-bet: Checking flop, betting turn. Good on boards that hit your range better on the turn."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Example: You have AK on 7-6-4 flop, check back. Turn is an A. Now you bet for value."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Hand Reading">
+            <TitledPane text="Hand Reading"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Start with their preflop range. Narrow it down based on each action."/>
@@ -723,10 +723,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Bet sizing tells: At micros, big = strong. Min-bets = weak or draws. Overbets = usually polarized."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Timing tells: Snap-call = draw or medium strength. Tank-call = marginal. Snap-raise = monster or bluff."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Focus on their range, not their exact hand. Ask: What percentage of their range beats me?"/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Game Flow and Dynamics">
+            <TitledPane text="Game Flow and Dynamics"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Table dynamics shift. After a big pot, players often change their style temporarily."/>
@@ -734,10 +734,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="After you show a bluff: Expect more calls and lighter calldowns. Time to value bet thinly."/>
                     <Label wrapText="true" styleClass="strategy-text" text="After you show a big hand: More respect for your bets. Good time to bluff more."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Pay attention to recent history with specific players. Adjust your strategy based on the dynamic."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Range Construction">
+            <TitledPane text="Range Construction"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Your range should be balanced between value bets and bluffs in each spot."/>
@@ -746,10 +746,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Bluff combos: Hands you bet that want a fold."/>
                     <Label wrapText="true" styleClass="strategy-text" text="At micros: Skew toward more value. Opponents overcall, so fewer bluffs are profitable."/>
                     <Label wrapText="true" styleClass="strategy-text" text="As you move up: Balance becomes more important. Think about your range, not just your hand."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Exploitative vs Balanced Play">
+            <TitledPane text="Exploitative vs Balanced Play"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Balanced play: Unexploitable. Can't be taken advantage of. GTO."/>
@@ -758,7 +758,7 @@
                     <Label wrapText="true" styleClass="strategy-text" text="When to balance: Against unknowns, tough players, or when you're unsure."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Know when to switch: If someone adjusts to your exploits, go back to balanced."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Example: Fish never folds? Stop bluffing. That's exploitative. Balance says bluff sometimes anyway."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
         </Accordion>
@@ -768,7 +768,7 @@
 
         <Accordion fx:id="mentalAccordion">
 
-            <TitledPane text="Tilt Control">
+            <TitledPane text="Tilt Control"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Tilt is the #1 bankroll killer. Recognizing it is half the battle."/>
@@ -776,10 +776,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Signs you're tilting: Playing too many hands, calling too light, making spite calls, revenge raises."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Solution: Stop. Walk away. Even 5 minutes helps. Your A-game is worth more than grinding tilted."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Set stop-losses: If down 3 buy-ins, quit for the day. No exceptions."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="A-Game vs B-Game vs C-Game">
+            <TitledPane text="A-Game vs B-Game vs C-Game"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="A-Game: Your best poker. Focused, patient, making optimal decisions."/>
@@ -788,10 +788,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Goal: Maximize A-game time, minimize C-game time. B-game is acceptable."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Self-awareness: Check in with yourself. What game are you playing right now?"/>
                     <Label wrapText="true" styleClass="strategy-text" text="Triggers: Know what takes you from A to B to C. Avoid those triggers."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Volume vs Study Balance">
+            <TitledPane text="Volume vs Study Balance"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="At microstakes: 70% play, 30% study is reasonable. You learn by doing."/>
@@ -799,10 +799,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Quality over quantity. 2 hours focused play beats 6 hours distracted grinding."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Mark hands as you play. Review them later. 'I'm not sure about this spot' = study opportunity."/>
                     <Label wrapText="true" styleClass="strategy-text" text="One concept at a time. Master c-betting before studying 4-bet ranges."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Dealing with Variance">
+            <TitledPane text="Dealing with Variance"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Variance is real. You can play perfectly and lose for 50k hands. It happens."/>
@@ -810,10 +810,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Track your stats, not just winnings. If your BB/100 shows you're winning, the money will come."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Zoom out. Look at your graph over months, not days. Short term is noise."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Bankroll management exists for variance. Proper BRM means you survive the swings."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Session Preparation">
+            <TitledPane text="Session Preparation"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Before playing: Are you well-rested? Fed? In a good mental state?"/>
@@ -821,10 +821,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Set a time limit: 'I'll play for 2 hours' is better than 'I'll play until I'm even.'"/>
                     <Label wrapText="true" styleClass="strategy-text" text="Warm up: Review a few hands or concepts before playing. Get in the zone."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Set goals: 'I'll focus on c-betting today' gives direction to your session."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Post-Session Review">
+            <TitledPane text="Post-Session Review"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="After every session: Review your marked hands. What did you learn?"/>
@@ -832,10 +832,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Ask yourself: Did I play my A-game? Where did I deviate?"/>
                     <Label wrapText="true" styleClass="strategy-text" text="Record insights: Keep a poker journal. Note patterns and mistakes."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Celebrate good decisions: Even if they lost money. Process over results."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Moving Up Stakes">
+            <TitledPane text="Moving Up Stakes"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Requirements to move up: 25+ buy-ins, beating current stake over meaningful sample (20k+ hands)."/>
@@ -843,10 +843,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Take shots: Try the next level with 5 buy-ins. Move back down after losing 3."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Expect adjustment: New stakes mean new player types. Study and adapt."/>
                     <Label wrapText="true" styleClass="strategy-text" text="No shame in moving down: Even pros move down during downswings. Protect your bankroll."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Handling Downswings">
+            <TitledPane text="Handling Downswings"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Downswings happen to everyone. Even the best players have brutal stretches."/>
@@ -855,10 +855,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="If it's leaks: Fix them before continuing. Study, get coaching, post hands."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Reduce volume if needed: Playing fewer tables or shorter sessions is fine."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Move down if necessary: Protect your bankroll. Your ego isn't worth going broke."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Goal Setting">
+            <TitledPane text="Goal Setting"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Set process goals, not results goals. 'Play 20 hours this month' not 'Win $500.'"/>
@@ -866,7 +866,7 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Leak-fixing goals: 'Reduce my VPIP from 28% to 24%.' Specific and measurable."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Review goals monthly: Are you hitting them? Adjust if needed."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Long-term vision: Where do you want to be in a year? Work backward from there."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
         </Accordion>
@@ -876,7 +876,7 @@
 
         <Accordion fx:id="situationalAccordion">
 
-            <TitledPane text="Playing Short-Stacked (40bb or less)">
+            <TitledPane text="Playing Short-Stacked (40bb or less)"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Short stack poker is simpler. Fewer decisions, more all-in or fold."/>
@@ -884,10 +884,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Don't limp or min-raise: Either shove or fold. Keep it simple."/>
                     <Label wrapText="true" styleClass="strategy-text" text="ICM doesn't apply: In cash games, chips are chips. Play for maximum EV."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Top up: In cash games, always reload to 100bb when you drop below. Play deep."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Playing Deep-Stacked (150bb+)">
+            <TitledPane text="Playing Deep-Stacked (150bb+)"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Deep stacks mean more postflop play. Implied odds matter more."/>
@@ -895,10 +895,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Premium hands lose relative value: AA is great, but you can still lose 200bb."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Position is crucial: Postflop decisions are more complex. Being in position is huge."/>
                     <Label wrapText="true" styleClass="strategy-text" text="One pair is often not enough: With 200bb effective, top pair can be marginal."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="3-Bet Pots">
+            <TitledPane text="3-Bet Pots"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="3-bet pots are bigger with stronger ranges. Adjust your strategy."/>
@@ -906,10 +906,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="As the 3-bettor OOP: C-bet less, check-raise more with strong hands."/>
                     <Label wrapText="true" styleClass="strategy-text" text="As the caller: Defend tighter, but peel with hands that can improve."/>
                     <Label wrapText="true" styleClass="strategy-text" text="SPR is lower: Top pair is more valuable. Commit with less."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Single Raised Pots">
+            <TitledPane text="Single Raised Pots"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Single raised pots (SRP) are the most common. Master these first."/>
@@ -917,10 +917,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="As the caller IP: Float with position, raise strong hands, fold weak."/>
                     <Label wrapText="true" styleClass="strategy-text" text="As the caller OOP: Check-raise your value hands and some draws."/>
                     <Label wrapText="true" styleClass="strategy-text" text="SPR is high: Proceed carefully with one pair. Sets and two pair are gold."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Heads-Up Pots">
+            <TitledPane text="Heads-Up Pots"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Heads-up is simpler than multiway. Only one opponent to beat."/>
@@ -928,10 +928,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Value bet thinner: Second pair often beats their range."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Position is crucial: The IP player has a huge advantage."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Aggression wins: Be the bettor, not the caller. Take the initiative."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Blind vs Blind Battles">
+            <TitledPane text="Blind vs Blind Battles"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="When it folds to SB, ranges widen significantly for both players."/>
@@ -939,7 +939,7 @@
                     <Label wrapText="true" styleClass="strategy-text" text="As BB facing raise: Defend very wide. You're getting a good price."/>
                     <Label wrapText="true" styleClass="strategy-text" text="As BB facing limp: Raise wide for value and as a bluff. Punish weakness."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Postflop: Both ranges are wide. Pairs have more value. Aggression wins."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
         </Accordion>
@@ -949,7 +949,7 @@
 
         <Accordion fx:id="mathAccordion">
 
-            <TitledPane text="Pot Odds Basics">
+            <TitledPane text="Pot Odds Basics"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Pot odds = What you have to call / What you can win."/>
@@ -957,10 +957,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Compare to your equity: If your hand has more than 25% equity, calling is profitable."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Quick math: Divide your call by (pot + their bet + your call) for the percentage."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Use the Pot Odds tab in this app for quick calculations!"/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Equity and Outs">
+            <TitledPane text="Equity and Outs"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Outs = cards that improve your hand. Count them to estimate equity."/>
@@ -969,10 +969,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="OESD: 8 outs. 8×4 = 32%. 8×2 = 16%."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Gutshot: 4 outs. 4×4 = 16%. 4×2 = 8%."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Discount outs: Some outs give you second-best. KhJh on Ah9h5h - don't count all 9 hearts."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Expected Value (EV)">
+            <TitledPane text="Expected Value (EV)"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="EV = (Win% × Amount Won) - (Lose% × Amount Lost)"/>
@@ -980,10 +980,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Positive EV: Good bet. Make these plays repeatedly and you profit long-term."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Negative EV: Bad bet. Avoid these, even if you win sometimes."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Think in EV, not results: A +EV play that loses is still correct."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Combinatorics Basics">
+            <TitledPane text="Combinatorics Basics"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="Combos = number of ways opponent can have a specific hand."/>
@@ -992,10 +992,10 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Offsuit hands: 12 combos each. AKo = 12 combos."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Blockers reduce combos: If you have As, AKs drops from 4 to 3 combos."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Board reduces combos: If A is on board, AA drops from 6 to 3 combos."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
-            <TitledPane text="Minimum Defense Frequency">
+            <TitledPane text="Minimum Defense Frequency"><content>
                 <VBox spacing="10" styleClass="strategy-section">
                     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
                     <Label wrapText="true" styleClass="strategy-text" text="MDF = How often you must defend to prevent opponent from profiting with any two cards."/>
@@ -1003,10 +1003,11 @@
                     <Label wrapText="true" styleClass="strategy-text" text="Half-pot bet: MDF = 67%. Two-thirds pot: MDF = 60%. Pot-sized bet: MDF = 50%."/>
                     <Label wrapText="true" styleClass="strategy-text" text="At micros: You can often fold more than MDF suggests. Opponents underbluff."/>
                     <Label wrapText="true" styleClass="strategy-text" text="Use MDF as a starting point, then adjust based on player tendencies."/>
-                </VBox>
+                </VBox></content>
             </TitledPane>
 
         </Accordion>
 
     </VBox>
+    </content>
 </ScrollPane>
