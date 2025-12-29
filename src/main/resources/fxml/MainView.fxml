@@ -63,6 +63,10 @@
                 <fx:include source="TrainerView.fxml"/>
             </Tab>
 
+            <Tab text="Strategy" closable="false">
+                <fx:include source="StrategyView.fxml"/>
+            </Tab>
+
         </TabPane>
     </center>
 

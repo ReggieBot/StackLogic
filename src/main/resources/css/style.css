@@ -1804,3 +1804,146 @@
 .equity-fill-empty {
     -fx-background-color: transparent;
 }
+
+/* ========================================
+   STRATEGY VIEW STYLES
+   Educational content with collapsible sections
+   ======================================== */
+
+.strategy-view {
+    -fx-background-color: -fx-primary-color;
+    -fx-background: -fx-primary-color;
+}
+
+.strategy-view > .viewport {
+    -fx-background-color: -fx-primary-color;
+}
+
+.strategy-content {
+    -fx-background-color: -fx-primary-color;
+}
+
+/* Accordion styling */
+.accordion {
+    -fx-background-color: transparent;
+}
+
+.accordion > .titled-pane {
+    -fx-background-color: transparent;
+}
+
+.accordion > .titled-pane > .title {
+    -fx-background-color: linear-gradient(to bottom, #1f1f2e 0%, #1a1a24 100%);
+    -fx-background-radius: 6;
+    -fx-border-color: #2d2d3d;
+    -fx-border-radius: 6;
+    -fx-padding: 12 15;
+}
+
+.accordion > .titled-pane > .title:hover {
+    -fx-background-color: linear-gradient(to bottom, #252532 0%, #1f1f2e 100%);
+    -fx-border-color: -fx-purple-accent;
+}
+
+.accordion > .titled-pane:expanded > .title {
+    -fx-background-color: linear-gradient(to bottom, -fx-purple-accent 0%, #5b1a94 100%);
+    -fx-border-color: -fx-purple-bright;
+}
+
+.accordion > .titled-pane > .title > .arrow-button {
+    -fx-background-color: transparent;
+}
+
+.accordion > .titled-pane > .title > .arrow-button > .arrow {
+    -fx-background-color: -fx-text-muted;
+    -fx-padding: 4;
+}
+
+.accordion > .titled-pane:expanded > .title > .arrow-button > .arrow {
+    -fx-background-color: white;
+}
+
+.accordion > .titled-pane > .title > .text {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-fill: -fx-text-color;
+}
+
+.accordion > .titled-pane:expanded > .title > .text {
+    -fx-fill: white;
+}
+
+.accordion > .titled-pane > .content {
+    -fx-background-color: #101018;
+    -fx-border-color: #2d2d3d;
+    -fx-border-width: 0 1 1 1;
+    -fx-border-radius: 0 0 6 6;
+    -fx-background-radius: 0 0 6 6;
+}
+
+/* Strategy section content */
+.strategy-section {
+    -fx-background-color: #101018;
+}
+
+.strategy-text {
+    -fx-text-fill: -fx-text-color;
+    -fx-font-size: 13px;
+    -fx-line-spacing: 2;
+}
+
+/* Standalone TitledPane styling (outside accordion) */
+.titled-pane {
+    -fx-background-color: transparent;
+}
+
+.titled-pane > .title {
+    -fx-background-color: linear-gradient(to bottom, #1f1f2e 0%, #1a1a24 100%);
+    -fx-background-radius: 6;
+    -fx-border-color: #2d2d3d;
+    -fx-border-radius: 6;
+    -fx-padding: 12 15;
+}
+
+.titled-pane > .title:hover {
+    -fx-background-color: linear-gradient(to bottom, #252532 0%, #1f1f2e 100%);
+    -fx-border-color: -fx-purple-accent;
+}
+
+.titled-pane:expanded > .title {
+    -fx-background-color: linear-gradient(to bottom, -fx-purple-accent 0%, #5b1a94 100%);
+    -fx-border-color: -fx-purple-bright;
+    -fx-background-radius: 6 6 0 0;
+    -fx-border-radius: 6 6 0 0;
+}
+
+.titled-pane > .title > .arrow-button {
+    -fx-background-color: transparent;
+}
+
+.titled-pane > .title > .arrow-button > .arrow {
+    -fx-background-color: -fx-text-muted;
+    -fx-padding: 4;
+}
+
+.titled-pane:expanded > .title > .arrow-button > .arrow {
+    -fx-background-color: white;
+}
+
+.titled-pane > .title > .text {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-fill: -fx-text-color;
+}
+
+.titled-pane:expanded > .title > .text {
+    -fx-fill: white;
+}
+
+.titled-pane > .content {
+    -fx-background-color: #101018;
+    -fx-border-color: #2d2d3d;
+    -fx-border-width: 0 1 1 1;
+    -fx-border-radius: 0 0 6 6;
+    -fx-background-radius: 0 0 6 6;
+}
