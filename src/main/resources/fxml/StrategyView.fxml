@@ -28,7 +28,7 @@
         <!-- ==================== MICROSTAKES FUNDAMENTALS ==================== -->
         <Label text="Microstakes Fundamentals" styleClass="subsection-title"/>
 
-        <Accordion fx:id="microAccordion">
+        <Accordion fx:id="microAccordion"><panes>
 
             <TitledPane text="Exploit vs GTO at Microstakes"><content>
                 <VBox spacing="10" styleClass="strategy-section">
@@ -92,12 +92,12 @@
                 </VBox></content>
             </TitledPane>
 
-        </Accordion>
+        </panes></Accordion>
 
         <!-- ==================== PREFLOP CONCEPTS ==================== -->
         <Label text="Preflop Concepts" styleClass="subsection-title"/>
 
-        <Accordion fx:id="preflopAccordion">
+        <Accordion fx:id="preflopAccordion"><panes>
 
             <TitledPane text="Position is Everything"><content>
                 <VBox spacing="10" styleClass="strategy-section">
@@ -195,12 +195,12 @@
                 </VBox></content>
             </TitledPane>
 
-        </Accordion>
+        </panes></Accordion>
 
         <!-- ==================== POSTFLOP CONCEPTS ==================== -->
         <Label text="Postflop Concepts" styleClass="subsection-title"/>
 
-        <Accordion fx:id="postflopAccordion">
+        <Accordion fx:id="postflopAccordion"><panes>
 
             <TitledPane text="Continuation Betting (C-Betting)"><content>
                 <VBox spacing="10" styleClass="strategy-section">
@@ -322,12 +322,12 @@
                 </VBox></content>
             </TitledPane>
 
-        </Accordion>
+        </panes></Accordion>
 
         <!-- ==================== OPPONENT EXPLOITATION ==================== -->
         <Label text="Opponent Exploitation" styleClass="subsection-title"/>
 
-        <Accordion fx:id="exploitAccordion">
+        <Accordion fx:id="exploitAccordion"><panes>
 
             <TitledPane text="Exploiting Calling Stations"><content>
                 <VBox spacing="10" styleClass="strategy-section">
@@ -395,12 +395,12 @@
                 </VBox></content>
             </TitledPane>
 
-        </Accordion>
+        </panes></Accordion>
 
         <!-- ==================== HAND CATEGORIES ==================== -->
         <Label text="Playing Specific Hand Types" styleClass="subsection-title"/>
 
-        <Accordion fx:id="handTypesAccordion">
+        <Accordion fx:id="handTypesAccordion"><panes>
 
             <TitledPane text="Playing Pocket Pairs"><content>
                 <VBox spacing="10" styleClass="strategy-section">
@@ -462,12 +462,12 @@
                 </VBox></content>
             </TitledPane>
 
-        </Accordion>
+        </panes></Accordion>
 
         <!-- ==================== BOARD TEXTURES ==================== -->
         <Label text="Board Texture Deep Dives" styleClass="subsection-title"/>
 
-        <Accordion fx:id="boardAccordion">
+        <Accordion fx:id="boardAccordion"><panes>
 
             <TitledPane text="Playing Dry Boards"><content>
                 <VBox spacing="10" styleClass="strategy-section">
@@ -536,12 +536,12 @@
                 </VBox></content>
             </TitledPane>
 
-        </Accordion>
+        </panes></Accordion>
 
         <!-- ==================== STREET-BY-STREET ==================== -->
         <Label text="Street-by-Street Strategy" styleClass="subsection-title"/>
 
-        <Accordion fx:id="streetAccordion">
+        <Accordion fx:id="streetAccordion"><panes>
 
             <TitledPane text="Flop Strategy Deep Dive"><content>
                 <VBox spacing="10" styleClass="strategy-section">
@@ -591,12 +591,12 @@
                 </VBox></content>
             </TitledPane>
 
-        </Accordion>
+        </panes></Accordion>
 
         <!-- ==================== INTERMEDIATE CONCEPTS ==================== -->
         <Label text="Intermediate Concepts" styleClass="subsection-title"/>
 
-        <Accordion fx:id="intermediateAccordion">
+        <Accordion fx:id="intermediateAccordion"><panes>
 
             <TitledPane text="Range Advantage vs Nut Advantage"><content>
                 <VBox spacing="10" styleClass="strategy-section">
@@ -675,12 +675,12 @@
                 </VBox></content>
             </TitledPane>
 
-        </Accordion>
+        </panes></Accordion>
 
         <!-- ==================== ADVANCED CONCEPTS ==================== -->
         <Label text="Advanced Concepts" styleClass="subsection-title"/>
 
-        <Accordion fx:id="advancedAccordion">
+        <Accordion fx:id="advancedAccordion"><panes>
 
             <TitledPane text="Triple Barreling"><content>
                 <VBox spacing="10" styleClass="strategy-section">
@@ -761,12 +761,12 @@
                 </VBox></content>
             </TitledPane>
 
-        </Accordion>
+        </panes></Accordion>
 
         <!-- ==================== MENTAL GAME ==================== -->
         <Label text="Mental Game" styleClass="subsection-title"/>
 
-        <Accordion fx:id="mentalAccordion">
+        <Accordion fx:id="mentalAccordion"><panes>
 
             <TitledPane text="Tilt Control"><content>
                 <VBox spacing="10" styleClass="strategy-section">
@@ -869,12 +869,12 @@
                 </VBox></content>
             </TitledPane>
 
-        </Accordion>
+        </panes></Accordion>
 
         <!-- ==================== SITUATIONAL PLAY ==================== -->
         <Label text="Situational Play" styleClass="subsection-title"/>
 
-        <Accordion fx:id="situationalAccordion">
+        <Accordion fx:id="situationalAccordion"><panes>
 
             <TitledPane text="Playing Short-Stacked (40bb or less)"><content>
                 <VBox spacing="10" styleClass="strategy-section">
@@ -942,12 +942,12 @@
                 </VBox></content>
             </TitledPane>
 
-        </Accordion>
+        </panes></Accordion>
 
         <!-- ==================== MATH CONCEPTS ==================== -->
         <Label text="Essential Math" styleClass="subsection-title"/>
 
-        <Accordion fx:id="mathAccordion">
+        <Accordion fx:id="mathAccordion"><panes>
 
             <TitledPane text="Pot Odds Basics"><content>
                 <VBox spacing="10" styleClass="strategy-section">
@@ -1006,7 +1006,7 @@
                 </VBox></content>
             </TitledPane>
 
-        </Accordion>
+        </panes></Accordion>
 
     </VBox>
     </content>
