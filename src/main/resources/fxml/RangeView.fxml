@@ -20,10 +20,10 @@
     Bottom section: Legend and stats
 -->
 <ScrollPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.stacklogic.controller.RangeController"
             fitToWidth="true"
             styleClass="range-scroll-pane">
-<VBox fx:controller="com.stacklogic.controller.RangeController"
-      spacing="15"
+<VBox spacing="15"
       styleClass="range-view">
 
     <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
